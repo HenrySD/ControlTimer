@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+
+if(isset($_SESSION['sessionUsuario'])){
+
+?>
+
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -21,7 +30,9 @@
     <link rel="stylesheet" href="carpetas/themify-icons/css/themify-icons.css">
     <link rel="stylesheet" href="carpetas/css/planillaEstilo.css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
+    <!--********************Archivos de alertas**************************-->
+    <link rel="stylesheet" href="alertify/css/themes/default.css">
+    <link rel="stylesheet" href="alertify/css/alertify.css">
 </head>
 
 <body>
@@ -62,18 +73,18 @@
 
 
 
-		<!--*******************-->
-        <!---->
-        <!--*******************-->
+                    <!--*******************-->
+                    <!---->
+                    <!--*******************-->
 
-        		<!--*******************-->
+                    <!--*******************-->
                     <!--holacamkcmakc-->
-                <!--*******************-->
+                    <!--*******************-->
 
 
-                		<!--//////////////////////////////-->
-                            <!---->
-                        <!--//////////////////////////////-->
+                    <!--//////////////////////////////-->
+                    <!---->
+                    <!--//////////////////////////////-->
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -92,6 +103,8 @@
                 <!--boton rojo para hacer mas pequeno el menu-->
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                    <h5 class="text-center">Bienvenido <?php echo($_SESSION['sessionUsuario']);?> </h5>
+
                 </div>
 
                 <div class="col-sm-5">
@@ -102,6 +115,7 @@
                         </a>
 
                         <div class="user-menu dropdown-menu">
+                           
                             <a class="nav-link" href="#"><i class="fa fa-user"></i> Perfil </a>
 
                             <a class="nav-link" href="#"><i class="fa fa-user"></i> Notificaciones <span
@@ -109,7 +123,7 @@
 
                             <a class="nav-link" href="#"><i class="fa fa-cog"></i> Configuracion</a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Cerrar Cession</a>
+                            <a class="nav-link" href="logout.php"><i class="fa fa-power-off"></i> Cerrar Cession</a>
                         </div>
                     </div>
                 </div>
@@ -121,3 +135,14 @@
 
 
         <div class="content mt-3">
+
+
+            <?php
+        
+        
+}else{
+header("location:index.php");
+}
+
+
+?>
