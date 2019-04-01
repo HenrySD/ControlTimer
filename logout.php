@@ -1,8 +1,8 @@
 <?php
 session_start();
-unset($_SESSION['sessionUsuario']);
+unset($_SESSION['usu']);
 session_destroy();
 
-header('Location: index.php');
+header('Location:index.php');
 
 ?>

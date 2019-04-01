@@ -1,50 +1,307 @@
 <?php
+
 require("partials/cabeza.php");
 ?>
 <!--Aca Todo lo del lado derecho-->
-    <form class="caj ">
-    <h5 class="text-center">Registrar Nuevos usuarios</h5>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="inputEmail4">Nombres</label>
-                <input type="text" class="form-control" placeholder="Nombre">
+<div class="content mt-3">
+
+<div class="col-sm-12">
+    <div class="alert  alert-success alert-dismissible fade show" role="alert">
+        <span class="badge badge-pill badge-success">Felicidades</span> Es un gusto tenerte de vuelta <?=$man?>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
+
+
+<div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-1">
+        <div class="card-body pb-0">
+            <div class="dropdown float-right">
+                <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton1" data-toggle="dropdown">
+                    <i class="fa fa-cog"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <div class="dropdown-menu-content">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
             </div>
-            <div class="form-group col-md-4">
-                <label for="inputPassword4">Apellidos</label>
-                <input type="password" class="form-control" placeholder="apellidos">
+            <h4 class="mb-0">
+                <span class="count">10468</span>
+            </h4>
+            <p class="text-light">Members online</p>
+
+            <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                <canvas id="widgetChart1"></canvas>
             </div>
-            <div class="form-group col-md-4">
-                <label>Correo</label>
-                <input type="email" class="form-control" placeholder="Correo">
+
+        </div>
+
+    </div>
+</div>
+<!--/.col-->
+
+<div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-2">
+        <div class="card-body pb-0">
+            <div class="dropdown float-right">
+                <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton2" data-toggle="dropdown">
+                    <i class="fa fa-cog"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                    <div class="dropdown-menu-content">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+            </div>
+            <h4 class="mb-0">
+                <span class="count">10468</span>
+            </h4>
+            <p class="text-light">Members online</p>
+
+            <div class="chart-wrapper px-0" style="height:70px;" height="70">
+                <canvas id="widgetChart2"></canvas>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--/.col-->
+
+<div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-3">
+        <div class="card-body pb-0">
+            <div class="dropdown float-right">
+                <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton3" data-toggle="dropdown">
+                    <i class="fa fa-cog"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                    <div class="dropdown-menu-content">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+            </div>
+            <h4 class="mb-0">
+                <span class="count">10468</span>
+            </h4>
+            <p class="text-light">Members online</p>
+
+        </div>
+
+        <div class="chart-wrapper px-0" style="height:70px;" height="70">
+            <canvas id="widgetChart3"></canvas>
+        </div>
+    </div>
+</div>
+<!--/.col-->
+
+<div class="col-sm-6 col-lg-3">
+    <div class="card text-white bg-flat-color-4">
+        <div class="card-body pb-0">
+            <div class="dropdown float-right">
+                <button class="btn bg-transparent dropdown-toggle theme-toggle text-light" type="button" id="dropdownMenuButton4" data-toggle="dropdown">
+                    <i class="fa fa-cog"></i>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
+                    <div class="dropdown-menu-content">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+            </div>
+            <h4 class="mb-0">
+                <span class="count">10468</span>
+            </h4>
+            <p class="text-light">Members online</p>
+
+            <div class="chart-wrapper px-3" style="height:70px;" height="70">
+                <canvas id="widgetChart4"></canvas>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--/.col-->
+
+<div class="col-lg-3 col-md-6">
+    <div class="social-box facebook">
+        <i class="fa fa-facebook"></i>
+        <ul>
+            <li>
+                <span class="count">40</span> k
+                <span>friends</span>
+            </li>
+            <li>
+                <span class="count">450</span>
+                <span>feeds</span>
+            </li>
+        </ul>
+    </div>
+    <!--/social-box-->
+</div>
+<!--/.col-->
+
+
+<div class="col-lg-3 col-md-6">
+    <div class="social-box twitter">
+        <i class="fa fa-twitter"></i>
+        <ul>
+            <li>
+                <span class="count">30</span> k
+                <span>friends</span>
+            </li>
+            <li>
+                <span class="count">450</span>
+                <span>tweets</span>
+            </li>
+        </ul>
+    </div>
+    <!--/social-box-->
+</div>
+<!--/.col-->
+
+
+<div class="col-lg-3 col-md-6">
+    <div class="social-box linkedin">
+        <i class="fa fa-linkedin"></i>
+        <ul>
+            <li>
+                <span class="count">40</span> +
+                <span>contacts</span>
+            </li>
+            <li>
+                <span class="count">250</span>
+                <span>feeds</span>
+            </li>
+        </ul>
+    </div>
+    <!--/social-box-->
+</div>
+<!--/.col-->
+
+
+<div class="col-lg-3 col-md-6">
+    <div class="social-box google-plus">
+        <i class="fa fa-google-plus"></i>
+        <ul>
+            <li>
+                <span class="count">94</span> k
+                <span>followers</span>
+            </li>
+            <li>
+                <span class="count">92</span>
+                <span>circles</span>
+            </li>
+        </ul>
+    </div>
+    <!--/social-box-->
+</div>
+<div class="col-xl-3 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-icon dib"><i class="ti-money text-success border-success"></i></div>
+                            <div class="stat-content dib">
+                                <div class="stat-text">Total Profit</div>
+                                <div class="stat-digit">1,012</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
+                            <div class="stat-content dib">
+                                <div class="stat-text">New Customer</div>
+                                <div class="stat-digit">961</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
+                            <div class="stat-content dib">
+                                <div class="stat-text">Active Projects</div>
+                                <div class="stat-digit">770</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="stat-widget-one">
+                            <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
+                            <div class="stat-content dib">
+                                <div class="stat-text">Active Projects</div>
+                                <div class="stat-digit">770</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="clearfix">
+                    <i class="fa fa-cogs bg-flat-color-5 p-3 font-2xl mr-3 float-left text-light"></i>
+                    <div class="h5 text-secondary mb-0 mt-1">$4.999,50</div>
+                    <div class="text-muted text-uppercase font-weight-bold font-xs small">Income</div>
+                </div>
             </div>
         </div>
-        <div class="form-row">
-            
-            <div class="form-group col-md-4">
-                <label>Cargo</label>
-                <select class="form-control">
-                    <option>Adminstracion</option>
-                    <option>Contaduria</option>
-                    <option>Limpieza</option>
-                    <option>Estructura</option>
-                    <option>Profesores</option>
-                </select>
-            </div>
-            <div class="form-group col-md-4">
-                <label for="">Contrasena</label>
-                <input type="password" class="form-control" placeholder="contrasena" required="">
-
-            </div>
-            <div class="form-group col-md-4">
-                <label>Repetir Contrasena</label>
-                <input type="password" class="form-control" placeholder="repetir contrasena">
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="clearfix">
+                    <i class="fa fa-laptop bg-info p-3 font-2xl mr-3 float-left text-light"></i>
+                    <div class="h5 text-secondary mb-0 mt-1">$4.999,50</div>
+                    <div class="text-muted text-uppercase font-weight-bold font-xs small">Income</div>
+                </div>
             </div>
         </div>
-        
-
-
-        <button type="submit" class="btn btn-primary">Sign in</button>
-    </form>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="clearfix">
+                    <i class="fa fa-moon-o bg-warning p-3 font-2xl mr-3 float-left text-light"></i>
+                    <div class="h5 text-secondary mb-0 mt-1">$4.999,50</div>
+                    <div class="text-muted text-uppercase font-weight-bold font-xs small">Income</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6 col-lg-3">
+        <div class="card">
+            <div class="card-body">
+                <div class="clearfix">
+                    <i class="fa fa-bell bg-danger p-3 font-2xl mr-3 float-left text-light"></i>
+                    <div class="h5 text-secondary mb-0 mt-1">$4.999,50</div>
+                    <div class="text-muted text-uppercase font-weight-bold font-xs small">Income</div>
+                </div>
+            </div>
+        </div>
+    </div>
 <?php
 require("partials/pies.php");
 

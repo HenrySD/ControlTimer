@@ -1,10 +1,19 @@
 <?php
 session_start();
 
+if(isset($_SESSION['usu'])){
+$man=$_SESSION['usu'];
+}
+else{
 
-if(isset($_SESSION['sessionUsuario'])){
+    header('Location:index.php');
+}
+
+
 
 ?>
+
+
 
 
 <!doctype html>
@@ -24,7 +33,7 @@ if(isset($_SESSION['sessionUsuario'])){
 
 
 
-    <!--estilo de CSS y CDN'S falta linkearlos-->
+    <!--estilo de CSS y CDN'S-->
     <link rel="stylesheet" href="carpetas/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="carpetas/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="carpetas/themify-icons/css/themify-icons.css">
@@ -33,6 +42,10 @@ if(isset($_SESSION['sessionUsuario'])){
     <!--********************Archivos de alertas**************************-->
     <link rel="stylesheet" href="alertify/css/themes/default.css">
     <link rel="stylesheet" href="alertify/css/alertify.css">
+
+    		<!--CDN de bootstrap timer-->
+<link rel="stylesheet" href="carpetas/bootstrap/dist/css/bootstrap-datepicker.css">
+
 </head>
 
 <body>
@@ -51,24 +64,20 @@ if(isset($_SESSION['sessionUsuario'])){
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="index.html"> <i class="menu-icon fa fa-dashboard"></i>Inicio </a>
+                        <a href="singup.php"> <i class="menu-icon ti-home"></i>Inicio </a>
                     </li>
-                    <!-- /.menu-title -->
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Components</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-puzzle-piece"></i><a href="ui-buttons.html">Buttons</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
-
-                        </ul>
+                    <li>
+                        <a href="widgets.html"> <i class="menu-icon ti-user"></i>Usuarios </a>
+                    </li>
+                    <li>
+                        <a href="viewempleados.php"> <i class="menu-icon ti-headphone-alt"></i>Empleados </a>
                     </li>
                     </li>
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>
+                        <a href="widgets.html"> <i class="menu-icon ti-save "></i>Crear Reportes </a>
                     </li>
                     <li>
-                        <a href="#"><i class="menu-icon ti-email"></i>Widgets </a>
+                        <a href="empresa.php"><i class="menu-icon ti-world"></i>Empresa </a>
                     </li>
 
 
@@ -103,8 +112,6 @@ if(isset($_SESSION['sessionUsuario'])){
                 <!--boton rojo para hacer mas pequeno el menu-->
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-                    <h5 class="text-center">Bienvenido <?php echo($_SESSION['sessionUsuario']);?> </h5>
-
                 </div>
 
                 <div class="col-sm-5">
@@ -137,12 +144,3 @@ if(isset($_SESSION['sessionUsuario'])){
         <div class="content mt-3">
 
 
-            <?php
-        
-        
-}else{
-header("location:index.php");
-}
-
-
-?>
