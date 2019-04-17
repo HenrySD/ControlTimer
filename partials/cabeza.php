@@ -5,24 +5,10 @@ if(isset($_SESSION['usu'])){
 $man=$_SESSION['usu'];
 }
 else{
-
-    header('Location:index.php');
+header('Location:index.php');
 }
-
-
-
 ?>
-
-
-
-
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="es">
-<!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
@@ -33,18 +19,36 @@ else{
 
 
 
+    <script src="carpetas\jquery\dist\jquery.min.js"></script>
+    <script src="alertify/alertify.js"></script>
+    <script src="carpetas/popper/dist/umd/popper.min.js"></script>
+    <script src="carpetas/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="carpetas\DataTables\datatables.min.js"></script>
+    <script src="carpetas\js\funciones.js"></script>
+    <!--estos cdn son de prueba para los botones-->
+    <script src="carpetas\DataTables\DataTables-1.10.18\js\dataTables.bootstrap4.min.js"></script>
+    <script src="carpetas/js/main.js"></script>
+    <link rel="stylesheet" href="carpetas\DataTables\DataTables-1.10.18\css\dataTables.bootstrap4.min.css">
+
     <!--estilo de CSS y CDN'S-->
+    <link rel="stylesheet" href="carpetas\DataTables\datatables.css">
+    <link rel="stylesheet" href="carpetas\DataTables\DataTables-1.10.18\css\dataTables.bootstrap.css">
+    <!--*****************************************************-->
     <link rel="stylesheet" href="carpetas/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <link rel="stylesheet" href="carpetas/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="carpetas/themify-icons/css/themify-icons.css">
     <link rel="stylesheet" href="carpetas/css/planillaEstilo.css">
+
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
     <!--********************Archivos de alertas**************************-->
     <link rel="stylesheet" href="alertify/css/themes/default.css">
     <link rel="stylesheet" href="alertify/css/alertify.css">
 
-    		<!--CDN de bootstrap timer-->
-<link rel="stylesheet" href="carpetas/bootstrap/dist/css/bootstrap-datepicker.css">
+
+
+
+    <!--todos los script movidos de la parte pies-->
 
 </head>
 
@@ -79,21 +83,6 @@ else{
                     <li>
                         <a href="empresa.php"><i class="menu-icon ti-world"></i>Empresa </a>
                     </li>
-
-
-
-                    <!--*******************-->
-                    <!---->
-                    <!--*******************-->
-
-                    <!--*******************-->
-                    <!--holacamkcmakc-->
-                    <!--*******************-->
-
-
-                    <!--//////////////////////////////-->
-                    <!---->
-                    <!--//////////////////////////////-->
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -122,7 +111,7 @@ else{
                         </a>
 
                         <div class="user-menu dropdown-menu">
-                           
+
                             <a class="nav-link" href="#"><i class="fa fa-user"></i> Perfil </a>
 
                             <a class="nav-link" href="#"><i class="fa fa-user"></i> Notificaciones <span
@@ -138,9 +127,4 @@ else{
 
         </header><!-- /header -->
         <!-- Header-->
-
-
-
-        <div class="content mt-3">
-
-
+        <div class="content mt-2">

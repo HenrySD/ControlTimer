@@ -14,11 +14,11 @@ $usuarioDB="comuesco_controltimer";
 $passwordDB="CONTROLtimer2384.";
 $nombreDB="comuesco_dbo_ctrl";
 */
-
+function conexion(){
     $servidor="localhost";
     $usuarioDB="root";
     $passwordDB="";
-    $nombreDB="controltimer";
+    $nombreDB="dbo_ctrl";
     
     $conexion = new mysqli($servidor,$usuarioDB,$passwordDB,$nombreDB);
     
@@ -26,10 +26,9 @@ $nombreDB="comuesco_dbo_ctrl";
     die("-----conexcion faida------- ".$conexion->connect_error);
     }
     else{
-        //echo "conexion exitosa";
+        //echo'conexion exitosa';
     }
 
-
-
-
+return $conexion;
+}
 ?>

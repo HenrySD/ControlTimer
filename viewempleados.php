@@ -185,12 +185,6 @@ require("partials/cabeza.php");
     </div>
   </div>
 </div>
-
-<script type="text/javascript">
-$(document).ready(function() {
-
-
-});
 </script>
 <?php
 require("partials/pies.php");

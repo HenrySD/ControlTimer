@@ -1,15 +1,24 @@
-</div> <!-- .content -->
-    </div><!-- /#right-panel -->
+</div>
+</div>
 
 
 </body>
-		<!--Script CDN y links-->
-<script src="carpetas/jquery/dist/jquery.min.js"></script>
-<script src="alertify/alertify.js"></script>
-<script src="carpetas/popper/dist/umd/popper.min.js"></script>
-<script src="carpetas/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="carpetas/js/main.js"></script>
-		<!--Link de bootstrap timer-->
 
-<script src="carpetas/bootstrap/dist/js/bootstrap-datepicker.min.js"></script>        
+
+
+
 </html>
+<script type="text/javascript">
+$('#guardarnuevo').click(function() {
+	cod_Empr=$('#cod_Empr').val();
+	 nom_Empr=$('#nom_Empr').val();
+	 fec_Cons=$('#fec_Cons').val();
+	 dir_Empr=$('#dir_Empr').val();
+	 tel_Empr=$('#tel_Empr').val();
+	 agregarDatos(cod_Empr,nom_Empr,fec_Cons,dir_Empr,tel_Empr);
+
+ });
+</script>
+
+
+

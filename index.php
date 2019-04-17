@@ -1,14 +1,15 @@
 <?php
 session_start();
 require("database.php");
+$conexion=conexion();
 if(isset($_POST['txtUsuario']) && isset($_POST['txtPass']) ){
     $user = $_POST['txtUsuario'];
     $pass =$_POST['txtPass'];
-    $sql="SELECT * FROM usuarios";
+    $sql="SELECT * FROM tab_usua";
 $resultado = $conexion->query($sql);
 if($resultado->num_rows > 0){
     while($row = $resultado->fetch_assoc()){
-       if($user== $row['usuario'] && $pass== $row['pass'] ){
+       if($user== $row['nom_Usua'] && $pass== $row['con_Usua'] ){
     header('Location:singup.php');
             $_SESSION['usu']=$user;
            break; 
