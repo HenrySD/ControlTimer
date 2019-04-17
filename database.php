@@ -15,10 +15,10 @@ $passwordDB="CONTROLtimer2384.";
 $nombreDB="comuesco_dbo_ctrl";
 */
 function conexion(){
-    $servidor="localhost";
-    $usuarioDB="root";
-    $passwordDB="";
-    $nombreDB="dbo_ctrl";
+    $servidor="sql9.freesqldatabase.com";
+    $usuarioDB="sql9288398";
+    $passwordDB="5gkI3RYHQa";
+    $nombreDB="sql9288398";
     
     $conexion = new mysqli($servidor,$usuarioDB,$passwordDB,$nombreDB);
     
@@ -26,7 +26,7 @@ function conexion(){
     die("-----conexcion faida------- ".$conexion->connect_error);
     }
     else{
-        //echo'conexion exitosa';
+        
     }
 
 return $conexion;

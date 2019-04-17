@@ -9,7 +9,7 @@ if(isset($_POST['txtUsuario']) && isset($_POST['txtPass']) ){
 $resultado = $conexion->query($sql);
 if($resultado->num_rows > 0){
     while($row = $resultado->fetch_assoc()){
-       if($user== $row['nom_Usua'] && $pass== $row['con_Usua'] ){
+       if($user== $row['Nom_Usua'] && $pass== $row['Con_Usua'] ){
     header('Location:singup.php');
             $_SESSION['usu']=$user;
            break; 

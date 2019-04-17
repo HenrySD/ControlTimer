@@ -18,12 +18,13 @@ $conexion=conexion();
             <td>Nombre Empresa</td>
             <td>Fecha Constitucion</td>
             <td>Direccion</td>
+            <td>Email</td>
             <td>Telefono</td>
             <td>Editar</td>
             <td>Eliminar</td>
         </tr>
         <?php
-        $sql="SELECT cod_Empr,nom_Empr,fec_Cons,dir_Empr,tel_Empr
+        $sql="SELECT Cod_Empr,Nom_Empr,Fec_Cons,Dir_Empr,Ema_Empr,Tel_Empr
         FROM tab_empr ";
     $result=mysqli_query($conexion,$sql);
 
@@ -35,6 +36,7 @@ $conexion=conexion();
             <td><?php  echo $ver[2]?></td>
             <td><?php  echo $ver[3]?></td>
             <td><?php  echo $ver[4]?></td>
+            <td><?php  echo $ver[5]?></td>
             <td>
                 <button class="btn btn-warning text-light"><i class="fas fa-pen"></i></button>
             </td>
