@@ -10,7 +10,18 @@
     $nombreDB="sql9288398";
         $conexion =mysqli_connect($servidor,$usuarioDB,$passwordDB, $nombreDB);
 
+
+        if(isset($conexion)){
+            echo"Exito";
+            
+            }
+            else{
+                echo "malo";
+            }
+
         return $conexion;
     }
+
+
 
 ?>

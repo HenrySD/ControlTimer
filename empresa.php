@@ -42,7 +42,7 @@ require("partials/cabeza.php");
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Fecha</label>
-                            <input type="text" class="form-control" id="Fec_Cons">
+                            <input type="date" class="form-control" id="Fec_Cons">
 
                         </div>
                         <div class="form-group col-xl-6">
