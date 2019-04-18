@@ -1,2 +1,10 @@
-https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js           
-https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css
+
+Host: sql9.freesqldatabase.com
+Database name: sql9288398
+Database user: sql9288398
+Database password: 5gkI3RYHQa
+Port number: 3306
+///////// cuenta 
+correo:henryderaslopez@yahoo.com
+password: 23843712FA
+

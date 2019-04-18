@@ -23,7 +23,7 @@ header('Location:index.php');
     <script src="alertify/alertify.js"></script>
     <script src="carpetas/popper/dist/umd/popper.min.js"></script>
     <script src="carpetas/bootstrap/dist/js/bootstrap.min.js"></script>
-    
+    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
     <script src="carpetas\DataTables\datatables.min.js"></script>
     <script src="carpetas\js\funciones.js"></script>
     <!--estos cdn son de prueba para los botones-->
