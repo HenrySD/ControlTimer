@@ -1,23 +1,16 @@
 <?php
 require("partials/cabeza.php");
 ?>
-<div class="contianer ml-2  ">
-<h5 class="aling">Que Usuario desea Agregar</h5>
-
-    <div class="row">
-        <div class="col-xl-5 mr-2" style="background-color:#000; width:45px; height :350px;">
-
-        </div>
-        <div class="col-xl-5" style="background-color:#236;">
-
-        </div>
-    </div>
-
-</div>
-</div>
+<script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
 
-
+<input id="timepicker" readonly="" width="270" />
+    <script>
+        $('#timepicker').timepicker({
+            uiLibrary: 'bootstrap'
+        });
+    </script>
 <?php
 require("partials/pies.php");
 ?>

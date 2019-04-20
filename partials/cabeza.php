@@ -19,18 +19,32 @@ header('Location:index.php');
 
 
 
-    <script src="carpetas\jquery\dist\jquery.min.js"></script>
+    <script src="carpetas\js\jquery.js"></script>
     <script src="alertify/alertify.js"></script>
     <script src="carpetas/popper/dist/umd/popper.min.js"></script>
     <script src="carpetas/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
+    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
     <script src="carpetas\DataTables\datatables.min.js"></script>
     <script src="carpetas\js\funciones.js"></script>
+
+  
+
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+
+
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!--estos cdn son de prueba para los botones-->
     <script src="carpetas\DataTables\DataTables-1.10.18\js\dataTables.bootstrap4.min.js"></script>
     <script src="carpetas/js/main.js"></script>
     <link rel="stylesheet" href="carpetas\DataTables\DataTables-1.10.18\css\dataTables.bootstrap4.min.css">
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!--estilo de CSS y CDN'S-->
     <link rel="stylesheet" href="carpetas\DataTables\datatables.css">
     <link rel="stylesheet" href="carpetas\DataTables\DataTables-1.10.18\css\dataTables.bootstrap.css">
