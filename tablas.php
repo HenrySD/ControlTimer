@@ -1,23 +1,10 @@
 <?php
-
 require("database.php");
 $conexion=conexion();
-
 $sql="SELECT Cod_Empr,Nom_Empr,Fec_Cons,Dir_Empr,Ema_Empr,Tel_Empr FROM tab_empr";
-
 $resultado=mysqli_query($conexion,$sql);
-
-
 ?>
-
-
-
-
-
-
-
-
-<table id="example" style="with:100%;" class="table  table-condensed table-hover table-bordered">
+<table id="example" style="" class="table  table-condensed table-hover table-bordered">
     <thead style="background-color:#282D34; color:white; ">
         <tr>
             <td>Codigo Empresa</td>
@@ -29,7 +16,6 @@ $resultado=mysqli_query($conexion,$sql);
             <td>Opciones</td>
 
         </tr>
-
     </thead>
     <tfoot style="background-color:#282D34;color:white;">
         <tr>
@@ -40,9 +26,7 @@ $resultado=mysqli_query($conexion,$sql);
             <td>Email</td>
             <td>Telefono</td>
             <td>Opciones</td>
-
         </tr>
-
     </tfoot>
     <tbody>
         <?php
@@ -69,8 +53,6 @@ $resultado=mysqli_query($conexion,$sql);
             </td>
             <td><button class="btn btn-warning mt-4 " data-toggle="modal" data-target="#editar" onclick="agregaFrmActualizar('<?php echo $mostrar[0] ?>')"><i class="ti-pencil-alt"></i></button><button
                     class="btn btn-danger mt-4" onclick="eliminarDatos('<?php echo $mostrar[0] ?>')"><i class=" ti-trash""></button></td>
-            
-            
         </tr>
         <?php
 }
@@ -89,5 +71,4 @@ $(document).ready(function() {
         ]
     } );
 } );
-
 </script>

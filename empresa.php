@@ -11,7 +11,9 @@ require("partials/cabeza.php");
 
     <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar
         Empresa</button>
-    <div id="cajita" class="container box">
+    <div id="cajita" class="m-0 p-0">
+
+    
     </div>
 </div>
 <!-- Este es el modal para guardar empresa-->

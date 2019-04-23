@@ -86,10 +86,10 @@ header('Location:index.php');
                         <a href="singup.php"> <i class="menu-icon ti-home"></i>Inicio </a>
                     </li>
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-user"></i>Usuarios </a>
+                        <a href="usuarios.php"> <i class="menu-icon ti-user"></i>Agregar Usuarios </a>
                     </li>
                     <li>
-                        <a href="viewempleados.php"> <i class="menu-icon ti-headphone-alt"></i>Empleados </a>
+                        <a href="empleados.php"> <i class="menu-icon ti-headphone-alt"></i>Empleados </a>
                     </li>
                     </li>
                     <li>
