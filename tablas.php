@@ -7,24 +7,24 @@ $resultado=mysqli_query($conexion,$sql);
 <table id="example" style="" class="table  table-condensed table-hover table-bordered">
     <thead style="background-color:#282D34; color:white; ">
         <tr>
-            <td>Codigo Empresa</td>
+            <td>Código Empresa</td>
             <td>Nombre Empresa</td>
-            <td>Fecha Constitucion</td>
-            <td>Direccion</td>
+            <td>Fecha Constitución</td>
+            <td>Dirección</td>
             <td>Email</td>
-            <td>Telefono</td>
+            <td>Teléfono</td>
             <td>Opciones</td>
 
         </tr>
     </thead>
     <tfoot style="background-color:#282D34;color:white;">
         <tr>
-            <td>Codigo Empresa</td>
+            <td>Código Empresa</td>
             <td>Nombre Empresa</td>
-            <td>Fecha Constitucion</td>
-            <td>Direccion</td>
+            <td>Fecha Constitución</td>
+            <td>Dirección</td>
             <td>Email</td>
-            <td>Telefono</td>
+            <td>Teléfono</td>
             <td>Opciones</td>
         </tr>
     </tfoot>

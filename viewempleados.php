@@ -115,13 +115,7 @@ require("partials/cabeza.php");
   </div>
 </div>
 
-
-
-
 		<!--*****************************************************-->
-
-
-
 
 <!-- Button trigger modal -->
 

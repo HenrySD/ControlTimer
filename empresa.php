@@ -31,7 +31,7 @@ require("partials/cabeza.php");
                 <form class="caj" id="frmnuevo">
                     <div class="form-row">
                         <div class="form-group col-xl-6">
-                            <label>Codigo</label>
+                            <label>Código</label>
                             <input type="text" class="form-control" id="Cod_Empr" name="Cod_Empr">
                         </div>
                         <div class="form-group col-xl-6">
@@ -44,7 +44,7 @@ require("partials/cabeza.php");
 
                         </div>
                         <div class="form-group col-xl-6">
-                            <label>Telefono</label>
+                            <label>Teléfono</label>
                             <input type="text" class="form-control " id="Tel_Empr" name="Tel_Empr">
 
                         </div>
@@ -54,7 +54,7 @@ require("partials/cabeza.php");
 
                         </div>
                         <div class="form-group col-xl-12">
-                            <label>Direccion</label>
+                            <label>Dirección</label>
                             <input type="text" class="form-control" id="Dir_Empr" name="Dir_Empr">
 
                         </div>
@@ -87,7 +87,7 @@ require("partials/cabeza.php");
                 <form class="caj" id="frmnuevoU">
                     <div class="form-row">
                     <div class="form-group col-xl-6">
-                            <label>Codigo</label>
+                            <label>Código</label>
                             <input type="text" class="form-control" readonly id="Cod_EmprU" name="Cod_EmprU">
                         </div>
                         <div class="form-group col-xl-6">
@@ -100,7 +100,7 @@ require("partials/cabeza.php");
 
                         </div>
                         <div class="form-group col-xl-4">
-                            <label>Telefono</label>
+                            <label>Teléfono</label>
                             <input type="text" class="form-control input-sm" id="Tel_EmprU" name="Tel_EmprU">
 
                         </div>
@@ -110,14 +110,10 @@ require("partials/cabeza.php");
 
                         </div>
                         <div class="form-group col-xl-12">
-                            <label>Direccion</label>
+                            <label>Dirección</label>
                             <input type="text" class="form-control input-xs" id="Dir_EmprU" name="Dir_EmprU">
-
                         </div>
-
                     </div>
-
-
                 </form>
             </div>
             <div class="modal-footer col-xl-12">
