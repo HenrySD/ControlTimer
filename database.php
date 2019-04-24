@@ -1,9 +1,9 @@
 <?php
     function conexion(){
     $servidor="sql9.freesqldatabase.com";
-    $usuarioDB="sql9288398";
-    $passwordDB="5gkI3RYHQa";
-    $nombreDB="sql9288398";
+    $usuarioDB="sql9289396";
+    $passwordDB="8meqUcv2bi";
+    $nombreDB="sql9289396";
         $conexion =mysqli_connect($servidor,$usuarioDB,$passwordDB, $nombreDB);
         return $conexion;
     }
