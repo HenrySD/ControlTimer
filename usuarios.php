@@ -18,16 +18,15 @@ require("partials/cabeza.php");
                     <div class="col-md-2">
                         <input type="text" class="form-control">
                     </div>
-                </div>
 
-                <div class="row form-group">
-                    <div class="col-sm-4">
-                        <label for="codigo_empresa" class="col-form-label col-md-6">Código empresa</label>
+                    <div class="">
+                        <label for="codigo_empresa" class="col-form-label ml-5 col-md-12">Código empresa</label>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 ml-5">
                             <input type="text" class="form-control">
                         </div>
                 </div>
+
                 <div class="row form-group">
                     <div class="col-sm-4">
                         <label for="tipo_usuario" class="col-form-label col-md-6">Tipo de Usuario</label>
@@ -41,17 +40,15 @@ require("partials/cabeza.php");
                 </div>
                 <div class="row form-group">
                     <div class="col-sm-4">
-                        <label for="nombres_usuario" class="col-form-label col-md-6">Nombre</label>
+                        <label for="nombres_usuario" class="col-form-label col-md-4">Nombre</label>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-3">
                             <input type="text" class="form-control">
                         </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-4">
-                        <label for="apellidos_usuario" class="col-form-label col-md-6">Apellido</label>
+                        <div class="col-md-1">
+                        <label for="apellidos_usuario" class="col-form-label ">Apellido</label>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-3">
                             <input type="text" class="form-control">
                         </div>
                 </div>
@@ -94,9 +91,8 @@ require("partials/cabeza.php");
                     <div class="col-md-2">
                             <input type="time" class="form-control">
                         </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-4">
+
+                        <div class="col-md-3">
                         <label for="hora_salida" class="col-form-label col-md-8">Hora de salida</label>
                     </div>
                     <div class="col-md-2">
