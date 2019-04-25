@@ -6,13 +6,8 @@ require("partials/cabeza.php");
 ?>
 <!--Aca Todo lo del lado derecho body-->
 
-<h3>Tabla Empleados</h3>
+<h3 class="mb-5 text-center">Tabla Empleados</h3>
 <div class="container ">
-
-    <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar
-        Empleados</button>
-    
-
     <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>

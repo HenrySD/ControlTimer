@@ -22,7 +22,6 @@ if($resultado->num_rows > 0){
 }
 }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -62,9 +61,6 @@ if($resultado->num_rows > 0){
     </form>
 </body>
 
-
-
-
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="alertify/alertify.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -85,8 +81,6 @@ $(document).ready(function() {
         }
     });
 });
-
-
 </script>
 
 </html>

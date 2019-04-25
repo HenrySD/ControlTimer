@@ -5,139 +5,90 @@ require("partials/cabeza.php");
 
 ?>
 <!--Aca Todo lo del lado derecho body-->
-<div class="container text-center">
- 
-    <div class="card ">
-        <div class="card-header text-center">Registrar nuevo Usuario</div>
-        <div class="card-body text-center" >
-            <form action="">
-                <div class="row form-group ">
-                    <div class="col-sm-4">
-                        <label for="codigo_usuario" class="col-form-label col-md-6">Código usuario</label>
-                    </div> 
-                    <div class="col-md-2">
-                        <input type="text" class="form-control">
-                    </div>
+<div class="container ">
 
-                    <div class="">
-                        <label for="codigo_empresa" class="col-form-label ml-5 col-md-12">Código empresa</label>
-                    </div>
-                    <div class="col-md-2 ml-5">
-                            <input type="text" class="form-control">
+    <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar
+        Empresa</button>
+    <div id="cajita" class="m-0 p-0">
+
+    
+    </div>
+</div>
+<!-- Este es el modal para guardar empresa-->
+<div class="modal fade col-xl-12" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content col-xl-12">
+            <div class="modal-header col-xl-12">
+                <h5 class="modal-title" id="exampleModalLongTitle">Agregar usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body col-xl-12">
+                <form class="caj" id="frmnuevo">
+                    <div class="form-row">
+                        <div class="form-group col-xl-6">
+                            <label>Código</label>
+                            <input type="text" class="form-control" id="Cod_Usua" name="Cod_Usua">
                         </div>
-                </div>
-
-                <div class="row form-group">
-                    <div class="col-sm-4">
-                        <label for="tipo_usuario" class="col-form-label col-md-6">Tipo de Usuario</label>
-                    </div>
-                    <div class="col-md-7">
+                        <div class="form-group col-xl-6">
+                            <label>Empresa</label>
+                            <input type="text" class="form-control" id="Cod_Empr" name="Cod_Empr">
+                        </div>
+                        <div class="form-group col-xl-12">
+                        <label>Tipo de Usuario</label>
                             <select class="form-control" id="tipo_usuario">
                                 <option value="administrador">Administrador</option>
                                 <option value="empleado">Empleado</option>
                             </select>
                         </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-4">
-                        <label for="nombres_usuario" class="col-form-label col-md-4">Nombre</label>
-                    </div>
-                    <div class="col-md-3">
-                            <input type="text" class="form-control">
-                        </div>
-                        <div class="col-md-1">
-                        <label for="apellidos_usuario" class="col-form-label ">Apellido</label>
-                    </div>
-                    <div class="col-md-3">
-                            <input type="text" class="form-control">
-                        </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-4">
-                        <label for="direccion_usuario" class="col-form-label col-md-6">Dirección</label>
-                    </div>
-                    <div class="col-md-7">
-                            <input type="text" class="form-control">
-                        </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-4">
-                        <label for="correo_usuario" class="col-form-label col-md-8">Correo electrónico</label>
-                    </div>
-                    <div class="col-md-7">
-                            <input type="text" class="form-control">
-                        </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-4">
-                        <label for="telefono_usuario" class="col-form-label col-md-8">Teléfono</label>
-                    </div>
-                    <div class="col-md-7">
-                            <input type="text" class="form-control">
-                        </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-4">
-                        <label for="dia_entrada" class="col-form-label col-md-6">Día entrada</label>
-                    </div>
-                    <div class="col-md-7">
-                            <input type="date" class="form-control">
-                        </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-4">
-                        <label for="hora_entrada" class="col-form-label col-md-8">Hora de entrada</label>
-                    </div>
-                    <div class="col-md-2">
-                            <input type="time" class="form-control">
-                        </div>
+                        <div class="form-group col-xl-6">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" id="Nom_Usua" name="Nom_Usua">
 
-                        <div class="col-md-3">
-                        <label for="hora_salida" class="col-form-label col-md-8">Hora de salida</label>
-                    </div>
-                    <div class="col-md-2">
-                            <input type="time" class="form-control">
                         </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-4">
-                        <label for="nombre_usuario" class="col-form-label col-md-4">Usuario</label>
-                    </div>
-                    <div class="col-md-7">
-                            <input type="text" class="form-control">
-                        </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-4">
-                        <label for="contra_usuario" class="col-form-label col-md-6">Contraseña</label>
-                    </div>
-                    <div class="col-md-7">
-                            <input type="password" class="form-control">
-                        </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-sm-4">
-                        <label for="repe_contrasena" class="col-form-label col-md-8">Repetir contraseña</label>
-                    </div>
-                    <div class="col-md-7">
-                            <input type="password" class="form-control">
-                        </div>
-                </div>
-            </form>
+                        <div class="form-group col-xl-6">
+                            <label>Apellido</label>
+                            <input type="text" class="form-control " id="Ape_Usua" name="Ape_Usua">
 
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Dirección</label>
+                            <input type="text" class="form-control " id="Dir_Usua" name="Dir_Usua">
+
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Correo</label>
+                            <input type="text" class="form-control" id="Ema_Usua" name="Ema_Usua">
+
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Teléfono</label>
+                            <input type="text" class="form-control" id="Dir_Empr" name="Tel_Usua">
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Usuario</label>
+                            <input type="text" class="form-control" id="Nom_Usur" name="Nom_Usur">
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Contraseña</label>
+                            <input type="text" class="form-control" id="Con_Usua" name="Con_Usua">
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Repetir contraseña</label>
+                            <input type="text" class="form-control" id="Rep_Cont" name="Rep_Cont">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer col-xl-12">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="btnguardarnuevo">Guardar</button>
+            </div>
         </div>
     </div>
-
-
-
-    <button class="btn btn-primary mb-5">Agregar usuario</button>
 </div>
-
-</div>
-
-</div>
-
-
 <?php
 require('partials/pies.php');
 

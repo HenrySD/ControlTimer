@@ -89,11 +89,11 @@ header('Location:index.php');
                         <a href="usuarios.php"> <i class="menu-icon ti-user"></i>Agregar Usuarios </a>
                     </li>
                     <li>
-                        <a href="empleados.php"> <i class="menu-icon ti-headphone-alt"></i>Empleados </a>
+                        <a href="empleados.php"> <i class="menu-icon ti-headphone-alt"></i>Registros de Usuarios</a>
                     </li>
                     </li>
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-save "></i>Crear Reportes </a>
+                        <a href="widgets.html"> <i class="menu-icon ti-save "></i>Listado asistencia </a>
                     </li>
                     <li>
                         <a href="empresa.php"><i class="menu-icon ti-world"></i>Empresa </a>
