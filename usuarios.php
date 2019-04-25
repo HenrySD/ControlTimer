@@ -6,9 +6,16 @@ require("partials/cabeza.php");
 ?>
 <!--Aca Todo lo del lado derecho body-->
 <div class="container ">
+    <div class="row">
+    <div class="col-md-12">
+    <h3 class="text-center">Agregar Usuario</h3>
+    </div>
+    <div class="col-md-5">
+    <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar Usuario</button>
+    </div>
 
-    <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar
-        Empresa</button>
+    </div>
+    
     <div id="cajita" class="m-0 p-0">
 
     
