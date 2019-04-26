@@ -13,7 +13,7 @@ require("partials/cabeza.php");
         Empresa</button>
     <div id="cajita" class="m-0 p-0">
 
-    
+
     </div>
 </div>
 <!-- Este es el modal para guardar empresa-->
@@ -86,7 +86,7 @@ require("partials/cabeza.php");
             <div class="modal-body col-xl-12">
                 <form class="caj" id="frmnuevoU">
                     <div class="form-row">
-                    <div class="form-group col-xl-6">
+                        <div class="form-group col-xl-6">
                             <label>Código</label>
                             <input type="text" class="form-control" readonly id="Cod_EmprU" name="Cod_EmprU">
                         </div>
@@ -144,7 +144,7 @@ $(document).ready(function() {
         });
     });
 
-    $('#btneditar').click(function(){
+    $('#btneditar').click(function() {
         datos = $('#frmnuevoU').serialize();
         $.ajax({
             type: "POST",
@@ -152,7 +152,7 @@ $(document).ready(function() {
             url: "actualizar.php",
             success: function(r) {
                 if (r == 1) {
-                    
+
                     $('#cajita').load('tablas.php');
                     alertify.success("Actualizado Conexito");
                 } else {
@@ -166,7 +166,7 @@ $(document).ready(function() {
 <script type="text/javascript">
 function agregaFrmActualizar(Cod_Empr) {
     $.ajax({
-        
+
         type: "POST",
         data: "Cod_Empr=" + Cod_Empr,
         url: "obtenDatos.php",
@@ -179,31 +179,31 @@ function agregaFrmActualizar(Cod_Empr) {
             $('#Tel_EmprU').val(datos['Tel_Empr']);
             $('#Dir_EmprU').val(datos['Dir_Empr']);
             $('#Ema_EmprU').val(datos['Ema_Empr']);
-            
+
         }
     });
-    function eliminarDatos(Cod_EmprU){
-		alertify.confirm('Eliminar Empresa', '¿Seguro de eliminar esta Empresa :(?', function(){ 
 
-			$.ajax({
-				type:"POST",
-				data:"Cod_EmprU=" + Cod_EmprU,
-				url:"eliminar.php",
-				success:function(r){
-					if(r==1){
-						$('#example').load('tablas.php');
-						alertify.success("Eliminado con exito !");
-					}else{
-						alertify.error("No se pudo eliminar...");
-					}
-				}
-			});
+    function eliminarDatos(Cod_EmprU) {
+        alertify.confirm('Eliminar Empresa', '¿Seguro de eliminar esta Empresa :(?', function() {
 
-		}
-		, function(){
+            $.ajax({
+                type: "POST",
+                data: "Cod_EmprU=" + Cod_EmprU,
+                url: "eliminar.php",
+                success: function(r) {
+                    if (r == 1) {
+                        $('#example').load('tablas.php');
+                        alertify.success("Eliminado con exito !");
+                    } else {
+                        alertify.error("No se pudo eliminar...");
+                    }
+                }
+            });
 
-		});
-	}
+        }, function() {
+
+        });
+    }
 
 
 

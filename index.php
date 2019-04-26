@@ -46,6 +46,9 @@ if($resultado->num_rows > 0){
 
 
     <form action="index.php" method="POST" class="login text-center ">
+    <div class="">
+            <img class="mb-3" src="carpetas/img/logo.jpg">
+        </div>
         <div class="form-group ">
             <h5>Usuario</h5>
             <input class="form-control" id="txtUsuario" type="text" placeholder="" name="txtUsuario">

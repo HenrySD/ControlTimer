@@ -1,27 +1,19 @@
 <?php
 
 require("partials/cabeza.php");
-
-
 ?>
 <!--Aca Todo lo del lado derecho body-->
-<div class="container ">
-    <div class="row">
-    <div class="col-md-12">
+<div class="container">
+
+
     <h3 class="text-center">Agregar Usuario</h3>
-    </div>
-    <div class="col-md-5">
     <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar Usuario</button>
-    </div>
+    <div id="vicki" class="">
 
-    </div>
-    
-    <div id="cajita" class="m-0 p-0">
 
-    
     </div>
 </div>
-<!-- Este es el modal para guardar empresa-->
+<!-- Este es el modal para agregar usuarios-->
 <div class="modal fade col-xl-12" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -44,7 +36,7 @@ require("partials/cabeza.php");
                             <input type="text" class="form-control" id="Cod_Empr" name="Cod_Empr">
                         </div>
                         <div class="form-group col-xl-12">
-                        <label>Tipo de Usuario</label>
+                            <label>Tipo de Usuario</label>
                             <select class="form-control" id="tipo_usuario">
                                 <option value="administrador">Administrador</option>
                                 <option value="empleado">Empleado</option>
@@ -96,6 +88,11 @@ require("partials/cabeza.php");
         </div>
     </div>
 </div>
+<script>
+$(document).ready(function() {
+    $('#vicki').load('tablas/tablaUsuarios.php');
+});
+</script>
 <?php
 require('partials/pies.php');
 

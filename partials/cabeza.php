@@ -76,8 +76,8 @@ header('Location:index.php');
                     aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img></a>
-                <a class="navbar-brand hidden" href="./"><img src="carpetas/img/logo2.png" alt="Logo"></a>
+                <a class="navbar-brand" href=""><img src="carpetas/img/logo.jpg" alt="Logo1"></a>
+                <a class="navbar-brand hidden" href=""><img src="carpetas/img/logo2.png" alt="Logo2"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -89,11 +89,11 @@ header('Location:index.php');
                         <a href="usuarios.php"> <i class="menu-icon ti-user"></i>Agregar Usuarios </a>
                     </li>
                     <li>
-                        <a href="empleados.php"> <i class="menu-icon ti-headphone-alt"></i>Registros de Usuarios</a>
+                        <a href="configuracion.php"> <i class="menu-icon ti-headphone-alt"></i>Configuracion</a>
                     </li>
                     </li>
                     <li>
-                        <a href="widgets.html"> <i class="menu-icon ti-save "></i>Listado asistencia </a>
+                        <a href="asistencia.php"> <i class="menu-icon ti-save "></i>Listado asistencia </a>
                     </li>
                     <li>
                         <a href="empresa.php"><i class="menu-icon ti-world"></i>Empresa </a>
