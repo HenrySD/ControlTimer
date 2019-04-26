@@ -31,22 +31,35 @@
         <div class="container">
             <div class="card ">
                 <div class="card-header">
-                    Control de Asistencia
+                    <div class="row">
+                        <div class="col-md-4 ">
+                            <h5 class="text-center">Control de Asistencia</h5>
+                        </div>
+                        <div class="col-md-4">
+
+                        </div>
+                        <div class="col-md-4">
+                            <img src="carpetas/img/logo.jpg" alt="">
+                        </div>
+                    </div>
+
+
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-3 bg-info ml-2">
+                        <div class="col-md-4 ml-2 border text-center">
                             <p>Lunes 22 de Abril del 2019 </p>
                         </div>
-                        <div class="col-md-3 bg-danger ml-5">
+                        <div class="col-md-4 ml-3 border text-center">
                             <p> 10:34:40 PM </p>
                         </div>
-                        <div class="col-md-3 ml-5">
+                        <div class="col-md-3">
                             <input type="text" class="form-control">
                         </div>
+
                     </div>
                     <div class="row">
-                        <div class="col-md-3 bg-info ml-2 mt-3" style="width:200px; height:250px;">
+                        <div class="col-md-3 border ml-2 mt-3 " style="width:200px; height:250px;">
 
                         </div>
 
@@ -91,7 +104,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3 bg-info ml-2 mt-3" style="height:50px;">
+                        <div class="col-md-3 border ml-2 mt-3" style="height:50px;">
 
                         </div>
                     </div>
