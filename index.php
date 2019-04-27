@@ -76,10 +76,10 @@ if($resultado->num_rows > 0){
 $(document).ready(function() {
     $('#entrarSistema').click(function() {
         if ($('#txtUsuario').val() == "") {
-            alertify.alert('Alerta', 'Ingresa un Usuario');
+            alertify.alert('Alerta', 'Ingresa un usuario');
             return false;
         } else if ($('#txtPass').val() == "") {
-            alertify.alert('Alerta', 'Ingresa una contra');
+            alertify.alert('Alerta', 'Ingresa una contraseña');
             return false;
         }
     });

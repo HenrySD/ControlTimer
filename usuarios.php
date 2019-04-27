@@ -6,7 +6,7 @@ require("partials/cabeza.php");
 <div class="container">
 
 
-    <h3 class="text-center">Agregar Usuario</h3>
+    <h3 class="text-center">Usuarios</h3>
     <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar Usuario</button>
     <div id="vicki" class="">
 
@@ -19,7 +19,7 @@ require("partials/cabeza.php");
     <div class="modal-dialog" role="document">
         <div class="modal-content col-xl-12">
             <div class="modal-header col-xl-12">
-                <h5 class="modal-title" id="exampleModalLongTitle">Agregar usuario</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Agregar</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -34,6 +34,13 @@ require("partials/cabeza.php");
                         <div class="form-group col-xl-6">
                             <label>Empresa</label>
                             <input type="text" class="form-control" id="Cod_Empr" name="Cod_Empr">
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Turno</label>
+                            <select class="form-control" id="tipo_usuario">
+                                <option value="administrador">Matutino</option>
+                                <option value="empleado">Nocturno</option>
+                            </select>
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Tipo de Usuario</label>

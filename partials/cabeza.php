@@ -86,10 +86,10 @@ header('Location:index.php');
                         <a href="singup.php"> <i class="menu-icon ti-home"></i>Inicio </a>
                     </li>
                     <li>
-                        <a href="usuarios.php"> <i class="menu-icon ti-user"></i>Agregar Usuarios </a>
+                        <a href="usuarios.php"> <i class="menu-icon ti-user"></i>Usuarios </a>
                     </li>
                     <li>
-                        <a href="configuracion.php"> <i class="menu-icon ti-headphone-alt"></i>Configuracion</a>
+                        <a href="configuracion.php"> <i class="menu-icon ti-headphone-alt"></i>Configuración</a>
                     </li>
                     </li>
                     <li>
@@ -132,9 +132,9 @@ header('Location:index.php');
                             <a class="nav-link" href="#"><i class="fa fa-user"></i> Notificaciones <span
                                     class="count">13</span></a>
 
-                            <a class="nav-link" href="#"><i class="fa fa-cog"></i> Configuracion</a>
+                            <a class="nav-link" href="#"><i class="fa fa-cog"></i> Configuración</a>
 
-                            <a class="nav-link" href="logout.php"><i class="fa fa-power-off"></i> Cerrar Cession</a>
+                            <a class="nav-link" href="logout.php"><i class="fa fa-power-off"></i> Cerrar Cessión</a>
                         </div>
                     </div>
                 </div>

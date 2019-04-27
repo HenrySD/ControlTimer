@@ -8,9 +8,8 @@ require("partials/cabeza.php");
 
 
 <div class="container ">
-
-    <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar
-        Empresa</button>
+    <h3 class="text-center">Empresa</h3>
+    <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar</button>
     <div id="cajita" class="m-0 p-0">
 
 
@@ -22,7 +21,7 @@ require("partials/cabeza.php");
     <div class="modal-dialog" role="document">
         <div class="modal-content col-xl-12">
             <div class="modal-header col-xl-12">
-                <h5 class="modal-title" id="exampleModalLongTitle">Agregar nueva Empresa</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Agregar</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

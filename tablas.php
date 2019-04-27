@@ -7,8 +7,8 @@ $resultado=mysqli_query($conexion,$sql);
 <table id="example" style="" class="table  table-condensed table-hover table-bordered">
     <thead style="background-color:#282D34; color:white; ">
         <tr>
-            <td>Código Empresa</td>
-            <td>Nombre Empresa</td>
+            <td>Código</td>
+            <td>Nombre</td>
             <td>Fecha Constitución</td>
             <td>Dirección</td>
             <td>Email</td>
@@ -19,8 +19,8 @@ $resultado=mysqli_query($conexion,$sql);
     </thead>
     <tfoot style="background-color:#282D34;color:white;">
         <tr>
-            <td>Código Empresa</td>
-            <td>Nombre Empresa</td>
+            <td>Código</td>
+            <td>Nombre</td>
             <td>Fecha Constitución</td>
             <td>Dirección</td>
             <td>Email</td>
