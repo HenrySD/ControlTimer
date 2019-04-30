@@ -13,7 +13,8 @@
     <!--//////////////////////////////-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="carpetas/css/estilo.css">
-
+    <link rel="stylesheet" href="alertify/css/themes/default.css">
+    <link rel="stylesheet" href="alertify/css/alertify.css">
 
     <!--**********************CDN de jQuery y js*******************************-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -22,7 +23,8 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js">
     </script>
-
+    <script src="carpetas\js\instascan.min.js"></script>
+    <script src="alertify/alertify.js"></script>
 </head>
 
 <body class="cuerpo-ve">
@@ -59,11 +61,11 @@
 
                     </div>
                     <div class="row">
-                        <div class="col-md-3 border ml-2 mt-3 " style="width:200px; height:250px;">
+                        <video id="preview" class="col-md-4 border ml-2 mt-3 " style="width:100px; height:200px;">
 
-                        </div>
+                        </video>
 
-                        <div class="col-md-8  ml-2 mt-3" style="width:100px; height:250px;">
+                        <div class="col-md-7  ml-2 mt-3" style="width:100px; height:250px;">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
@@ -113,5 +115,20 @@
         </div>
     </div>
 </body>
-
+<script type="text/javascript">
+      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+      scanner.addListener('scan', function (content) {
+        console.log(content);
+        alertify.success("Agregado con exito !");
+      });
+      Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+          scanner.start(cameras[0]);
+        } else {
+          console.error('No cameras found.');
+        }
+      }).catch(function (e) {
+        console.error(e);
+      });
+    </script>
 </html>

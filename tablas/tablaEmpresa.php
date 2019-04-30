@@ -1,5 +1,5 @@
 <?php
-require("database.php");
+require("../database.php");
 $conexion=conexion();
 $sql="SELECT Cod_Empr,Nom_Empr,Fec_Cons,Dir_Empr,Ema_Empr,Tel_Empr FROM tab_empr";
 $resultado=mysqli_query($conexion,$sql);
@@ -51,8 +51,10 @@ $resultado=mysqli_query($conexion,$sql);
             <td>
                 <?php echo $mostrar[5]?>
             </td>
-            <td><button class="btn btn-warning mt-4 " data-toggle="modal" data-target="#editar" onclick="agregaFrmActualizar('<?php echo $mostrar[0] ?>')"><i class="ti-pencil-alt"></i></button><button
-                    class="btn btn-danger mt-4" onclick="eliminarDatos('<?php echo $mostrar[0] ?>')"><i class=" ti-trash""></button></td>
+            <td><button class="btn btn-warning " data-toggle="modal" data-target="#editar"
+                    onclick="agregaFrmActualizar('<?php echo $mostrar[0] ?>')"><i
+                        class="ti-pencil-alt"></i></button>
+                <button class="btn btn-danger " onclick="eliminarDatos('<?php echo $mostrar[0] ?>')"><i class=" ti-trash""></button></td>
         </tr>
         <?php
 }

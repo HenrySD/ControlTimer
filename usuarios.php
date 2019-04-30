@@ -3,7 +3,7 @@
 require("partials/cabeza.php");
 ?>
 <!--Aca Todo lo del lado derecho body-->
-<div class="container">
+
 
 
     <h3 class="text-center">Usuarios</h3>
@@ -13,6 +13,7 @@ require("partials/cabeza.php");
 
     </div>
 </div>
+
 <!-- Este es el modal para agregar usuarios-->
 <div class="modal fade col-xl-12" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
@@ -94,7 +95,7 @@ require("partials/cabeza.php");
             </div>
         </div>
     </div>
-</div>
+
 <script>
 $(document).ready(function() {
     $('#vicki').load('tablas/tablaUsuarios.php');

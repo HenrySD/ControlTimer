@@ -9,9 +9,10 @@ require("partials/cabeza.php");
 
 <div class="container ">
     <h3 class="text-center">Empresa</h3>
-    <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar</button>
+    <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i>
+        Agregar</button>
     <div id="cajita" class="m-0 p-0">
-
+        <!--aqui aparece la tabla de la empresa-->
 
     </div>
 </div>
@@ -130,11 +131,12 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             data: datos,
-            url: "agregar.php",
+            url: "crud/agregar.php",
             success: function(r) {
                 if (r == 1) {
                     $('#frmnuevo')[0].reset();
-                    $('#cajita').load('tablas.php');
+                    //3 para cambiar
+                    $('#cajita').load('tablas/tablaEmpresa.php');
                     alertify.success("Agregado Conexito");
                 } else {
                     alertify.error("Fallo al agregar");
@@ -148,11 +150,11 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             data: datos,
-            url: "actualizar.php",
+            url: "crud/actualizar.php",
             success: function(r) {
                 if (r == 1) {
 
-                    $('#cajita').load('tablas.php');
+                    $('#cajita').load('tablas/tablaEmpresa.php');
                     alertify.success("Actualizado Conexito");
                 } else {
                     alertify.error("Fallo la Actualizacion");
@@ -168,7 +170,7 @@ function agregaFrmActualizar(Cod_Empr) {
 
         type: "POST",
         data: "Cod_Empr=" + Cod_Empr,
-        url: "obtenDatos.php",
+        url: "crud/obtenDatos.php",
         success: function(r) {
             datos = jQuery.parseJSON(r);
             $('#frmnuevoU')[0].reset();
@@ -181,30 +183,30 @@ function agregaFrmActualizar(Cod_Empr) {
 
         }
     });
+}
 
-    function eliminarDatos(Cod_EmprU) {
-        alertify.confirm('Eliminar Empresa', '¿Seguro de eliminar esta Empresa :(?', function() {
+function eliminarDatos(Cod_Empr) {
+    alertify.confirm('Eliminar', 'Estas seguro de eliminar esta empresa', function() {
+        $.ajax({
 
-            $.ajax({
-                type: "POST",
-                data: "Cod_EmprU=" + Cod_EmprU,
-                url: "eliminar.php",
-                success: function(r) {
-                    if (r == 1) {
-                        $('#example').load('tablas.php');
-                        alertify.success("Eliminado con exito !");
-                    } else {
-                        alertify.error("No se pudo eliminar...");
-                    }
+            type: "POST",
+            data: "Cod_Empr=" + Cod_Empr,
+            url: "crud/eliminar.php",
+            success: function(r) {
+                if(r==1){
+                    $('#cajita').load('tablas/tablaEmpresa.php');
+                    alertify.success("Eliminado con exito");
+                }else{
+                    alertify.error("No se pudo eliminar");
                 }
-            });
 
-        }, function() {
-
+            }
         });
+
     }
+    ,function(){
 
-
+    });
 
 }
 </script>
@@ -227,7 +229,8 @@ $("#Fec_ConsU").datepicker({
 </script>
 <script>
 $(document).ready(function() {
-    $('#cajita').load('tablas.php');
+    //1 para cambiar
+    $('#cajita').load('tablas/tablaEmpresa.php');
 });
 </script>
 <script>

@@ -42,7 +42,7 @@
 			
 			$conexion=conexion();
 
-			$sql="DELETE from tad_empr where Cod_Empr='$Cod_Empr'";
+			$sql="DELETE from tab_empr where Cod_Empr='$Cod_Empr'";
 			return mysqli_query($conexion,$sql);
 		}
     }

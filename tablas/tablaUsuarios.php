@@ -1,4 +1,4 @@
-<table id="example" style="" class="table  table-condensed table-hover table-bordered">
+<table id="example" style="" class="table  table-condensed table-hover table-bordered witdth-100%">
     <thead style="background-color:#282D34; color:white; ">
         <tr>
             <td>Codigo</td>
@@ -13,8 +13,8 @@
 
         </tr>
     </thead>
-    <tfoot style="background-color:#282D34;color:white;">
-        <tr>
+    <tfoot style="background-color:#282D34;color:white; text-aling:center;">
+        <tr >
             <td>Código</td>
             <td>Nombre</td>
             <td>Apellido</td>
@@ -28,7 +28,7 @@
     </tfoot>
     <tbody>
 
-        <tr>
+        <tr class="text-break">
             <td>2356</td>
             <td>Jenifer</td>
             <td>Deras</td>
@@ -41,27 +41,35 @@
         </tr>
         
         <tr>
-            <td>2357</td>
-            <td>Remodelaciones mira</td>
-            <td>Empleado</td>
+        <td>2357</td>
             <td>Jose</td>
             <td>Peres</td>
             <td>Ilobasco, cabanas el salvador</td>
-            <td>peres@gmail.com</td>
-            <td>2019-03-12</td>
+            <td>joseperez@gmail.com</td>
+            <td>23568947</td>
+            <td>Matutino</td>
+            <td>Empleado</td>
+            <td>Coca cola</td>
         </tr>
     </tbody>
 </table>
 <script>
 $(document).ready(function() {
-    $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
+    
+
+  
+    $('#example').DataTable({
+        
+            dom: "Bfrtip",
+            buttons: [
             'copyHtml5',
             'excelHtml5',
             'csvHtml5',
-            'pdfHtml5'
+            'pdfHtml5',
+            'print',
+            
         ]
-    } );
+
+    });
 } );
 </script>

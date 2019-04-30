@@ -9,15 +9,17 @@ if(isset($_POST['txtUsuario']) && isset($_POST['txtPass']) ){
 $resultado = $conexion->query($sql);
 if($resultado->num_rows > 0){
     while($row = $resultado->fetch_assoc()){
-       if($user== $row['Nom_Usua'] && $pass== $row['Con_Usua'] ){
+       if($user== $row['Use_Name'] && $pass== $row['Con_Usua'] ){
     header('Location:singup.php');
             $_SESSION['usu']=$user;
            break; 
        }
        else{
-        echo "ninguno coinside ";
-           $valido="no"; 
-           
+        $_POST['no']=1;
+        echo "<script>\n";
+        echo "no='".$_POST['no']."'\n";
+        echo "</script>\n";
+          
        }  
 }
 }
@@ -32,7 +34,7 @@ if($resultado->num_rows > 0){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Inicio de Session</title>
 
-    		<!--***************CDN bootstrap***************************-->
+    <!--***************CDN bootstrap***************************-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="carpetas/css/estilo.css">
     <!--********************Archivos de alertas**************************-->
@@ -46,7 +48,7 @@ if($resultado->num_rows > 0){
 
 
     <form action="index.php" method="POST" class="login text-center ">
-    <div class="">
+        <div class="">
             <img class="mb-3" src="carpetas/img/logo.jpg">
         </div>
         <div class="form-group ">
@@ -60,7 +62,7 @@ if($resultado->num_rows > 0){
         <div class="row">
             <div class="col">
                 <input type="submit" id="entrarSistema" class="btn btn-primary btn-block" value="Ingresar">
-            
+
     </form>
 </body>
 
@@ -75,14 +77,22 @@ if($resultado->num_rows > 0){
 <script type="text/javascript">
 $(document).ready(function() {
     $('#entrarSistema').click(function() {
-        if ($('#txtUsuario').val() == "") {
-            alertify.alert('Alerta', 'Ingresa un usuario');
-            return false;
-        } else if ($('#txtPass').val() == "") {
-            alertify.alert('Alerta', 'Ingresa una contraseña');
-            return false;
-        }
+            if ($('#txtUsuario').val() == "") {
+                alertify.alert('Alerta', 'Ingresa un usuario');
+                return false;
+            } else if ($('#txtPass').val() == "") {
+                alertify.alert('Alerta', 'Ingresa una contraseña');
+                return false;
+                
+            }
     });
+    if(no==1){
+        alertify.alert('Alerta', 'Usuario no registrado');
+        return false;
+        
+                
+    }
+    
 });
 </script>
 
