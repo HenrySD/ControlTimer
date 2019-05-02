@@ -23,8 +23,11 @@ header('Location:index.php');
     <script src="alertify/alertify.js"></script>
     <script src="carpetas/popper/dist/umd/popper.min.js"></script>
     <script src="carpetas/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
-    
+    		<!--estos son los cdn de la validacion de bootstrap probando 30/04/2019-->
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet"/>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js"></script>
+
+            
     <script src="carpetas\js\funciones.js"></script>
 
   

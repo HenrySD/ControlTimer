@@ -63,14 +63,18 @@ $resultado=mysqli_query($conexion,$sql);
 </table>
 <script>
 $(document).ready(function() {
-    $('#example').DataTable( {
-        dom: 'Bfrtip',
+    $('#example').DataTable({
+        "language":{
+            "url":"//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+        },      
+        dom:'Bfrtip',
         buttons: [
             'copyHtml5',
             'excelHtml5',
             'csvHtml5',
             'pdfHtml5'
-        ]
-    } );
-} );
+                ]
+    
+    });
+});
 </script>

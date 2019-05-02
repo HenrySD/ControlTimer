@@ -6,11 +6,17 @@ require("partials/cabeza.php");
 ?>
 <!--Aca Todo lo del lado derecho body-->
 
+<style>
+small{
+	color:#e10000;
+}
+</style>
 
 <div class="container ">
     <h3 class="text-center">Empresa</h3>
     <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i>
         Agregar</button>
+       
     <div id="cajita" class="m-0 p-0">
         <!--aqui aparece la tabla de la empresa-->
 
@@ -32,30 +38,30 @@ require("partials/cabeza.php");
                     <div class="form-row">
                         <div class="form-group col-xl-6">
                             <label>Código</label>
-                            <input type="text" class="form-control" id="Cod_Empr" name="Cod_Empr">
+                            <input type="text" class="form-control" id="Cod_Empr" name="Cod_Empr" required>
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Nombre</label>
-                            <input type="text" class="form-control" id="Nom_Empr" name="Nom_Empr">
+                            <input type="text" class="form-control" id="Nom_Empr" name="Nom_Empr"required>
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Fecha</label>
-                            <input type="text" class="form-control" id="Fec_Cons" name="Fec_Cons">
+                            <input type="text" class="form-control" id="Fec_Cons" name="Fec_Cons"required>
 
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Teléfono</label>
-                            <input type="text" class="form-control " id="Tel_Empr" name="Tel_Empr">
+                            <input type="text" class="form-control " id="Tel_Empr" name="Tel_Empr"required>
 
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Correo</label>
-                            <input type="text" class="form-control " id="Ema_Empr" name="Ema_Empr">
+                            <input type="text" class="form-control " id="Ema_Empr" name="Ema_Empr"required>
 
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Dirección</label>
-                            <input type="text" class="form-control" id="Dir_Empr" name="Dir_Empr">
+                            <input type="text" class="form-control" id="Dir_Empr" name="Dir_Empr"required>
 
                         </div>
 
@@ -66,8 +72,8 @@ require("partials/cabeza.php");
             </div>
             <div class="modal-footer col-xl-12">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="btnguardarnuevo">Guardar</button>
-
+               
+    <input type="submit" class="btn btn-primary" id="btnguardarnuevo" disabled="disabled" value="Guardar">
             </div>
         </div>
     </div>
@@ -186,7 +192,7 @@ function agregaFrmActualizar(Cod_Empr) {
 }
 
 function eliminarDatos(Cod_Empr) {
-    alertify.confirm('Eliminar', 'Estas seguro de eliminar esta empresa', function() {
+    alertify.confirm('Eliminar', '¿Seguro desea eliminarla?', function() {
         $.ajax({
 
             type: "POST",
@@ -216,32 +222,46 @@ function eliminarDatos(Cod_Empr) {
 
 <script>
 $("#Fec_Cons").datepicker({
-    minDate: new Date(2019, 0, 1),
+    // Siquiere colocar fechas futuras usar minDate()
+    // Si quiere usar fechas pasadas usar maxDate()
+    maxDate: new Date(),
     dateFormat: "yy-mm-dd"
 
 });
 
 
 $("#Fec_ConsU").datepicker({
-    minDate: new Date(2019, 0, 1),
+    maxDate: new Date(),
     dateFormat: "yy-mm-dd"
 });
 </script>
 <script>
 $(document).ready(function() {
-    //1 para cambiar
+    //Con esto carga el archivo donde estan la tabla de la empresa y lo muestra
+    // en el id=cajita
     $('#cajita').load('tablas/tablaEmpresa.php');
 });
 </script>
 <script>
-bootstrapValidate('#Cod_Empr',
-        'required:Rellene el campo|min:5:|regex:^[0-9]+$:Solo numeros|max:15:Maximo 15 Caracteres'),
-    bootstrapValidate('#Nom_Empr', 'required:Rellene el campo|min:5:Ingrese 5 caracteres'),
-    bootstrapValidate('#Fec_Cons', 'ISO8601:Utilise el Formato YYYY-MM-DD'),
-    bootstrapValidate('#Tel_Empr',
-        'required:Rellene el campo|min:8:8 caracteres Minimo|max:9:9 Caracteres Maximo|regex:^[0-9]+$:Solo numeros'),
-    bootstrapValidate('#Ema_Empr', 'email:Ingrese un Email valido'),
-    bootstrapValidate('#Dir_Empr', 'required:Rellene el campo|min:5:Ingrese 5 caracteres');
+
+$('#nuevo').bootstrapValidator({
+    fields: {
+        Cod_Empr: {
+                validators: {
+                    notEmpty: {
+                        message: 'El Codigo es obligatorio'
+                    }
+                }
+            },
+        Nom_Empr:{
+            validators: {
+                    notEmpty: {
+                        message: 'El nombre es obligatorio'
+                    }
+                }
+        }
+    }
+});
 </script>
 
 
