@@ -6,12 +6,13 @@ require("partials/cabeza.php");
 
 
 
-    <h3 class="text-center">Usuarios</h3>
-    <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar Usuario</button>
-    <div id="vicki" class="">
+<h3 class="text-center">Usuarios</h3>
+<button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar
+    Usuario</button>
+<div id="vicki" class="">
 
 
-    </div>
+</div>
 </div>
 
 <!-- Este es el modal para agregar usuarios-->
@@ -45,9 +46,11 @@ require("partials/cabeza.php");
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Tipo de Usuario</label>
-                            <select class="form-control" id="tipo_usuario">
-                                <option value="administrador">Administrador</option>
-                                <option value="empleado">Empleado</option>
+
+                            <select class="form-control" name='id_categoria' id='id_categoria'>
+                                <option value="1" selected>Empleado</option>
+                                <option value="2">Administrador</option>
+                                
                             </select>
                         </div>
                         <div class="form-group col-xl-6">
@@ -76,15 +79,16 @@ require("partials/cabeza.php");
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Usuario</label>
-                            <input type="text" class="form-control" id="Nom_Usur" name="Nom_Usur">
+                            
+                            <input type="text" class="form-control" id="Nom_Usur" name="Nom_Usur" disabled>
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Contraseña</label>
-                            <input type="text" class="form-control" id="Con_Usua" name="Con_Usua">
+                            <input type="text" class="form-control" id="Con_Usua" name="Con_Usua" disabled>
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Repetir contraseña</label>
-                            <input type="text" class="form-control" id="Rep_Cont" name="Rep_Cont">
+                            <input type="text" class="form-control" id="Rep_Cont" name="Rep_Cont" disabled>
                         </div>
                     </div>
                 </form>
@@ -96,12 +100,27 @@ require("partials/cabeza.php");
         </div>
     </div>
 
-<script>
-$(document).ready(function() {
-    $('#vicki').load('tablas/tablaUsuarios.php');
+    <script>
+    $(document).ready(function() {
+        $('#vicki').load('tablas/tablaUsuarios.php');
+    });
+    </script>
+    <script>
+     $( function() {
+    $("#id_categoria").change( function() {
+        if ($(this).val() === "1") {
+            $("#Nom_Usur").prop("disabled", true);
+            $("#Con_Usua").prop("disabled", true);
+            $("#Rep_Cont").prop("disabled", true);
+        } else {
+            $("#Nom_Usur").prop("disabled", false);
+            $("#Con_Usua").prop("disabled", false);
+            $("#Rep_Cont").prop("disabled", false);
+        }
+    });
 });
-</script>
-<?php
+    </script>
+    <?php
 require('partials/pies.php');
 
 ?>
