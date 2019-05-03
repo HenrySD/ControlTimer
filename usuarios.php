@@ -7,8 +7,7 @@ require("partials/cabeza.php");
 
 
 <h3 class="text-center">Usuarios</h3>
-<button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar
-    Usuario</button>
+<button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar </button>
 <div id="vicki" class="">
 
 

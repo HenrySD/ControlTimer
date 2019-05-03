@@ -1,18 +1,20 @@
 <?php
-
 require("partials/cabeza.php");
-
-
 ?>
-<!--Aca Todo lo del lado derecho body-->
 <div class="container">
-<h3 class="text-center">Configuracion</h3>
+<h3 class="text-center mb-3">Configuración</h3>
+
+
+</div>
+<div class="" id="box">
+
 </div>
 
-
-
-
+<script>
+$(document).ready(function() {
+    $('#box').load('tablas/tablaConfiguracion.php');
+});
+</script>
 <?php
-require('partials/pies.php');
-
+require("partials/pies.php");
 ?>
