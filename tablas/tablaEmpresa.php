@@ -57,7 +57,7 @@ $resultado=mysqli_query($conexion,$sql);
                 <button class="btn btn-danger " onclick="eliminarDatos('<?php echo $mostrar[0] ?>')"><i class=" ti-trash""></button></td>
         </tr>
         <?php
-}
+    }
 ?>
     </tbody>
 </table>

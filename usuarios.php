@@ -1,6 +1,14 @@
 <?php
 
 require("partials/cabeza.php");
+require("database.php");
+$conexion=conexion();
+$sqlEmpresa="SELECT Cod_Empr,Nom_Empr FROM tab_empr";
+$sqlTurno="SELECT Cod_Turn,Des_Turn FROM tab_turn";
+$resultadoEmpresa=mysqli_query($conexion,$sqlEmpresa);
+$resultadoTurno=mysqli_query($conexion,$sqlTurno);
+
+
 ?>
 <!--Aca Todo lo del lado derecho body-->
 
@@ -26,30 +34,45 @@ require("partials/cabeza.php");
                 </button>
             </div>
             <div class="modal-body col-xl-12">
-                <form class="caj" id="frmnuevo">
+                <form class="caj" id="frmnuevoUsua">
                     <div class="form-row">
                         <div class="form-group col-xl-6">
                             <label>Código</label>
                             <input type="text" class="form-control" id="Cod_Usua" name="Cod_Usua">
                         </div>
-                        <div class="form-group col-xl-6">
+                        <div class="form-group col-xl-7">
                             <label>Empresa</label>
-                            <input type="text" class="form-control" id="Cod_Empr" name="Cod_Empr">
+
+                            <select name="Cod_Empr" id="Cod_Empr" class="form-control">
+                            <?php 
+                            while($mostrar=mysqli_fetch_row($resultadoEmpresa)){
+                            ?>
+                            <option value="<?php echo $mostrar[0]?>"><?php echo$mostrar[1]?></option>
+                            
+                            <?php 
+                            }
+                            ?>
+                            </select>
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Turno</label>
-                            <select class="form-control" id="tipo_usuario">
-                                <option value="administrador">Matutino</option>
-                                <option value="empleado">Nocturno</option>
+                            <select class="form-control" id="Cod_Turn" name="Cod_Turn">
+                            <?php 
+                            while($mostrarTurno=mysqli_fetch_row($resultadoTurno)){
+                            ?>
+                            <option value="<?php echo $mostrarTurno[0]?>"><?php echo $mostrarTurno[1]?></option>
+                             <?php 
+                             }
+                            ?>   
                             </select>
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Tipo de Usuario</label>
 
-                            <select class="form-control" name='id_categoria' id='id_categoria'>
-                                <option value="1" selected>Empleado</option>
-                                <option value="2">Administrador</option>
-                                
+                            <select class="form-control" name='Tip_Usua' id='Tip_Usua'>
+                                <option value="Empleado">Empleado</option>
+                                <option value="Administrador">Administrador</option>
+
                             </select>
                         </div>
                         <div class="form-group col-xl-6">
@@ -74,50 +97,68 @@ require("partials/cabeza.php");
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Teléfono</label>
-                            <input type="text" class="form-control" id="Dir_Empr" name="Tel_Usua">
+                            <input type="text" class="form-control" id="Tel_Usua" name="Tel_Usua">
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Usuario</label>
-                            
-                            <input type="text" class="form-control" id="Nom_Usur" name="Nom_Usur" disabled>
+
+                            <input type="text" class="form-control" id="Use_Name" name="Use_Name" value=" "disabled >
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Contraseña</label>
-                            <input type="text" class="form-control" id="Con_Usua" name="Con_Usua" disabled>
+                            <input type="text" class="form-control" id="Con_Usua" name="Con_Usua" value=" "disabled >
                         </div>
-                        <div class="form-group col-xl-12">
-                            <label>Repetir contraseña</label>
-                            <input type="text" class="form-control" id="Rep_Cont" name="Rep_Cont" disabled>
-                        </div>
+                        
                     </div>
                 </form>
             </div>
             <div class="modal-footer col-xl-12">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="btnguardarnuevo">Guardar</button>
+                <button type="button" class="btn btn-primary" id="btnguardarnuevoUsua">Guardar</button>
             </div>
         </div>
     </div>
-
+    <script>
+$(document).ready(function() {
+    $('#btnguardarnuevoUsua').click(function() {
+        datosUsuarios = $('#frmnuevoUsua').serialize();
+        $.ajax({
+            type: "POST",
+            data: datosUsuarios,
+            url: "crud/agregarUsuario.php",
+            success: function(r) {
+                if (r == 1) {
+                    $('#frmnuevoUsua')[0].reset();
+                    //3 para cambiar
+                    $('#cajita').load('tablas/tablaUsuarios.php');
+                    alertify.success("Usuario agregado conexito");
+                } else {
+                    alertify.error("No se inserto un usuario");
+                }
+            }
+        });
+    });
+});
+</script>
     <script>
     $(document).ready(function() {
         $('#vicki').load('tablas/tablaUsuarios.php');
     });
     </script>
     <script>
-     $( function() {
-    $("#id_categoria").change( function() {
-        if ($(this).val() === "1") {
-            $("#Nom_Usur").prop("disabled", true);
-            $("#Con_Usua").prop("disabled", true);
-            $("#Rep_Cont").prop("disabled", true);
-        } else {
-            $("#Nom_Usur").prop("disabled", false);
-            $("#Con_Usua").prop("disabled", false);
-            $("#Rep_Cont").prop("disabled", false);
-        }
+    $(function() {
+        $("#Tip_Usua").change(function() {
+            if ($(this).val() === "Empleado") {
+                $("#Use_Name").prop("disabled", true);
+                $("#Con_Usua").prop("disabled", true);
+                $("#Rep_Cont").prop("disabled", true);
+            } else {
+                $("#Use_Name").prop("disabled", false);
+                $("#Con_Usua").prop("disabled", false);
+                $("#Rep_Cont").prop("disabled", false);
+            }
+        });
     });
-});
     </script>
     <?php
 require('partials/pies.php');

@@ -8,6 +8,14 @@
                 return mysqli_query($conexion,$sql);
         }
 
+        public function agregarUsuarios($datosUsuarios){
+            $conexion=conexion();
+            $sqlAgregarUsu="INSERT INTO tab_usua (Cod_Usua,Cod_Empr,Cod_Turn,Tip_Usua,Nom_Usua,Ape_Usua,Dir_Usua,Ema_Usua,Tel_Usua,Use_Name,Con_Usua)
+                                        values('$datosUsuarios[0]','$datosUsuarios[1]','$datosUsuarios[2]','$datosUsuarios[3]','$datosUsuarios[4]','$datosUsuarios[5]','$datosUsuarios[6]',
+                                        '$datosUsuarios[7]','$datosUsuarios[8]','$datosUsuarios[9]','$datosUsuarios[10]')";
+             return mysqli_query($conexion,$sqlAgregarUsu);                           
+        }
+
 
         public function obtenDatos($Cod_Empr){
             $conexion=conexion();

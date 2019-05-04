@@ -107,7 +107,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3 border ml-2 mt-3" style="height:50px;">
-
+<input type="text" id="txt" class="form-control" value="">
                         </div>
                     </div>
                 </div>
@@ -120,6 +120,7 @@
       scanner.addListener('scan', function (content) {
         console.log(content);
         alertify.success("Agregado con exito !");
+        
       });
       Instascan.Camera.getCameras().then(function (cameras) {
         if (cameras.length > 0) {
@@ -130,5 +131,9 @@
       }).catch(function (e) {
         console.error(e);
       });
+
+      $()
     </script>
+
+
 </html>

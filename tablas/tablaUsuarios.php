@@ -1,56 +1,72 @@
+<?php
+require("../database.php");
+$conexion=conexion();
+$sql="SELECT Cod_Usua,Cod_Empr,Cod_Turn,Tip_Usua,Nom_Usua,Ape_Usua,Dir_Usua,Ema_Usua,Tel_Usua FROM tab_usua";
+$resultado=mysqli_query($conexion,$sql);
+?>
 <table id="example" style="" class="table  table-condensed table-hover table-bordered witdth-100%">
     <thead style="background-color:#282D34; color:white; ">
         <tr>
-            <td>Codigo</td>
-            <td>Nombre</td>
-            <td>Apellido</td>
-            <td>Dirección</td>
-            <td>Correo</td>
-            <td>Teléfono</td>
+        <td>Código</td>
+            <td>Empresa</td>
             <td>Turno</td>
             <td>Tipo</td>
-            <td>Empresa</td>
-
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Direccion</td>
+            <td>Email</td>
+            <td>Telefono</td>
         </tr>
     </thead>
     <tfoot style="background-color:#282D34;color:white; text-aling:center;">
         <tr >
-            <td>Código</td>
-            <td>Nombre</td>
-            <td>Apellido</td>
-            <td>Dirección</td>
-            <td>Correo</td>
-            <td>Teléfono</td>
+        <td>Código</td>
+            <td>Empresa</td>
             <td>Turno</td>
             <td>Tipo</td>
-            <td>Empresa</td>
+            <td>Nombre</td>
+            <td>Apellido</td>
+            <td>Direccion</td>
+            <td>Email</td>
+            <td>Telefono</td>
         </tr>
     </tfoot>
     <tbody>
-
-        <tr class="text-break">
-            <td>2356</td>
-            <td>Jenifer</td>
-            <td>Deras</td>
-            <td>Ilobasco, cabanas el salvador</td>
-            <td>jenifer@gmail.com</td>
-            <td>7952-9979</td>
-            <td>Matutino</td>
-            <td>Empleado</td>
-            <td>Remodelaciones mira</td>
-        </tr>
-        
+    <?php
+    while($mostrar=mysqli_fetch_row($resultado)){
+    ?>
         <tr>
-        <td>2357</td>
-            <td>Jose</td>
-            <td>Peres</td>
-            <td>Ilobasco, cabanas el salvador</td>
-            <td>joseperez@gmail.com</td>
-            <td>23568947</td>
-            <td>Matutino</td>
-            <td>Empleado</td>
-            <td>Coca cola</td>
-        </tr>
+            <td>
+                <?php echo $mostrar[0]?>
+            </td>
+            <td>
+                <?php echo $mostrar[1]?>
+            </td>
+            <td>
+                <?php echo $mostrar[2]?>
+            </td>
+            <td>
+                <?php echo $mostrar[3]?>
+            </td>
+            <td>
+                <?php echo $mostrar[4]?>
+            </td>
+            <td>
+                <?php echo $mostrar[5]?>
+            </td>
+            <td>
+                <?php echo $mostrar[6]?>
+            </td>
+            <td>
+                <?php echo $mostrar[7]?>
+            </td>
+            <td>
+                <?php echo $mostrar[8]?>
+            </td>
+        <?php
+    }
+?>
+        
     </tbody>
 </table>
 <script>
