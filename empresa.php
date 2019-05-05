@@ -17,7 +17,7 @@ small{
     <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i>
         Agregar</button>
        
-    <div id="cajita" class="m-0 p-0">
+    <div id="cajita" class="">
         <!--aqui aparece la tabla de la empresa-->
 
     </div>

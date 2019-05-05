@@ -4,10 +4,10 @@ $conexion=conexion();
 $sql="SELECT Cod_Usua,Cod_Empr,Cod_Turn,Tip_Usua,Nom_Usua,Ape_Usua,Dir_Usua,Ema_Usua,Tel_Usua FROM tab_usua";
 $resultado=mysqli_query($conexion,$sql);
 ?>
-<table id="example" style="" class="table  table-condensed table-hover table-bordered witdth-100%">
-    <thead style="background-color:#282D34; color:white; ">
+<table  id="example" class="table  table-condensed table-hover table-bordered table-sm">
+    <thead style="background-color:#282D34; color:white;">
         <tr>
-        <td>Código</td>
+            <td>Código</td>
             <td>Empresa</td>
             <td>Turno</td>
             <td>Tipo</td>
@@ -75,17 +75,20 @@ $(document).ready(function() {
 
   
     $('#example').DataTable({
-        
-            dom: "Bfrtip",
-            buttons: [
+        scrollY:        '40vh',
+        scrollCollapse: true,
+        paging:         false,
+        "language":{
+            "url":"//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+        },      
+        dom:'Bfrtip',
+        buttons: [
             'copyHtml5',
             'excelHtml5',
             'csvHtml5',
-            'pdfHtml5',
-            'print',
-            
-        ]
-
+            'pdfHtml5'
+                ]
+    
     });
 } );
 </script>
