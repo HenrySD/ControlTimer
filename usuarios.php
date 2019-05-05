@@ -11,9 +11,7 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
 
 ?>
 <!--Aca Todo lo del lado derecho body-->
-
-
-
+<div class="container ">
 <h3 class="text-center">Usuarios</h3>
 <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar </button>
 <div id="vicki" class="">
