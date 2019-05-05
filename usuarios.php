@@ -13,15 +13,17 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
 <!--Aca Todo lo del lado derecho body-->
 
 
+<div class="container">
 
-<h3 class="text-center">Usuarios</h3>
-<button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar </button>
-<div id="vicki" class="">
+    <h3 class="text-center">Usuarios</h3>
+    <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar
+    </button>
+    <div id="vicki" class="">
 
 
+    </div>
 </div>
 </div>
-
 <!-- Este es el modal para agregar usuarios-->
 <div class="modal fade col-xl-12" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
@@ -44,12 +46,12 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                             <label>Empresa</label>
 
                             <select name="Cod_Empr" id="Cod_Empr" class="form-control">
-                            <?php 
+                                <?php 
                             while($mostrar=mysqli_fetch_row($resultadoEmpresa)){
                             ?>
-                            <option value="<?php echo $mostrar[0]?>"><?php echo$mostrar[1]?></option>
-                            
-                            <?php 
+                                <option value="<?php echo $mostrar[0]?>"><?php echo$mostrar[1]?></option>
+
+                                <?php 
                             }
                             ?>
                             </select>
@@ -57,13 +59,13 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                         <div class="form-group col-xl-12">
                             <label>Turno</label>
                             <select class="form-control" id="Cod_Turn" name="Cod_Turn">
-                            <?php 
+                                <?php 
                             while($mostrarTurno=mysqli_fetch_row($resultadoTurno)){
                             ?>
-                            <option value="<?php echo $mostrarTurno[0]?>"><?php echo $mostrarTurno[1]?></option>
-                             <?php 
+                                <option value="<?php echo $mostrarTurno[0]?>"><?php echo $mostrarTurno[1]?></option>
+                                <?php 
                              }
-                            ?>   
+                            ?>
                             </select>
                         </div>
                         <div class="form-group col-xl-12">
@@ -102,13 +104,13 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                         <div class="form-group col-xl-12">
                             <label>Usuario</label>
 
-                            <input type="text" class="form-control" id="Use_Name" name="Use_Name" value=" "disabled >
+                            <input type="text" class="form-control" id="Use_Name" name="Use_Name" value=" " disabled>
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Contraseña</label>
-                            <input type="text" class="form-control" id="Con_Usua" name="Con_Usua" value=" "disabled >
+                            <input type="text" class="form-control" id="Con_Usua" name="Con_Usua" value=" " disabled>
                         </div>
-                        
+
                     </div>
                 </form>
             </div>
@@ -119,27 +121,27 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
         </div>
     </div>
     <script>
-$(document).ready(function() {
-    $('#btnguardarnuevoUsua').click(function() {
-        datosUsuarios = $('#frmnuevoUsua').serialize();
-        $.ajax({
-            type: "POST",
-            data: datosUsuarios,
-            url: "crud/agregarUsuario.php",
-            success: function(r) {
-                if (r == 1) {
-                    $('#frmnuevoUsua')[0].reset();
-                    //3 para cambiar
-                    $('#cajita').load('tablas/tablaUsuarios.php');
-                    alertify.success("Usuario agregado conexito");
-                } else {
-                    alertify.error("No se inserto un usuario");
+    $(document).ready(function() {
+        $('#btnguardarnuevoUsua').click(function() {
+            datosUsuarios = $('#frmnuevoUsua').serialize();
+            $.ajax({
+                type: "POST",
+                data: datosUsuarios,
+                url: "crud/agregarUsuario.php",
+                success: function(r) {
+                    if (r == 1) {
+                        $('#frmnuevoUsua')[0].reset();
+                        //3 para cambiar
+                        $('#cajita').load('tablas/tablaUsuarios.php');
+                        alertify.success("Usuario agregado conexito");
+                    } else {
+                        alertify.error("No se inserto un usuario");
+                    }
                 }
-            }
+            });
         });
     });
-});
-</script>
+    </script>
     <script>
     $(document).ready(function() {
         $('#vicki').load('tablas/tablaUsuarios.php');
