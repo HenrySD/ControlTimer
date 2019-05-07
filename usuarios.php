@@ -13,7 +13,7 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
 <!--Aca Todo lo del lado derecho body-->
 
 
-<div class="container">
+<div class="">
 
     <h3 class="text-center">Usuarios</h3>
     <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar
@@ -104,11 +104,11 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                         <div class="form-group col-xl-12">
                             <label>Usuario</label>
 
-                            <input type="text" class="form-control" id="Use_Name" name="Use_Name" value=" " disabled>
+                            <input type="text" class="form-control" id="Use_Name" name="Use_Name" null disabled>
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Contraseña</label>
-                            <input type="text" class="form-control" id="Con_Usua" name="Con_Usua" value=" " disabled>
+                            <input type="text" class="form-control" id="Con_Usua" name="Con_Usua" null disabled>
                         </div>
 
                     </div>
@@ -120,6 +120,105 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
             </div>
         </div>
     </div>
+</div>
+    		<!--este modal es para la edicion de campos de usuarios-->
+<div class="modal fade col-xl-12" id="editarUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content col-xl-12">
+            <div class="modal-header col-xl-12">
+                <h5 class="modal-title" id="exampleModalLongTitle">Editar Usuario</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body col-xl-12">
+                <form class="caj" id="frmnuevoU">
+                <div class="form-row">
+                        <div class="form-group col-xl-6">
+                            <label>Código</label>
+                            <input type="text" class="form-control" id="Cod_Usua" name="Cod_Usua">
+                        </div>
+                        <div class="form-group col-xl-7">
+                            <label>Empresa</label>
+
+                            <select name="Cod_Empr" id="Cod_Empr" class="form-control">
+                                <?php 
+                            while($mostrar=mysqli_fetch_row($resultadoEmpresa)){
+                            ?>
+                                <option value="<?php echo $mostrar[0]?>"><?php echo$mostrar[1]?></option>
+
+                                <?php 
+                            }
+                            ?>
+                            </select>
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Turno</label>
+                            <select class="form-control" id="Cod_Turn" name="Cod_Turn">
+                                <?php 
+                            while($mostrarTurno=mysqli_fetch_row($resultadoTurno)){
+                            ?>
+                                <option value="<?php echo $mostrarTurno[0]?>"><?php echo $mostrarTurno[1]?></option>
+                                <?php 
+                             }
+                            ?>
+                            </select>
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Tipo de Usuario</label>
+
+                            <select class="form-control" name='Tip_Usua' id='Tip_Usua'>
+                                <option value="Empleado">Empleado</option>
+                                <option value="Administrador">Administrador</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group col-xl-6">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" id="Nom_Usua" name="Nom_Usua">
+
+                        </div>
+                        <div class="form-group col-xl-6">
+                            <label>Apellido</label>
+                            <input type="text" class="form-control " id="Ape_Usua" name="Ape_Usua">
+
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Dirección</label>
+                            <input type="text" class="form-control " id="Dir_Usua" name="Dir_Usua">
+
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Correo</label>
+                            <input type="text" class="form-control" id="Ema_Usua" name="Ema_Usua">
+
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Teléfono</label>
+                            <input type="text" class="form-control" id="Tel_Usua" name="Tel_Usua">
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Usuario</label>
+
+                            <input type="text" class="form-control" id="Use_Name" name="Use_Name" null disabled>
+                        </div>
+                        <div class="form-group col-xl-12">
+                            <label>Contraseña</label>
+                            <input type="text" class="form-control" id="Con_Usua" name="Con_Usua" null disabled>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer col-xl-12">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-warning" id="btneditarUsuario">Actualizar</button>
+
+            </div>
+        </div>
+    </div>
+</div>
     <script>
     $(document).ready(function() {
         $('#btnguardarnuevoUsua').click(function() {
@@ -132,14 +231,36 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                     if (r == 1) {
                         $('#frmnuevoUsua')[0].reset();
                         //3 para cambiar
-                        $('#cajita').load('tablas/tablaUsuarios.php');
-                        alertify.success("Usuario agregado conexito");
-                    } else {
-                        alertify.error("No se inserto un usuario");
+                        $('#vicki').load('tablas/tablaUsuarios.php');
+                        alertify.success("Administrador ingresado");
                     }
+                     else {
+                        $('#frmnuevoUsua')[0].reset();
+                        $('#vicki').load('tablas/tablaUsuarios.php');
+                        alertify.success("Empleado ingresado");
+                    } 
+                    
                 }
             });
         });
+
+        $('#btneditarUsuario').click(function() {
+        datos = $('#frmnuevoU').serialize();
+        $.ajax({
+            type: "POST",
+            data: datos,
+            url: "crud",
+            success: function(r) {
+                if (r == 1) {
+
+                    $('#cajita').load('tablas/tablaUsuarios.php');
+                    alertify.success("Actualizado Conexito");
+                } else {
+                    alertify.error("Fallo la Actualizacion");
+                }
+            }
+        });
+    });
     });
     </script>
     <script>
@@ -161,6 +282,32 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
             }
         });
     });
+    </script>
+    <script>
+    function eliminarDatos(Cod_Usua) {
+    alertify.confirm('Eliminar', '¿Seguro que desea eliminar este usuario?', function() {
+        $.ajax({
+
+            type: "POST",
+            data: "Cod_Usua=" + Cod_Usua,
+            url: "crud/eliminarUsuarios.php",
+            success: function(r) {
+                if(r==1){
+                    $('#vicki').load('tablas/tablaUsuarios.php');
+                    alertify.success("Usuario eliminado con exito");
+                }else{
+                    alertify.error("No se pudo eliminar");
+                }
+
+            }
+        });
+
+    }
+    ,function(){
+
+    });
+
+}
     </script>
     <?php
 require('partials/pies.php');

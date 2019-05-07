@@ -1,7 +1,11 @@
 <?php
 require("../database.php");
 $conexion=conexion();
-$sql="SELECT Cod_Usua,Cod_Empr,Cod_Turn,Tip_Usua,Nom_Usua,Ape_Usua,Dir_Usua,Ema_Usua,Tel_Usua FROM tab_usua";
+$sql="SELECT Cod_Usua,tab_empr.Nom_Empr,tab_turn.Des_Turn,Tip_Usua,Nom_Usua,Ape_Usua,Dir_Usua,Ema_Usua,Tel_Usua
+FROM tab_usua
+INNER JOIN tab_empr ON tab_usua.Cod_Empr = tab_empr.Cod_Empr
+INNER JOIN tab_turn ON tab_usua.Cod_Turn = tab_turn.Cod_Turn
+";
 $resultado=mysqli_query($conexion,$sql);
 ?>
 <table  id="example" class="table  table-condensed table-hover table-bordered table-sm">
@@ -16,6 +20,7 @@ $resultado=mysqli_query($conexion,$sql);
             <td>Direccion</td>
             <td>Email</td>
             <td>Telefono</td>
+            <td>Opciones</td>
         </tr>
     </thead>
     <tfoot style="background-color:#282D34;color:white; text-aling:center;">
@@ -29,6 +34,7 @@ $resultado=mysqli_query($conexion,$sql);
             <td>Direccion</td>
             <td>Email</td>
             <td>Telefono</td>
+            <td>Opciones</td>
         </tr>
     </tfoot>
     <tbody>
@@ -63,6 +69,11 @@ $resultado=mysqli_query($conexion,$sql);
             <td>
                 <?php echo $mostrar[8]?>
             </td>
+            <td>
+            <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editarUsuario"><i
+                        class="ti-pencil-alt"></i></button>
+                <button class="btn btn-danger btn-sm" onclick="eliminarDatos('<?php echo $mostrar[0] ?>')"><i class="ti-trash"></i></button>
+            </td>
         <?php
     }
 ?>
@@ -71,11 +82,8 @@ $resultado=mysqli_query($conexion,$sql);
 </table>
 <script>
 $(document).ready(function() {
-    
-
-  
     $('#example').DataTable({
-        scrollY:        '40vh',
+        scrollY:        '50vh',
         scrollCollapse: true,
         paging:         false,
         "language":{

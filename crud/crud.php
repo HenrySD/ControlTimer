@@ -52,6 +52,12 @@
 
 			$sql="DELETE from tab_empr where Cod_Empr='$Cod_Empr'";
 			return mysqli_query($conexion,$sql);
-		}
+        }
+        
+        public function eliminarUsuarios($Cod_Usua){
+            $conexion=conexion();
+            $sql="DELETE from tab_usua where Cod_Usua='$Cod_Usua'";
+            return mysqli_query($conexion,$sql);
+        }
     }
     ?>
