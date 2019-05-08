@@ -71,7 +71,7 @@ $resultado=mysqli_query($conexion,$sql);
             </td>
             <td>
             <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editarUsuario"><i
-                        class="ti-pencil-alt"></i></button>
+            onclick="agregaFrmActualizar('<?php echo $mostrar[0] ?>')"  class="ti-pencil-alt"></i></button>
                 <button class="btn btn-danger btn-sm" onclick="eliminarDatos('<?php echo $mostrar[0] ?>')"><i class="ti-trash"></i></button>
             </td>
         <?php

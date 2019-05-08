@@ -24,7 +24,7 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
     </div>
 </div>
 </div>
-<!-- Este es el modal para agregar usuarios-->
+<!-- Este es el modal para agregar nuevos usuarios-->
 <div class="modal fade col-xl-12" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -137,38 +137,42 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                 <div class="form-row">
                         <div class="form-group col-xl-6">
                             <label>Código</label>
-                            <input type="text" class="form-control" id="Cod_Usua" name="Cod_Usua">
+                            <input type="text" class="form-control" id="Cod_UsuaU" name="Cod_UsuaU" disabled>
                         </div>
                         <div class="form-group col-xl-7">
                             <label>Empresa</label>
 
-                            <select name="Cod_Empr" id="Cod_Empr" class="form-control">
+                            <select name="Cod_EmprU" id="Cod_EmprU" class="form-control">
                                 <?php 
-                            while($mostrar=mysqli_fetch_row($resultadoEmpresa)){
+                            while($mostrarU=mysqli_fetch_row($resultadoEmpresa)){
                             ?>
-                                <option value="<?php echo $mostrar[0]?>"><?php echo$mostrar[1]?></option>
+                                <option value="<?php echo $mostrarU[0]?>"><?php echo $mostrarU[1]?></option>
 
                                 <?php 
                             }
                             ?>
                             </select>
+                            
+                            
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Turno</label>
-                            <select class="form-control" id="Cod_Turn" name="Cod_Turn">
+                            <select class="form-control" id="Cod_TurnU" name="Cod_TurnU">
                                 <?php 
-                            while($mostrarTurno=mysqli_fetch_row($resultadoTurno)){
+                            while($mostrarTurnoU=mysqli_fetch_row($resultadoTurno)){
                             ?>
-                                <option value="<?php echo $mostrarTurno[0]?>"><?php echo $mostrarTurno[1]?></option>
+                                <option value="<?php echo $mostrarTurnoU[0]?>"><?php echo $mostrarTurnoU[1]?></option>
                                 <?php 
                              }
                             ?>
                             </select>
+                                
+                            
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Tipo de Usuario</label>
 
-                            <select class="form-control" name='Tip_Usua' id='Tip_Usua'>
+                            <select class="form-control" name='Tip_UsuaU' id='Tip_UsuaU'>
                                 <option value="Empleado">Empleado</option>
                                 <option value="Administrador">Administrador</option>
 
@@ -176,38 +180,28 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Nombre</label>
-                            <input type="text" class="form-control" id="Nom_Usua" name="Nom_Usua">
+                            <input type="text" class="form-control" id="Nom_UsuaU" name="Nom_UsuaU">
 
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Apellido</label>
-                            <input type="text" class="form-control " id="Ape_Usua" name="Ape_Usua">
+                            <input type="text" class="form-control " id="Ape_UsuaU" name="Ape_UsuaU">
 
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Dirección</label>
-                            <input type="text" class="form-control " id="Dir_Usua" name="Dir_Usua">
+                            <input type="text" class="form-control " id="Dir_UsuaU" name="Dir_UsuaU">
 
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Correo</label>
-                            <input type="text" class="form-control" id="Ema_Usua" name="Ema_Usua">
+                            <input type="text" class="form-control" id="Ema_UsuaU" name="Ema_UsuaU">
 
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Teléfono</label>
-                            <input type="text" class="form-control" id="Tel_Usua" name="Tel_Usua">
+                            <input type="text" class="form-control" id="Tel_UsuaU" name="Tel_UsuaU">
                         </div>
-                        <div class="form-group col-xl-12">
-                            <label>Usuario</label>
-
-                            <input type="text" class="form-control" id="Use_Name" name="Use_Name" null disabled>
-                        </div>
-                        <div class="form-group col-xl-12">
-                            <label>Contraseña</label>
-                            <input type="text" class="form-control" id="Con_Usua" name="Con_Usua" null disabled>
-                        </div>
-
                     </div>
                 </form>
             </div>
@@ -219,6 +213,30 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
         </div>
     </div>
 </div>
+<script>
+ function agregaFrmActualizar(Cod_Usua) {
+    $.ajax({
+
+        type: "POST",
+        data: "Cod_Usua=" + Cod_Usua,
+        url: "crud/obtenDatosUsuarios.php",
+        success: function(r) {
+            datos = jQuery.parseJSON(r);
+            $('#frmnuevoU')[0].reset();
+            $('#Cod_UsuaU').val(datos['Cod_Usua']);
+            $('#Cod_EmprU').val(datos['Cod_Empr']);
+            $('#Cod_TurnU').val(datos['Cod_Turn']);
+            $('#Tip_UsuaU').val(datos['Tip_Usua']);
+            $('#Nom_UsuaU').val(datos['Nom_Usua']);
+            $('#Ape_UsuaU').val(datos['Ape_Usua']);
+            $('#Dir_UsuaU').val(datos['Dir_Usua']);
+            $('#Ema_UsuaU').val(datos['Ema_Usua']);
+            $('#Tel_UsuaU').val(datos['Tel_Usua']);
+            
+        }
+    });
+}
+</script>
     <script>
     $(document).ready(function() {
         $('#btnguardarnuevoUsua').click(function() {
@@ -284,6 +302,7 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
     });
     </script>
     <script>
+   
     function eliminarDatos(Cod_Usua) {
     alertify.confirm('Eliminar', '¿Seguro que desea eliminar este usuario?', function() {
         $.ajax({

@@ -36,6 +36,31 @@
             );
             return $datos;
         }
+        public function obtenDatosUsuarios($Cod_Usua){
+            $conexion=conexion();
+
+            $sql="SELECT Cod_Usua,tab_empr.Nom_Empr,tab_turn.Des_Turn,Tip_Usua,Nom_Usua,Ape_Usua,Dir_Usua,Ema_Usua,Tel_Usua
+            FROM tab_usua
+            INNER JOIN tab_empr ON tab_usua.Cod_Empr = tab_empr.Cod_Empr
+            INNER JOIN tab_turn ON tab_usua.Cod_Turn = tab_turn.Cod_Turn 
+            WHERE Cod_Usua='$Cod_Usua'";
+
+            $result=mysqli_query($conexion,$sql);
+            $ver=mysqli_fetch_row($result);
+
+            $datos=array(
+                'Cod_Usua'=>$ver[0],
+                'Cod_Empr'=>$ver[1],
+                'Cod_Turn'=>$ver[2],
+                'Tip_Usua'=>$ver[3],
+                'Nom_Usua'=>$ver[4],
+                'Ape_Usua'=>$ver[5],
+                'Dir_Usua'=>$ver[6],
+                'Ema_Usua'=>$ver[7],
+                'Tel_Usua'=>$ver[8]
+            );
+            return $datos;
+        }
 
 
         public function actualizar($datos){
