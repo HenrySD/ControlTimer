@@ -14,7 +14,7 @@ $datosUsuarios=array(
     $_POST['Ema_Usua'],
     $_POST['Tel_Usua'],
     $_POST['Use_Name'],
-    $_POST['Con_Usua']
+   sha1( $_POST['Con_Usua'])
 );
 echo $objUsuarios->agregarUsuarios($datosUsuarios);
 ?>

@@ -4,7 +4,7 @@ require("database.php");
 $conexion=conexion();
 if(isset($_POST['txtUsuario']) && isset($_POST['txtPass']) ){
     $user = $_POST['txtUsuario'];
-    $pass =$_POST['txtPass'];
+    $pass =sha1($_POST['txtPass']);
     $sql="SELECT * FROM tab_usua";
 $resultado = $conexion->query($sql);
 if($resultado->num_rows > 0){
