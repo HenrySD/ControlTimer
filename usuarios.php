@@ -20,7 +20,7 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
     </button>
     <div id="vicki" class="">
 
-
+		<!---->
     </div>
 </div>
 </div>
@@ -108,7 +108,7 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Contraseña</label>
-                            <input type="text" class="form-control" id="Con_Usua" name="Con_Usua" null disabled>
+                            <input type="password" class="form-control" id="Con_Usua" name="Con_Usua" null disabled>
                         </div>
 
                     </div>
@@ -121,7 +121,7 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
         </div>
     </div>
 </div>
-    		<!--este modal es para la edicion de campos de usuarios-->
+<!--este modal es para la edicion de campos de usuarios-->
 <div class="modal fade col-xl-12" id="editarUsuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -133,41 +133,61 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                 </button>
             </div>
             <div class="modal-body col-xl-12">
+                <?php
+            // se isieron otras query para la el modal editar
+            $sqlUE="SELECT Cod_Empr,Nom_Empr FROM tab_empr ";
+            $sqlUT="SELECT Cod_Turn,Des_Turn FROM tab_turn";
+            $resulEm=mysqli_query($conexion,$sqlUE);
+            $resulTu=mysqli_query($conexion,$sqlUT);
+            
+            ?>
                 <form class="caj" id="frmnuevoU">
-                <div class="form-row">
+                    <div class="form-row">
                         <div class="form-group col-xl-6">
                             <label>Código</label>
-                            <input type="text" class="form-control" id="Cod_UsuaU" name="Cod_UsuaU" disabled>
-                        </div>
-                        <div class="form-group col-xl-7">
-                            <label>Empresa</label>
-
-                            <select name="Cod_EmprU" id="Cod_EmprU" class="form-control">
-                                <?php 
-                            while($mostrarU=mysqli_fetch_row($resultadoEmpresa)){
-                            ?>
-                                <option value="<?php echo $mostrarU[0]?>"><?php echo $mostrarU[1]?></option>
-
-                                <?php 
-                            }
-                            ?>
-                            </select>
-                            
-                            
+                            <input type="text" class="form-control" id="Cod_UsuaU" name="Cod_UsuaU" readonly>
                         </div>
                         <div class="form-group col-xl-12">
-                            <label>Turno</label>
-                            <select class="form-control" id="Cod_TurnU" name="Cod_TurnU">
+
+                            <label>Empresa</label><label style="margin-left:200px;">Nueva Empresa</label>
+
+                            <div class="input-group">
+                                
+                                <input type="text"name="Cod_EmprU" id="Cod_EmprU" class="form-control" readonly>
+                                
+                                <select name="NCod_EmprU" id="NCod_EmprU" class="form-control">
                                 <?php 
-                            while($mostrarTurnoU=mysqli_fetch_row($resultadoTurno)){
+                            while($x=mysqli_fetch_row($resulEm)){
                             ?>
-                                <option value="<?php echo $mostrarTurnoU[0]?>"><?php echo $mostrarTurnoU[1]?></option>
+
+                                <option value="<?php echo $x[0]?>"><?php echo $x[1]?></option>
                                 <?php 
                              }
                             ?>
                             </select>
-                                
+
+
                             
+                            
+                        </div>
+                        <div class="form-group col-xl-12 mt-3 ">
+                            <label>Turno</label><label style="margin-left:200px;">Nueva Turno</label>
+                             <div class="input-group">
+                             <input class="form-control" id="Cod_TurnU" name="Cod_TurnU" readonly>
+                             
+                            <select class="form-control" id="NCod_TurnU" name="NCod_TurnU" >
+
+                                <?php 
+                            while($y=mysqli_fetch_row($resulTu)){
+                            ?>
+
+                                <option value="<?php echo $y[0]?>"><?php echo $y[1]?></option>
+                                <?php 
+                             }
+                            ?>
+                            </select>
+
+                             </div>
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Tipo de Usuario</label>
@@ -213,8 +233,98 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
         </div>
     </div>
 </div>
+
 <script>
- function agregaFrmActualizar(Cod_Usua) {
+$(document).ready(function() {
+    $('#btnguardarnuevoUsua').click(function() {
+        datosUsuarios = $('#frmnuevoUsua').serialize();
+        $.ajax({
+            type: "POST",
+            data: datosUsuarios,
+            url: "crud/agregarUsuario.php",
+            success: function(r) {
+                if (r == 1) {
+                    $('#frmnuevoUsua')[0].reset();
+                    //3 para cambiar
+                    $('#vicki').load('tablas/tablaUsuarios.php');
+                    alertify.success("Administrador ingresado");
+                } else {
+                    $('#frmnuevoUsua')[0].reset();
+                    $('#vicki').load('tablas/tablaUsuarios.php');
+                    alertify.success("Empleado ingresado");
+                }
+
+            }
+        });
+    });
+
+    $('#btneditarUsuario').click(function() {
+        datosEdiUsua = $('#frmnuevoU').serialize();
+        $.ajax({
+            type: "POST",
+            data: datosEdiUsua,
+            url: "crud/actualizarUsuarios.php",
+            
+            success: function(r) {
+                if (r == 1) {
+
+                    $('#vicki').load('tablas/tablaUsuarios.php');
+                    alertify.success("Actualizado Conexito");
+                } else {
+                    alertify.error("Fallo la Actualizacion");
+                }
+            }
+        });
+    });
+});
+</script>
+<script>
+$(document).ready(function() {
+    $('#vicki').load('tablas/tablaUsuarios.php');
+});
+</script>
+<script>
+$(function() {
+    $("#Tip_Usua").change(function() {
+        if ($(this).val() === "Empleado") {
+            $("#Use_Name").prop("disabled", true);
+            $("#Con_Usua").prop("disabled", true);
+            $("#Rep_Cont").prop("disabled", true);
+        } else {
+            $("#Use_Name").prop("disabled", false);
+            $("#Con_Usua").prop("disabled", false);
+            $("#Rep_Cont").prop("disabled", false);
+        }
+    });
+});
+</script>
+<script>
+function eliminarDatos(Cod_Usua) {
+    alertify.confirm('Eliminar', '¿Seguro que desea eliminar este usuario?', function() {
+        $.ajax({
+
+            type: "POST",
+            data: "Cod_Usua=" + Cod_Usua,
+            url: "crud/eliminarUsuarios.php",
+            success: function(r) {
+                if (r == 1) {
+                    $('#vicki').load('tablas/tablaUsuarios.php');
+                    alertify.success("Usuario eliminado con exito");
+                } else {
+                    alertify.error("No se pudo eliminar");
+                }
+
+            }
+        });
+
+    }, function() {
+
+    });
+
+}
+</script>
+<script>
+function agregaFrmActualizar(Cod_Usua) {
     $.ajax({
 
         type: "POST",
@@ -232,103 +342,12 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
             $('#Dir_UsuaU').val(datos['Dir_Usua']);
             $('#Ema_UsuaU').val(datos['Ema_Usua']);
             $('#Tel_UsuaU').val(datos['Tel_Usua']);
-            
+
         }
     });
 }
 </script>
-    <script>
-    $(document).ready(function() {
-        $('#btnguardarnuevoUsua').click(function() {
-            datosUsuarios = $('#frmnuevoUsua').serialize();
-            $.ajax({
-                type: "POST",
-                data: datosUsuarios,
-                url: "crud/agregarUsuario.php",
-                success: function(r) {
-                    if (r == 1) {
-                        $('#frmnuevoUsua')[0].reset();
-                        //3 para cambiar
-                        $('#vicki').load('tablas/tablaUsuarios.php');
-                        alertify.success("Administrador ingresado");
-                    }
-                     else {
-                        $('#frmnuevoUsua')[0].reset();
-                        $('#vicki').load('tablas/tablaUsuarios.php');
-                        alertify.success("Empleado ingresado");
-                    } 
-                    
-                }
-            });
-        });
-
-        $('#btneditarUsuario').click(function() {
-        datos = $('#frmnuevoU').serialize();
-        $.ajax({
-            type: "POST",
-            data: datos,
-            url: "crud",
-            success: function(r) {
-                if (r == 1) {
-
-                    $('#cajita').load('tablas/tablaUsuarios.php');
-                    alertify.success("Actualizado Conexito");
-                } else {
-                    alertify.error("Fallo la Actualizacion");
-                }
-            }
-        });
-    });
-    });
-    </script>
-    <script>
-    $(document).ready(function() {
-        $('#vicki').load('tablas/tablaUsuarios.php');
-    });
-    </script>
-    <script>
-    $(function() {
-        $("#Tip_Usua").change(function() {
-            if ($(this).val() === "Empleado") {
-                $("#Use_Name").prop("disabled", true);
-                $("#Con_Usua").prop("disabled", true);
-                $("#Rep_Cont").prop("disabled", true);
-            } else {
-                $("#Use_Name").prop("disabled", false);
-                $("#Con_Usua").prop("disabled", false);
-                $("#Rep_Cont").prop("disabled", false);
-            }
-        });
-    });
-    </script>
-    <script>
-   
-    function eliminarDatos(Cod_Usua) {
-    alertify.confirm('Eliminar', '¿Seguro que desea eliminar este usuario?', function() {
-        $.ajax({
-
-            type: "POST",
-            data: "Cod_Usua=" + Cod_Usua,
-            url: "crud/eliminarUsuarios.php",
-            success: function(r) {
-                if(r==1){
-                    $('#vicki').load('tablas/tablaUsuarios.php');
-                    alertify.success("Usuario eliminado con exito");
-                }else{
-                    alertify.error("No se pudo eliminar");
-                }
-
-            }
-        });
-
-    }
-    ,function(){
-
-    });
-
-}
-    </script>
-    <?php
+<?php
 require('partials/pies.php');
 
 ?>

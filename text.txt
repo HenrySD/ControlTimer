@@ -10,8 +10,8 @@ password: 23843712FA
 
 
 Cod_UsuaU
-Cod_EmprU
-Cod_TurnU
+NCod_EmpreU
+NCod_TurnU
 Tip_UsuaU
 Nom_UsuaU
 Ape_UsuaU

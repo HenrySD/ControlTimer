@@ -70,6 +70,11 @@
             return mysqli_query($conexion,$sql);
             
         }
+        public function actualizarUsuarios($datosEdiUsua){
+            $conexion=conexion();
+            $sql="UPDATE tab_usua SET Cod_Empr='$datosEdiUsua[1]',Cod_Turn='$datosEdiUsua[2]',Tip_Usua='$datosEdiUsua[3]',Nom_Usua='$datosEdiUsua[4]',Ape_Usua='$datosEdiUsua[5]',Dir_Usua='$datosEdiUsua[6]',Ema_Usua='$datosEdiUsua[7]',Tel_Usua='$datosEdiUsua[8]' WHERE Cod_Usua='$datosEdiUsua[0]'";
+            return mysqli_query($conexion,$sql);
+        }
 
         public function eliminar($Cod_Empr){
 			
