@@ -60,11 +60,12 @@ try {
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Bienvenido a nuestra empresa';
-    $mail->Body    = "<b>Hola es un gusto averte contratado </b><br>"
-                        .$datosUsuarios[4]." ". $datosUsuarios[5]."<br> Este es tu Identificador personal dentro de la empresa <br>
-                        Por favor no lo piernas :) <br>
-                        Con este Codigo QR podras dar constancia de tu yegada y salida de la empresa<br>
-                        Feliz dia ";
+    $mail->Body    = "<b><h3>Hola es un gusto haberte contratado</h3> </b><br>"
+                        .$datosUsuarios[4]." ". $datosUsuarios[5]."<br> Este es tu identificador personal dentro de la empresa <br>
+                        Por favor no lo pierdas :) <br>
+                        Con este código QR podras dar constancia de tu llegada y salida de la empresa<br>
+                        <br>
+                        Feliz día ";
     
 
     $mail->send();
