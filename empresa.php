@@ -39,6 +39,7 @@ small{
                         <div class="form-group col-xl-6">
                             <label>Código</label>
                             <input type="text" class="form-control" id="Cod_Empr" name="Cod_Empr" required>
+                            <label id='Cod'></label>
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Nombre</label>
@@ -133,8 +134,13 @@ small{
 <script>
 $(document).ready(function() {
     $('#btnguardarnuevo').click(function() {
-        datos = $('#frmnuevo').serialize();
-        $.ajax({
+        if( document.getElementById('Cod_Empr').value.trim() == '' ){
+            $("#Cod").html("<div style='color:red;'>Requerido</div>");
+            }
+        else if( document.getElementById('Nom_Empr').value.trim() == '' ){}
+        else{
+            datos = $('#frmnuevo').serialize();
+            $.ajax({
             type: "POST",
             data: datos,
             url: "crud/agregar.php",
@@ -149,6 +155,10 @@ $(document).ready(function() {
                 }
             }
         });
+        }
+
+
+        
     });
 
     $('#btneditar').click(function() {
