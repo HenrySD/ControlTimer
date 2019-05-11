@@ -9,20 +9,6 @@ require("../phpmailer/Exception.php");
 require("../phpmailer/PHPMailer.php");
 require("../phpmailer/SMTP.php");
 //nombre de carpeta
-$dir='temp/';
-if(!file_exists($dir)){
-    mkdir($dir);
-}
-$filename=$dir.$_POST['Cod_Usua'].'.png';
-
-$tamanio=10;
-$level='M';
-$frameSize=3;
-$contenido=$_POST['Cod_Usua'];
-
-QRcode::png($contenido,$filename,$level,$tamanio,$frameSize);
-
-
 
 $objUsuarios = new crud();
 $datosUsuarios=array(
@@ -39,6 +25,20 @@ $datosUsuarios=array(
    sha1( $_POST['Con_Usua'])
 );
 echo $objUsuarios->agregarUsuarios($datosUsuarios);
+$codigo=$datosUsuarios[0];
+$dir='temp/';
+if(!file_exists($dir)){
+    mkdir($dir);
+}
+$filename=$dir.$codigo.'.png';
+echo $codigo;
+$tamanio=10;
+$level='Q';
+$frameSize=3;
+$contenido=$codigo;
+
+QRcode::png($contenido,$filename,$level,$tamanio,$frameSize);
+
 $mail = new PHPMailer(true);
 
 try {
@@ -55,18 +55,13 @@ try {
     $mail->setFrom('controltimer3@gmail.com', 'Control Timer');
     $mail->addAddress($datosUsuarios[7]); 
         // Add a recipient
-    $mail->addAttachment("temp/".$datosUsuarios[0].".png");    // Optional name
+       // Optional name
 
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Bienvenido a nuestra empresa';
-    $mail->Body    = "<b><h3>Hola es un gusto haberte contratado</h3> </b><br>"
-                        .$datosUsuarios[4]." ". $datosUsuarios[5]."<br> Este es tu identificador personal dentro de la empresa <br>
-                        Por favor no lo pierdas :) <br>
-                        Con este código QR podras dar constancia de tu llegada y salida de la empresa<br>
-                        <br>
-                        Feliz día ";
-    
+    $mail->Body    = 'talves aora';
+    $mail->addAttachment($filename); 
 
     $mail->send();
     echo 'El email se envio correctamente';
