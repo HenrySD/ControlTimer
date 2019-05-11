@@ -33,7 +33,7 @@ if(!file_exists($dir)){
 $filename=$dir.$codigo.'.png';
 echo $codigo;
 $tamanio=10;
-$level='Q';
+$level='M';
 $frameSize=3;
 $contenido=$codigo;
 
@@ -44,24 +44,26 @@ $mail = new PHPMailer(true);
 try {
     //Server settings
     //acceso
-    $mail->SMTPDebug = 0;                                       // Enable verbose debug output
+    $mail->SMTPDebug = 2;                                       // Enable verbose debug output
     $mail->isSMTP();                                            // Set mailer to use SMTP
-    $mail->Host       = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
+    $mail->Host       = 'mail.comues.com';                       // Specify main and backup SMTP servers
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = 'controltimer3@gmail.com';                     // SMTP username
-    $mail->Password   = 'controltimer2019';                               // SMTP password
-    $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
+    $mail->Username   = 'controltimer@comues.com';                     // SMTP username
+    $mail->Password   = 'CONTROLtimer2384.';                               // SMTP password
+    $mail->SMTPSecure = '';                                  // Enable TLS encryption, `ssl` also accepted
     $mail->Port       = 587;                                    // TCP port to connect to
-    $mail->setFrom('controltimer3@gmail.com', 'Control Timer');
+    $mail->setFrom('controltimer@comues.com','Control Timer');
     $mail->addAddress($datosUsuarios[7]); 
+    
+    $mail->addAttachment($filename); 
         // Add a recipient
        // Optional name
 
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Bienvenido a nuestra empresa';
-    $mail->Body    = 'talves aora';
-    $mail->addAttachment($filename); 
+    $mail->Body    = "<b>Hola ".$datosUsuarios[4]." ".$datosUsuarios[5]."</b><br>Este es tu ID no lo pierdas <br>Con el prodras dar constacion de tu entrada y salida de la empresa <br> Feliz Dia";
+    
 
     $mail->send();
     echo 'El email se envio correctamente';

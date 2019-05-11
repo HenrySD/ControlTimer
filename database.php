@@ -19,4 +19,15 @@ function conexion(){
         return $conexion;
     }
 
+// en comues.com
+
+/*function conexion(){
+    $servidor="localhost";
+    $usuarioDB="comuesco_controltimer";
+    $passwordDB="CONTROLtimer2384.";
+    $nombreDB="comuesco_dbo_ctrl";
+        $conexion =mysqli_connect($servidor,$usuarioDB,$passwordDB, $nombreDB);
+        return $conexion;
+    }
+*/
 ?>
