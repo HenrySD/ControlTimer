@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vista Empleado</title>
-
-
+<?php 
+require("cnd.php")
+?>
     <!--//////////////////////////////-->
     <!--CDN bootstrap y css-->
     <!--//////////////////////////////-->
@@ -17,7 +18,7 @@
     <link rel="stylesheet" href="alertify/css/alertify.css">
 
     <!--**********************CDN de jQuery y js*******************************-->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="carpetas/js/jquery.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js">
     </script>
@@ -65,75 +66,59 @@
 
                         </video>
 
-                        <div class="col-md-7  ml-2 mt-3" style="width:100px; height:250px;">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
+                        <div id="muestra" class="col-md-7  ml-2 mt-3" style="width:100px; height:250px;">
+                            
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-3 border ml-2 mt-3" style="height:50px;">
-<input type="text" id="txt" class="form-control" value="">
+                    <form id="formulario">
+                        <div class=" row col-sm-3 ml-2 mt-3" style="height:50px;">
+                            <input type="text" id="txt" name="txt" class="form-control" value="">
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </body>
+<script>
+$('#muestra').load('tablas/tablaMuestra.php');
+</script>
 <script type="text/javascript">
-      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
-      scanner.addListener('scan', function (content) {
-        console.log(content);
-        alertify.success("Agregado con exito !");
+let scanner = new Instascan.Scanner({
+    video: document.getElementById('preview')
+});
+scanner.addListener('scan', function(content) {
+    console.log(content);
+    alertify.success("Agregado con exito !");
+    document.getElementById('txt').value = content;
+    datos = $('#formulario').serialize();
+    $.ajax({
         
-      });
-      Instascan.Camera.getCameras().then(function (cameras) {
-        if (cameras.length > 0) {
-          scanner.start(cameras[0]);
-        } else {
-          console.error('No cameras found.');
+        type: "POST",
+        data: datos,
+        url: "postEmpleado.php",
+        success: function(r) {
+            if (r == 1) {
+                $('#muestra').load('tablas/tablaMuestra.php');
+                alertify.success("introducido en la db");
+            } else {
+                alertify.success("El ID no esta registrado");
+            }
         }
-      }).catch(function (e) {
-        console.error(e);
-      });
+    });
 
-      $()
-    </script>
+});
+Instascan.Camera.getCameras().then(function(cameras) {
+    if (cameras.length > 0) {
+        scanner.start(cameras[0]);
 
+    } else {
+        console.error('La camara no funciona.');
+    }
+}).catch(function(e) {
+    console.error(e);
+});
 
+$()
+</script>
 </html>

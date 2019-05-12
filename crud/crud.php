@@ -36,6 +36,23 @@
             );
             return $datos;
         }
+
+        public function obtenDatosConfig($Cod_Turn){
+            $conexion=conexion();
+            $sql="SELECT Cod_Turn,Des_Turn,Hor_Entr,Hor_Sali,Lim_Tiem FROM tab_turn WHERE Cod_Turn='$Cod_Turn'";
+            $result=mysqli_query($conexion,$sql);
+            $ver=mysqli_fetch_row($result);
+
+            $datos=array(
+                'Cod_Turn'=>$ver[0],
+                'Des_Turn'=>$ver[1],
+                'Hor_Entr'=>$ver[2],
+                'Hor_Sali'=>$ver[3],
+                'Lim_Tiem'=>$ver[4]
+            );
+            return $datos;
+
+        }
         public function obtenDatosUsuarios($Cod_Usua){
             $conexion=conexion();
 
@@ -69,6 +86,12 @@
 
             return mysqli_query($conexion,$sql);
             
+        }
+        public function actualizarConfiguracion($datos){
+            $conexion=conexion();
+            $sql="UPDATE tab_turn SET Des_Turn='$datos[1]',Hor_Entr='$datos[2]',Hor_Sali='$datos[3]',Lim_Tiem='$datos[4]' WHERE Cod_Turn='$datos[0]'";     
+
+            return mysqli_query($conexion,$sql);
         }
         public function actualizarUsuarios($datosEdiUsua){
             $conexion=conexion();
