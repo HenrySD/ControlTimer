@@ -6,6 +6,11 @@ small{
     color:#e10000;
 }
 </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
 
 <div class="container">
 <h3 class="text-center mb-3">Configuración</h3>
@@ -36,23 +41,25 @@ small{
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Turno</label>
-
                             <input class="form-control" name="Des_Turn" id="Des_Turn">
                         </div>
-                        <div class="form-group col-xl-6">
+                        <div class="form-group col-xl-12">
                             <label>Hora entrada</label>
-                            <input type="text" class="form-control" id="Hor_Entr" name="Hor_Entr"required>
-
+                            <div class="hola">
+                            <input type="text" class="form-control" value=""  id="Hor_Entr" name="Hor_Entr">
+                            </div>
                         </div>
-                        <div class="form-group col-xl-6">
+                        <div class="form-group col-xl-12">
                             <label>Hora salida</label>
-                            <input type="text" class="form-control " id="Hor_Sali" name="Hor_Sali"required>
-
+                            <div class="hola">
+                            <input type="text" class="form-control" value="" id="Hor_Sali" name="Hor_Sali">
+                            </div>
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Limite de tiempo</label>
+                            <div class="hola">
                             <input type="text" class="form-control " id="Lim_Tiem" name="Lim_Tiem"required>
-
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -113,6 +120,25 @@ function agregaFrmActualizar(Cod_Turn) {
         }
     });
 }
+</script>
+<script>
+$(document).ready(function() {
+  $('.hola').timepicker({
+    useCurrent: false,
+    format: 'HH:mm:ss',
+    minuteStep: 1,
+    showSeconds: true,
+    showMeridian: false,
+    disableFocus: true,
+    icons: {
+      up: 'fa fa-chevron-up',
+      down: 'fa fa-chevron-down'
+    }
+  }).on('focus', function() {
+    $('.hola').timepicker('showWidget');
+  });
+
+});
 </script>
 <?php
 require("partials/pies.php");
