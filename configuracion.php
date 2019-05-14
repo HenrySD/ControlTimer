@@ -45,21 +45,21 @@ small{
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Hora entrada</label>
-                            <div class="hola">
+                            
                             <input type="text" class="form-control" value=""  id="Hor_Entr" name="Hor_Entr">
-                            </div>
+                            
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Hora salida</label>
-                            <div class="hola">
+                            
                             <input type="text" class="form-control" value="" id="Hor_Sali" name="Hor_Sali">
-                            </div>
+                            
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Limite de tiempo</label>
-                            <div class="hola">
+                            
                             <input type="text" class="form-control " id="Lim_Tiem" name="Lim_Tiem"required>
-                            </div>
+                            
                         </div>
                     </div>
                 </form>
@@ -123,7 +123,7 @@ function agregaFrmActualizar(Cod_Turn) {
 </script>
 <script>
 $(document).ready(function() {
-  $('.hola').timepicker({
+  $('#Hor_Entr,#Hor_Sali,#Lim_Tiem').timepicker({
     useCurrent: false,
     format: 'HH:mm:ss',
     minuteStep: 1,
@@ -134,9 +134,8 @@ $(document).ready(function() {
       up: 'fa fa-chevron-up',
       down: 'fa fa-chevron-down'
     }
-  }).on('focus', function() {
-    $('.hola').timepicker('showWidget');
   });
+  
 
 });
 </script>
