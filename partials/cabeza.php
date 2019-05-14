@@ -56,10 +56,13 @@ header('Location:index.php');
                     </li>
                     </li>
                     <li>
-                        <a href="asistencia.php"> <i class="menu-icon ti-save "></i>Listado asistencia </a>
+                        <a href="asistencia.php"> <i class="menu-icon ti-save "></i>Asistencia </a>
                     </li>
                     <li>
                         <a href="empresa.php"><i class="menu-icon ti-world"></i>Empresa </a>
+                    </li>
+                    <li>
+                        <a href="acercade.php"><i class="menu-icon ti-world"></i>Conocenos </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

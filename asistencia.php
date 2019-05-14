@@ -2,7 +2,7 @@
 require("partials/cabeza.php");
 ?>
 <div class="container">
-<h3 class="text-center">Asistencia</h3>
+<h3 class="text-center">Listado de asistencia</h3>
 
 
 </div>
