@@ -6,12 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Vista Empleado</title>
-<?php 
-require("cnd.php")
-?>
+
     <!--//////////////////////////////-->
     <!--CDN bootstrap y css-->
     <!--//////////////////////////////-->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="carpetas/css/estilo.css">
     <link rel="stylesheet" href="alertify/css/themes/default.css">
@@ -19,7 +18,7 @@ require("cnd.php")
 
     <!--**********************CDN de jQuery y js*******************************-->
     <script src="carpetas/js/jquery.js"></script>
-
+    <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js">
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js">
@@ -48,7 +47,7 @@ require("cnd.php")
 
 
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="height:450px;">
                     <div class="row">
                         <div class="col-md-4 ml-2 border text-center">
                             <p>Lunes 22 de Abril del 2019 </p>
@@ -57,7 +56,11 @@ require("cnd.php")
                             <p> 10:34:40 PM </p>
                         </div>
                         <div class="col-md-3">
-                            <input type="text" class="form-control">
+                            <form id="formulario">
+                                <div class="" style="">
+                                    <input type="text" id="txt" name="txt" class="form-control" value="" readonly>
+                                </div>
+                            </form>
                         </div>
 
                     </div>
@@ -66,15 +69,11 @@ require("cnd.php")
 
                         </video>
 
-                        <div id="muestra" class="col-md-7  ml-2 mt-3" style="width:100px; height:250px;">
-                            
+                        <div id="muestra" class="col-md-7  " style="width:100px; height:250px;">
+
                         </div>
                     </div>
-                    <form id="formulario">
-                        <div class=" row col-sm-3 ml-2 mt-3" style="height:50px;">
-                            <input type="text" id="txt" name="txt" class="form-control" value="">
-                        </div>
-                    </form>
+
                 </div>
             </div>
         </div>
@@ -93,7 +92,7 @@ scanner.addListener('scan', function(content) {
     document.getElementById('txt').value = content;
     datos = $('#formulario').serialize();
     $.ajax({
-        
+
         type: "POST",
         data: datos,
         url: "postEmpleado.php",
@@ -121,4 +120,5 @@ Instascan.Camera.getCameras().then(function(cameras) {
 
 $()
 </script>
+
 </html>
