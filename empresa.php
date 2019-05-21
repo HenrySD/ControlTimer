@@ -7,8 +7,8 @@ require("partials/cabeza.php");
 <!--Aca Todo lo del lado derecho body-->
 
 <style>
-small{
-	color:#e10000;
+small {
+    color: #e10000;
 }
 </style>
 
@@ -16,7 +16,7 @@ small{
     <h3 class="text-center">Empresa</h3>
     <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i>
         Agregar</button>
-       
+
     <div id="cajita" class="">
         <!--aqui aparece la tabla de la empresa-->
 
@@ -43,26 +43,26 @@ small{
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Nombre</label>
-                            <input type="text" class="form-control" id="Nom_Empr" name="Nom_Empr"required>
+                            <input type="text" class="form-control" id="Nom_Empr" name="Nom_Empr" required>
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Fecha</label>
-                            <input type="text" class="form-control" id="Fec_Cons" name="Fec_Cons"required>
+                            <input type="text" class="form-control" id="Fec_Cons" name="Fec_Cons" required>
 
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Teléfono</label>
-                            <input type="text" class="form-control " id="Tel_Empr" name="Tel_Empr"required>
+                            <input type="text" class="form-control " id="Tel_Empr" name="Tel_Empr" required>
 
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Correo</label>
-                            <input type="text" class="form-control " id="Ema_Empr" name="Ema_Empr"required>
+                            <input type="text" class="form-control " id="Ema_Empr" name="Ema_Empr" required>
 
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Dirección</label>
-                            <input type="text" class="form-control" id="Dir_Empr" name="Dir_Empr"required>
+                            <input type="text" class="form-control" id="Dir_Empr" name="Dir_Empr" required>
 
                         </div>
 
@@ -73,8 +73,8 @@ small{
             </div>
             <div class="modal-footer col-xl-12">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-               
-    <input type="submit" class="btn btn-primary" id="btnguardarnuevo" disabled="disabled" value="Guardar">
+
+                <input type="submit" class="btn btn-primary" id="btnguardarnuevo" disabled="disabled" value="Guardar">
             </div>
         </div>
     </div>
@@ -134,31 +134,29 @@ small{
 <script>
 $(document).ready(function() {
     $('#btnguardarnuevo').click(function() {
-        if( document.getElementById('Cod_Empr').value.trim() == '' ){
+        if (document.getElementById('Cod_Empr').value.trim() == '') {
             $("#Cod").html("<div style='color:red;'>Requerido</div>");
-            }
-        else if( document.getElementById('Nom_Empr').value.trim() == '' ){}
-        else{
+        } else if (document.getElementById('Nom_Empr').value.trim() == '') {} else {
             datos = $('#frmnuevo').serialize();
             $.ajax({
-            type: "POST",
-            data: datos,
-            url: "crud/agregar.php",
-            success: function(r) {
-                if (r == 1) {
-                    $('#frmnuevo')[0].reset();
-                    //3 para cambiar
-                    $('#cajita').load('tablas/tablaEmpresa.php');
-                    alertify.success("Agregado Conexito");
-                } else {
-                    alertify.error("Fallo al agregar");
+                type: "POST",
+                data: datos,
+                url: "crud/agregar.php",
+                success: function(r) {
+                    if (r == 1) {
+                        $('#frmnuevo')[0].reset();
+                        //3 para cambiar
+                        $('#cajita').load('tablas/tablaEmpresa.php');
+                        alertify.success("Agregado Conexito");
+                    } else {
+                        alertify.error("Fallo al agregar");
+                    }
                 }
-            }
-        });
+            });
         }
 
 
-        
+
     });
 
     $('#btneditar').click(function() {
@@ -178,6 +176,8 @@ $(document).ready(function() {
             }
         });
     });
+
+
 });
 </script>
 <script type="text/javascript">
@@ -209,18 +209,17 @@ function eliminarDatos(Cod_Empr) {
             data: "Cod_Empr=" + Cod_Empr,
             url: "crud/eliminar.php",
             success: function(r) {
-                if(r==1){
+                if (r == 1) {
                     $('#cajita').load('tablas/tablaEmpresa.php');
                     alertify.success("Eliminado con exito");
-                }else{
+                } else {
                     alertify.error("No se pudo eliminar");
                 }
 
             }
         });
 
-    }
-    ,function(){
+    }, function() {
 
     });
 
@@ -253,22 +252,21 @@ $(document).ready(function() {
 });
 </script>
 <script>
-
 $('#nuevo').bootstrapValidator({
     fields: {
         Cod_Empr: {
-                validators: {
-                    notEmpty: {
-                        message: 'El Codigo es obligatorio'
-                    }
-                }
-            },
-        Nom_Empr:{
             validators: {
-                    notEmpty: {
-                        message: 'El nombre es obligatorio'
-                    }
+                notEmpty: {
+                    message: 'El Codigo es obligatorio'
                 }
+            }
+        },
+        Nom_Empr: {
+            validators: {
+                notEmpty: {
+                    message: 'El nombre es obligatorio'
+                }
+            }
         }
     }
 });
