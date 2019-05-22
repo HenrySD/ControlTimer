@@ -11,9 +11,28 @@ small {
     color: #e10000;
 }
 </style>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      
+      <div class="modal-body">
+        aqui el video
+      </div>
+      
+    </div>
+  </div>
+</div>
 
 <div class="container ">
-    <h3 class="text-center">Empresa</h3>
+    <div class="row">
+        <div class="col-sm-11">
+            <h3 class="text-center">Empresa</h3>
+        </div>
+        <div class="col-sm-1">
+            <a><i class="ti-help-alt" style="font-size:25px; margin-left:30px;" data-toggle="modal" data-target="#exampleModalCenter"></i></a>
+        </div>
+    </div>
+
     <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i>
         Agregar</button>
 
@@ -167,7 +186,6 @@ $(document).ready(function() {
             url: "crud/actualizar.php",
             success: function(r) {
                 if (r == 1) {
-
                     $('#cajita').load('tablas/tablaEmpresa.php');
                     alertify.success("Actualizado Conexito");
                 } else {
@@ -225,10 +243,6 @@ function eliminarDatos(Cod_Empr) {
 
 }
 </script>
-
-
-
-
 <script>
 $("#Fec_Cons").datepicker({
     // Siquiere colocar fechas futuras usar minDate()
@@ -237,8 +251,6 @@ $("#Fec_Cons").datepicker({
     dateFormat: "yy-mm-dd"
 
 });
-
-
 $("#Fec_ConsU").datepicker({
     maxDate: new Date(),
     dateFormat: "yy-mm-dd"
@@ -246,8 +258,6 @@ $("#Fec_ConsU").datepicker({
 </script>
 <script>
 $(document).ready(function() {
-    //Con esto carga el archivo donde estan la tabla de la empresa y lo muestra
-    // en el id=cajita
     $('#cajita').load('tablas/tablaEmpresa.php');
 });
 </script>
@@ -271,8 +281,6 @@ $('#nuevo').bootstrapValidator({
     }
 });
 </script>
-
-
 <?php
 require('partials/pies.php');
 
