@@ -2,25 +2,34 @@
 require("partials/cabeza.php");
 ?>
 <style>
-small{
-    color:#e10000;
+small {
+    color: #e10000;
 }
 </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" />
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
 
 <div class="container">
-<h3 class="text-center mb-3">Configuración</h3>
+    <div class="row">
+        <div class="col-sm-11">
+            <h3 class="text-center mb-4">Congifuración</h3>
+        </div>
+        <div class="col-sm-1">
+            <a><i class="ti-help-alt" style="font-size:25px; margin-left:30px;" data-toggle="modal"
+                    data-target="#exampleModalCenter"></i></a>
+        </div>
+    </div>
     <div id="box">
         <!--aqui aparece la tabla de la empresa-->
 
     </div>
 </div>
 
-		<!--este es el modal de edicion de configuracion-->
+<!--este es el modal de edicion de configuracion-->
 <div class="modal fade col-xl-12" id="editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -34,34 +43,34 @@ small{
             <div class="modal-body col-xl-12">
                 <form class="caj" id="editConfig">
                     <div class="form-row">
-                    <div class="form-row">
-                        <div class="form-group col-xl-6">
-                            <label>Código</label>
-                            <input type="text" class="form-control" id="Cod_Turn" name="Cod_Turn"readonly>
+                        <div class="form-row">
+                            <div class="form-group col-xl-6">
+                                <label>Código</label>
+                                <input type="text" class="form-control" id="Cod_Turn" name="Cod_Turn" readonly>
+                            </div>
+                            <div class="form-group col-xl-6">
+                                <label>Turno</label>
+                                <input class="form-control" name="Des_Turn" id="Des_Turn">
+                            </div>
+                            <div class="form-group col-xl-12">
+                                <label>Hora entrada</label>
+
+                                <input type="text" class="form-control" value="" id="Hor_Entr" name="Hor_Entr">
+
+                            </div>
+                            <div class="form-group col-xl-12">
+                                <label>Hora salida</label>
+
+                                <input type="text" class="form-control" value="" id="Hor_Sali" name="Hor_Sali">
+
+                            </div>
+                            <div class="form-group col-xl-6">
+                                <label>Limite de tiempo</label>
+
+                                <input type="text" class="form-control " id="Lim_Tiem" name="Lim_Tiem" required>
+
+                            </div>
                         </div>
-                        <div class="form-group col-xl-6">
-                            <label>Turno</label>
-                            <input class="form-control" name="Des_Turn" id="Des_Turn">
-                        </div>
-                        <div class="form-group col-xl-12">
-                            <label>Hora entrada</label>
-                            
-                            <input type="text" class="form-control" value=""  id="Hor_Entr" name="Hor_Entr">
-                            
-                        </div>
-                        <div class="form-group col-xl-12">
-                            <label>Hora salida</label>
-                            
-                            <input type="text" class="form-control" value="" id="Hor_Sali" name="Hor_Sali">
-                            
-                        </div>
-                        <div class="form-group col-xl-6">
-                            <label>Limite de tiempo</label>
-                            
-                            <input type="text" class="form-control " id="Lim_Tiem" name="Lim_Tiem"required>
-                            
-                        </div>
-                    </div>
                 </form>
             </div>
             <div class="modal-footer col-xl-12">
@@ -81,24 +90,23 @@ $(document).ready(function() {
 </script>
 <script>
 $('#btneditar').click(function() {
-        datos = $('#editConfig').serialize();
-        $.ajax({
-            type: "POST",
-            data: datos,
-            url: "crud/actualizarConfiracion.php",
-            success: function(r) {
-                if (r == 1) {
+    datos = $('#editConfig').serialize();
+    $.ajax({
+        type: "POST",
+        data: datos,
+        url: "crud/actualizarConfiracion.php",
+        success: function(r) {
+            if (r == 1) {
 
-                    $('#box').load('tablas/tablaConfiguracion.php');
-                    alertify.success("Actualizado Conexito");
-                } else {
-                    $('#box').load('tablas/tablaConfiguracion.php');
-                    alertify.error("Fallo la Actualizacion");
-                }
+                $('#box').load('tablas/tablaConfiguracion.php');
+                alertify.success("Actualizado Conexito");
+            } else {
+                $('#box').load('tablas/tablaConfiguracion.php');
+                alertify.error("Fallo la Actualizacion");
             }
-        });
+        }
     });
-
+});
 </script>
 <script>
 function agregaFrmActualizar(Cod_Turn) {
@@ -115,7 +123,7 @@ function agregaFrmActualizar(Cod_Turn) {
             $('#Hor_Entr').val(datos['Hor_Entr']);
             $('#Hor_Sali').val(datos['Hor_Sali']);
             $('#Lim_Tiem').val(datos['Lim_Tiem']);
-            
+
 
         }
     });
@@ -123,19 +131,19 @@ function agregaFrmActualizar(Cod_Turn) {
 </script>
 <script>
 $(document).ready(function() {
-  $('#Hor_Entr,#Hor_Sali,#Lim_Tiem').timepicker({
-    useCurrent: false,
-    format: 'HH:mm:ss',
-    minuteStep: 1,
-    showSeconds: true,
-    showMeridian: false,
-    disableFocus: true,
-    icons: {
-      up: 'fa fa-chevron-up',
-      down: 'fa fa-chevron-down'
-    }
-  });
-  
+    $('#Hor_Entr,#Hor_Sali,#Lim_Tiem').timepicker({
+        useCurrent: false,
+        format: 'HH:mm:ss',
+        minuteStep: 1,
+        showSeconds: true,
+        showMeridian: false,
+        disableFocus: true,
+        icons: {
+            up: 'fa fa-chevron-up',
+            down: 'fa fa-chevron-down'
+        }
+    });
+
 
 });
 </script>

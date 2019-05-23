@@ -52,7 +52,7 @@ header('Location:index.php');
                         <a href="usuarios.php"> <i class="menu-icon ti-user"></i>Usuarios </a>
                     </li>
                     <li>
-                        <a href="configuracion.php"> <i class="menu-icon ti-headphone-alt"></i>Configuración</a>
+                        <a href="configuracion.php"> <i class="menu-icon ti-settings"></i>Configuración</a>
                     </li>
                     </li>
                     <li>
@@ -62,7 +62,10 @@ header('Location:index.php');
                         <a href="empresa.php"><i class="menu-icon ti-world"></i>Empresa </a>
                     </li>
                     <li>
-                        <a href="acercade.php"><i class="menu-icon ti-world"></i>Conocenos </a>
+                        <a href="reportes.php"><i class="menu-icon ti-world"></i>Reportes </a>
+                    </li>
+                    <li>
+                        <a href="acercade.php"><i class="menu-icon ti-info-alt"></i>Acerca de </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -92,14 +95,6 @@ header('Location:index.php');
                         </a>
 
                         <div class="user-menu dropdown-menu">
-
-                            <a class="nav-link" href="#"><i class="fa fa-user"></i> Perfil </a>
-
-                            <a class="nav-link" href="#"><i class="fa fa-user"></i> Notificaciones <span
-                                    class="count">13</span></a>
-
-                            <a class="nav-link" href="#"><i class="fa fa-cog"></i> Configuración</a>
-
                             <a class="nav-link" href="logout.php"><i class="fa fa-power-off"></i> Cerrar Cessión</a>
                         </div>
                     </div>

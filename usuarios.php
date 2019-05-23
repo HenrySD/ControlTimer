@@ -11,16 +11,36 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
 
 ?>
 <!--Aca Todo lo del lado derecho body-->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+            <div class="modal-body">
+                aqui el video
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-11">
+            <h3 class="text-center">Usuarios</h3>
+        </div>
+        <div class="col-sm-1">
+            <a><i class="ti-help-alt" style="font-size:25px; margin-left:30px;" data-toggle="modal"
+                    data-target="#exampleModalCenter"></i></a>
+        </div>
+    </div>
 
 
-<div class="">
-
-    <h3 class="text-center">Usuarios</h3>
     <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar
     </button>
     <div id="vicki" class="">
 
-		<!---->
+        <!---->
     </div>
 </div>
 </div>
@@ -152,77 +172,77 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                             <label>Empresa</label><label style="margin-left:200px;">Nueva Empresa</label>
 
                             <div class="input-group">
-                                
-                                <input type="text"name="Cod_EmprU" id="Cod_EmprU" class="form-control" readonly>
-                                
+
+                                <input type="text" name="Cod_EmprU" id="Cod_EmprU" class="form-control" readonly>
+
                                 <select name="NCod_EmprU" id="NCod_EmprU" class="form-control">
-                                <?php 
+                                    <?php 
                             while($x=mysqli_fetch_row($resulEm)){
                             ?>
 
-                                <option value="<?php echo $x[0]?>"><?php echo $x[1]?></option>
-                                <?php 
+                                    <option value="<?php echo $x[0]?>"><?php echo $x[1]?></option>
+                                    <?php 
                              }
                             ?>
-                            </select>
+                                </select>
 
 
-                            
-                            
-                        </div>
-                        <div class="form-group col-xl-12 mt-3 ">
-                            <label>Turno</label><label style="margin-left:200px;">Nueva Turno</label>
-                             <div class="input-group">
-                             <input class="form-control" id="Cod_TurnU" name="Cod_TurnU" readonly>
-                             
-                            <select class="form-control" id="NCod_TurnU" name="NCod_TurnU" >
 
-                                <?php 
+
+                            </div>
+                            <div class="form-group col-xl-12 mt-3 ">
+                                <label>Turno</label><label style="margin-left:200px;">Nueva Turno</label>
+                                <div class="input-group">
+                                    <input class="form-control" id="Cod_TurnU" name="Cod_TurnU" readonly>
+
+                                    <select class="form-control" id="NCod_TurnU" name="NCod_TurnU">
+
+                                        <?php 
                             while($y=mysqli_fetch_row($resulTu)){
                             ?>
 
-                                <option value="<?php echo $y[0]?>"><?php echo $y[1]?></option>
-                                <?php 
+                                        <option value="<?php echo $y[0]?>"><?php echo $y[1]?></option>
+                                        <?php 
                              }
                             ?>
-                            </select>
+                                    </select>
 
-                             </div>
-                        </div>
-                        <div class="form-group col-xl-12">
-                            <label>Tipo de Usuario</label>
+                                </div>
+                            </div>
+                            <div class="form-group col-xl-12">
+                                <label>Tipo de Usuario</label>
 
-                            <select class="form-control" name='Tip_UsuaU' id='Tip_UsuaU'>
-                                <option value="Empleado">Empleado</option>
-                                <option value="Administrador">Administrador</option>
+                                <select class="form-control" name='Tip_UsuaU' id='Tip_UsuaU'>
+                                    <option value="Empleado">Empleado</option>
+                                    <option value="Administrador">Administrador</option>
 
-                            </select>
-                        </div>
-                        <div class="form-group col-xl-6">
-                            <label>Nombre</label>
-                            <input type="text" class="form-control" id="Nom_UsuaU" name="Nom_UsuaU">
+                                </select>
+                            </div>
+                            <div class="form-group col-xl-6">
+                                <label>Nombre</label>
+                                <input type="text" class="form-control" id="Nom_UsuaU" name="Nom_UsuaU">
 
-                        </div>
-                        <div class="form-group col-xl-6">
-                            <label>Apellido</label>
-                            <input type="text" class="form-control " id="Ape_UsuaU" name="Ape_UsuaU">
+                            </div>
+                            <div class="form-group col-xl-6">
+                                <label>Apellido</label>
+                                <input type="text" class="form-control " id="Ape_UsuaU" name="Ape_UsuaU">
 
-                        </div>
-                        <div class="form-group col-xl-12">
-                            <label>Dirección</label>
-                            <input type="text" class="form-control " id="Dir_UsuaU" name="Dir_UsuaU">
+                            </div>
+                            <div class="form-group col-xl-12">
+                                <label>Dirección</label>
+                                <input type="text" class="form-control " id="Dir_UsuaU" name="Dir_UsuaU">
 
-                        </div>
-                        <div class="form-group col-xl-12">
-                            <label>Correo</label>
-                            <input type="text" class="form-control" id="Ema_UsuaU" name="Ema_UsuaU">
+                            </div>
+                            <div class="form-group col-xl-12">
+                                <label>Correo</label>
+                                <input type="text" class="form-control" id="Ema_UsuaU" name="Ema_UsuaU">
 
+                            </div>
+                            <div class="form-group col-xl-12">
+                                <label>Teléfono</label>
+                                <input type="text" class="form-control" id="Tel_UsuaU" name="Tel_UsuaU">
+                            </div>
                         </div>
-                        <div class="form-group col-xl-12">
-                            <label>Teléfono</label>
-                            <input type="text" class="form-control" id="Tel_UsuaU" name="Tel_UsuaU">
-                        </div>
-                    </div>
                 </form>
             </div>
             <div class="modal-footer col-xl-12">
@@ -264,7 +284,7 @@ $(document).ready(function() {
             type: "POST",
             data: datosEdiUsua,
             url: "crud/actualizarUsuarios.php",
-            
+
             success: function(r) {
                 if (r == 1) {
 
