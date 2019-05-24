@@ -58,18 +58,17 @@
                         <div class="col-md-3">
                             <form id="formulario">
                                 <div class="" style="">
-                                    <input type="text" id="txt" name="txt" class="form-control" value="" readonly>
+                                    <input type="text" id="txt" name="txt" class="form-control" value="" readonly hidden>
                                 </div>
                             </form>
                         </div>
-
                     </div>
                     <div class="row">
                         <video id="preview" class="col-md-4 border ml-2 mt-3 " style="width:100px; height:200px;">
 
                         </video>
 
-                        <div id="muestra" class="col-md-7  " style="width:100px; height:250px;">
+                        <div id="muestra" class="col-md-7 " style="width:100px; height:250px;">
 
                         </div>
                     </div>
@@ -88,7 +87,7 @@ let scanner = new Instascan.Scanner({
 });
 scanner.addListener('scan', function(content) {
     console.log(content);
-    alertify.success("Agregado con exito !");
+    alertify.success("Registrado !");
     document.getElementById('txt').value = content;
     datos = $('#formulario').serialize();
     $.ajax({
@@ -99,7 +98,7 @@ scanner.addListener('scan', function(content) {
         success: function(r) {
             if (r == 1) {
                 $('#muestra').load('tablas/tablaMuestra.php');
-                alertify.success("introducido en la db");
+                
             } else {
                 alertify.success("El ID no esta registrado");
             }
