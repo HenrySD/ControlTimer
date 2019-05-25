@@ -16,20 +16,11 @@ header('Location:index.php');
     <title>Control Timer</title>
     <meta name="description" content="ControlTimer">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
     <?php
     require("cnd.php");
     ?>
-
-
-
-
     <!--todos los script movidos de la parte pies-->
-
 </head>
-
 <body>
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -56,13 +47,17 @@ header('Location:index.php');
                     </li>
                     </li>
                     <li>
-                        <a href="asistencia.php"> <i class="menu-icon ti-save "></i>Asistencia </a>
+                        <a href="asistencia.php"> <i class="menu-icon ti-check-box "></i>Asistencia </a>
                     </li>
                     <li>
                         <a href="empresa.php"><i class="menu-icon ti-world"></i>Empresa </a>
                     </li>
                     <li>
-                        <a href="reportes.php"><i class="menu-icon ti-world"></i>Reportes </a>
+                        <a href="reportes.php"><i class="menu-icon ti-printer"></i>Reportes </a>
+                        
+                    </li>
+                    <li>
+                        <a href="empleado.php"><i class="menu-icon ti-layout-tab"></i>Empleados </a> 
                     </li>
                     <li>
                         <a href="acercade.php"><i class="menu-icon ti-info-alt"></i>Acerca de </a>
@@ -73,7 +68,6 @@ header('Location:index.php');
     </aside><!-- /#left-panel -->
 
     <!-- Left Panel -->
-
     <!-- Right Panel -->
 
     <div id="right-panel" class="right-panel">
@@ -100,6 +94,8 @@ header('Location:index.php');
                     </div>
                 </div>
             </div>
+
+            
 
         </header><!-- /header -->
         <!-- Header-->

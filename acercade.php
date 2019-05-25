@@ -16,10 +16,19 @@ require("partials/cabeza.php");
 
 
     <div class="row">
-  <div class="col-sm-6">
+    <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title text-center">Integrantes</h5>
+        <h5 class="card-title text-center">Empresa</h5>
+        <h6 class="card-title">DesingApp</h6>
+        <p class="card-text">Se encarga de diseñar aplicaciones para áreas empresariales.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title text-center">Desarrolladores</h5>
         <h6 class="card-title">Henry Yoel López Deras</h6>
         <h6 class="card-title">Vicki Estefani Rodríguez</h6>
         <p class="card-text">Alumnos de Ingeniería en Sistemas Informático, cursando la materia "Proyectos
@@ -27,7 +36,7 @@ require("partials/cabeza.php");
       </div>
     </div>
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-4">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Sistema</h5>
@@ -40,7 +49,7 @@ require("partials/cabeza.php");
 </div>
 </div>
 <hr>
-<p>Esta página se editó por última vez, al usar este sitio, usted acepta nuestros términos de uso y nuestra política de privacidad, Derechos de autor® registrado por la Universidad Catolica de El Salvador, una institución sin ánimo de lucro.</p>
+<p>Esta página se editó por última vez, al usar este sitio, usted acepta nuestros términos de uso y nuestra política de privacidad, Derechos de autor Universidad Catolica de El Salvador® registrado por la empresa DesaingApp, una institución sin ánimo de lucro.</p>
 <?php
 require("partials/pies.php");
 ?>
