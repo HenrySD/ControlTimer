@@ -1,5 +1,4 @@
 <?php
-
 require("partials/cabeza.php");
 require("database.php");
 $conexion=conexion();
@@ -7,19 +6,15 @@ $sqlEmpresa="SELECT Cod_Empr,Nom_Empr FROM tab_empr";
 $sqlTurno="SELECT Cod_Turn,Des_Turn FROM tab_turn";
 $resultadoEmpresa=mysqli_query($conexion,$sqlEmpresa);
 $resultadoTurno=mysqli_query($conexion,$sqlTurno);
-
-
 ?>
 <!--Aca Todo lo del lado derecho body-->
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-
             <div class="modal-body">
                 aqui el video
             </div>
-
         </div>
     </div>
 </div>
@@ -39,7 +34,6 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
     <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar
     </button>
     <div id="vicki" class="">
-
         <!---->
     </div>
 </div>
@@ -64,13 +58,11 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                         </div>
                         <div class="form-group col-xl-7">
                             <label>Empresa</label>
-
                             <select name="Cod_Empr" id="Cod_Empr" class="form-control">
                                 <?php 
                             while($mostrar=mysqli_fetch_row($resultadoEmpresa)){
                             ?>
                                 <option value="<?php echo $mostrar[0]?>"><?php echo$mostrar[1]?></option>
-
                                 <?php 
                             }
                             ?>
@@ -136,7 +128,7 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
             </div>
             <div class="modal-footer col-xl-12">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary" id="btnguardarnuevoUsua">Guardar</button>
+                <inout type="sudmit" class="btn btn-primary" id="btnguardarnuevoUsua">Guardar</button>
             </div>
         </div>
     </div>
@@ -257,6 +249,28 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
 <script>
 $(document).ready(function() {
     $('#btnguardarnuevoUsua').click(function() {
+        if (document.getElementById('Cod_Usua').value.trim() == '') {
+            alertify.set('notifier','position', 'top-center');
+            alertify.error("Ingrese un código");
+        }else if (document.getElementById('Cod_Empr').value.trim() == '') {
+            alertify.set('notifier','position', 'top-center');
+            alertify.error("Ingrese un nombre");
+        }else if(document.getElementById('Nom_Usua').value.trim() == '') {
+            alertify.set('notifier','position', 'top-center');
+            alertify.error("Ingrese un nombre");
+        }else if(document.getElementById('Ape_Usua').value.trim() == '') {
+            alertify.set('notifier','position', 'top-center');
+            alertify.error("Ingrese un apellido");
+        }else if(document.getElementById('Dir_Usua').value.trim() == '') {
+            alertify.set('notifier','position', 'top-center');
+            alertify.error("Ingrese un dirección");
+        }else if(document.getElementById('Ema_Usua').value.trim() == '') {
+            alertify.set('notifier','position', 'top-center');
+            alertify.error("Ingrese un correo");
+        }else if(document.getElementById('Tel_Usua').value.trim() == '') {
+            alertify.set('notifier','position', 'top-center');
+            alertify.error("Ingrese un teléfono");
+        }else {
         datosUsuarios = $('#frmnuevoUsua').serialize();
         $.ajax({
             type: "POST",
