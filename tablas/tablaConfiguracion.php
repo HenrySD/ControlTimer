@@ -4,7 +4,7 @@ $conexion=conexion();
 $sql="SELECT Cod_Turn,Des_Turn,Hor_Entr,Hor_Sali,Lim_Tiem FROM tab_turn";
 $resultado=mysqli_query($conexion,$sql);
 ?>
-<table id="example" style="" class="table  table-condensed table-hover table-bordered">
+<table id="exampleC" style="" class="table  table-condensed table-hover table-bordered">
     <thead style="background-color:#282D34; color:white; ">
         <tr>
             <td>Código</td>
@@ -46,30 +46,35 @@ $resultado=mysqli_query($conexion,$sql);
             <td>
                 <?php echo $mostrar[4]?>
             </td>
-
             <td><button class="btn btn-warning " data-toggle="modal" data-target="#editar"
-                    onclick="agregaFrmActualizar('<?php echo $mostrar[0] ?>')"><i
-                        class="ti-pencil-alt"></i></button></td>
+                    onclick="agregaFrmActualizar('<?php echo $mostrar[0] ?>')"><i class="ti-pencil-alt"></i></button>
+            </td>
         </tr>
         <?php
 }
 ?>
     </tbody>
-    </table>
+</table>
+
 <script>
 $(document).ready(function() {
-    $('#example').DataTable({
+    $('#exampleC').DataTable({
+        scrollY:        '50vh',
+        scrollCollapse: true,
+        paging:         false,
         "language":{
             "url":"//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
-        },      
-        dom:'Bfrtip',
+        }, 
+        dom: 'Bfrtip',
+        
         buttons: [
             'copyHtml5',
             'excelHtml5',
             'csvHtml5',
-            'pdfHtml5'
-                ]
-    
+            'pdfHtml5',
+            'print'
+        ]
+        
     });
 });
 </script>

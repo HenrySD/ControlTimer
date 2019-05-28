@@ -54,7 +54,7 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                     <div class="form-row">
                         <div class="form-group col-xl-6">
                             <label>Código</label>
-                            <input type="text" class="form-control" id="Cod_Usua" name="Cod_Usua">
+                            <input type="text" class="form-control" id="Cod_Usua" name="Cod_Usua" data-validation="number">
                         </div>
                         <div class="form-group col-xl-7">
                             <label>Empresa</label>
@@ -106,12 +106,14 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Correo</label>
-                            <input type="text" class="form-control" id="Ema_Usua" name="Ema_Usua">
+                            <input type="text" class="form-control" id="Ema_Usua" name="Ema_Usua" 
+                            data-validation="email"
+                            data-validation-depends-on="do-contact">
 
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Teléfono</label>
-                            <input type="text" class="form-control" id="Tel_Usua" name="Tel_Usua">
+                            <input type="text" class="form-control" id="Tel_Usua" name="Tel_Usua" data-validation="number">
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Usuario</label>
@@ -171,22 +173,16 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                                     <?php 
                             while($x=mysqli_fetch_row($resulEm)){
                             ?>
-
                                     <option value="<?php echo $x[0]?>"><?php echo $x[1]?></option>
                                     <?php 
                              }
                             ?>
                                 </select>
-
-
-
-
                             </div>
                             <div class="form-group col-xl-12 mt-3 ">
                                 <label>Turno</label><label style="margin-left:200px;">Nueva Turno</label>
                                 <div class="input-group">
                                     <input class="form-control" id="Cod_TurnU" name="Cod_TurnU" readonly>
-
                                     <select class="form-control" id="NCod_TurnU" name="NCod_TurnU">
 
                                         <?php 
@@ -227,12 +223,14 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                             </div>
                             <div class="form-group col-xl-12">
                                 <label>Correo</label>
-                                <input type="text" class="form-control" id="Ema_UsuaU" name="Ema_UsuaU">
+                                <input type="text" class="form-control" id="Ema_UsuaU" name="Ema_UsuaU" 
+                                data-validation="email"
+                                data-validation-depends-on="do-contact">
 
                             </div>
                             <div class="form-group col-xl-12">
                                 <label>Teléfono</label>
-                                <input type="text" class="form-control" id="Tel_UsuaU" name="Tel_UsuaU">
+                                <input type="text" class="form-control" id="Tel_UsuaU" name="Tel_UsuaU" data-validation="number">
                             </div>
                         </div>
                 </form>
@@ -250,46 +248,46 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
 $(document).ready(function() {
     $('#btnguardarnuevoUsua').click(function() {
         if (document.getElementById('Cod_Usua').value.trim() == '') {
-            alertify.set('notifier','position', 'top-center');
+            alertify.set('notifier', 'position', 'top-center');
             alertify.error("Ingrese un código");
-        }else if (document.getElementById('Cod_Empr').value.trim() == '') {
-            alertify.set('notifier','position', 'top-center');
+        } else if (document.getElementById('Cod_Empr').value.trim() == '') {
+            alertify.set('notifier', 'position', 'top-center');
+            alertify.error("Ingrese un nombre de empresa");
+        } else if (document.getElementById('Nom_Usua').value.trim() == '') {
+            alertify.set('notifier', 'position', 'top-center');
             alertify.error("Ingrese un nombre");
-        }else if(document.getElementById('Nom_Usua').value.trim() == '') {
-            alertify.set('notifier','position', 'top-center');
-            alertify.error("Ingrese un nombre");
-        }else if(document.getElementById('Ape_Usua').value.trim() == '') {
-            alertify.set('notifier','position', 'top-center');
+        } else if (document.getElementById('Ape_Usua').value.trim() == '') {
+            alertify.set('notifier', 'position', 'top-center');
             alertify.error("Ingrese un apellido");
-        }else if(document.getElementById('Dir_Usua').value.trim() == '') {
-            alertify.set('notifier','position', 'top-center');
+        } else if (document.getElementById('Dir_Usua').value.trim() == '') {
+            alertify.set('notifier', 'position', 'top-center');
             alertify.error("Ingrese un dirección");
-        }else if(document.getElementById('Ema_Usua').value.trim() == '') {
-            alertify.set('notifier','position', 'top-center');
+        } else if (document.getElementById('Ema_Usua').value.trim() == '') {
+            alertify.set('notifier', 'position', 'top-center');
             alertify.error("Ingrese un correo");
-        }else if(document.getElementById('Tel_Usua').value.trim() == '') {
-            alertify.set('notifier','position', 'top-center');
+        } else if (document.getElementById('Tel_Usua').value.trim() == '') {
+            alertify.set('notifier', 'position', 'top-center');
             alertify.error("Ingrese un teléfono");
-        }else {
-        datosUsuarios = $('#frmnuevoUsua').serialize();
-        $.ajax({
-            type: "POST",
-            data: datosUsuarios,
-            url: "crud/agregarUsuario.php",
-            success: function(r) {
-                if (r == 1) {
-                    $('#frmnuevoUsua')[0].reset();
-                    //3 para cambiar
-                    $('#vicki').load('tablas/tablaUsuarios.php');
-                    alertify.success("Administrador ingresado");
-                } else {
-                    $('#frmnuevoUsua')[0].reset();
-                    $('#vicki').load('tablas/tablaUsuarios.php');
-                    alertify.success("Empleado ingresado");
+        } else {
+            datosUsuarios = $('#frmnuevoUsua').serialize();
+            $.ajax({
+                type: "POST",
+                data: datosUsuarios,
+                url: "crud/agregarUsuario.php",
+                success: function(r) {
+                    if (r == 1) {
+                        $('#frmnuevoUsua')[0].reset();
+                        //3 para cambiar
+                        $('#vicki').load('tablas/tablaUsuarios.php');
+                        alertify.success("Administrador ingresado");
+                    } else {
+                        $('#frmnuevoUsua')[0].reset();
+                        $('#vicki').load('tablas/tablaUsuarios.php');
+                        alertify.success("Empleado ingresado");
+                    }
                 }
-
-            }
-        });
+            });
+        }
     });
 
     $('#btneditarUsuario').click(function() {

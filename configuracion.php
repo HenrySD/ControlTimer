@@ -9,8 +9,7 @@ small {
 <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
 
 <div class="container">
@@ -20,22 +19,25 @@ small {
         </div>
         <div class="col-sm-1">
             <a><i class="ti-help-alt" style="font-size:25px; margin-left:30px;" data-toggle="modal"
-        data-target=".bd-example-modal-lg"></i></a>
+                    data-target=".bd-example-modal-lg"></i></a>
         </div>
     </div>
+
     <!-- este es el modal de ayuda-->
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="embed-responsive embed-responsive-4by3">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/GB8EmSBx2b0?autoplay=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=1&start=0&end=0&origin=https://youtubeembedcode.com" allowfullscreen></iframe>
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="embed-responsive embed-responsive-4by3">
+                    <iframe class="embed-responsive-item"
+                        src="https://www.youtube.com/embed/FukBruuP5dQ?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&vq=hd720&origin"
+                        allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </div>
-</div>
-    
+
     <div id="box">
         <!--aqui aparece la tabla de la empresa-->
 
@@ -65,21 +67,18 @@ small {
                                 <label>Turno</label>
                                 <input class="form-control" name="Des_Turn" id="Des_Turn">
                             </div>
-                            <div class="form-group col-xl-12">
+                            <div class="form-group col-xl-6">
                                 <label>Hora entrada</label>
-
-                                <input type="text" class="form-control" value="" id="Hor_Entr" name="Hor_Entr">
-
-                            </div>
-                            <div class="form-group col-xl-12">
-                                <label>Hora salida</label>
-
-                                <input type="text" class="form-control" value="" id="Hor_Sali" name="Hor_Sali">
+                                <input type="text" class="form-control" value="" id="Hor_Entr" name="Hor_Entr"
+                                    data-validation="time" data-validation-format="HH:mm:ss">
 
                             </div>
                             <div class="form-group col-xl-6">
+                                <label>Hora salida</label>
+                                <input type="text" class="form-control" value="" id="Hor_Sali" name="Hor_Sali">
+                            </div>
+                            <div class="form-group col-xl-6">
                                 <label>Limite de tiempo</label>
-
                                 <input type="text" class="form-control " id="Lim_Tiem" name="Lim_Tiem" required>
 
                             </div>

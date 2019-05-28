@@ -8,12 +8,10 @@ $resul=mysqli_query($conexion,$sql1);
 <table id="example" style="" class="table  table-condensed table-hover table-bordered">
     <thead style="background-color:#282D34; color:white; ">
         <tr>
-        <td>ID</td>
+            <td>ID</td>
             <td>Entrada</td>
             <td>Salida</td>
             <td>Fecha</td>
-
-
         </tr>
     </thead>
     <tfoot style="background-color:#282D34;color:white;">
@@ -41,7 +39,6 @@ $resul=mysqli_query($conexion,$sql1);
             <td>
                 <?php echo $mostrar[3]?>
             </td>
-            
         </tr>
         <?php
     }

@@ -11,23 +11,16 @@ small {
     color: #e10000;
 }
 </style>
-<div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content" style="width:900px; height:500px;">
-    <div class="embed-responsive embed-responsive-21by9">
-    <iframe class="embed-responsive-item"src="carpetas\video\empresa.mp4" style="width:900px; height:500px; "> </iframe>
-    </div>
-    </div>
-  </div>
-</div>
-<!-- este es el modal de ayuda-->
 
+<!-- este es el modal de ayuda-->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content ">
             <div class="embed-responsive embed-responsive-4by3">
-                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/LIR5Sli8cmc?autoplay=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=1&start=0&end=0&vq=hd720&origin=https://youtubeembedcode.com" allowfullscreen></iframe>
+                <iframe class="embed-responsive-item"
+                    src="https://www.youtube.com/embed/LIR5Sli8cmc?autoplay=1&fs=1&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=1&start=0&end=0&vq=hd720&origin"
+                    allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -40,15 +33,16 @@ small {
         </div>
         <div class="col-sm-1">
             <a><i class="ti-help-alt" style="font-size:25px; margin-left:30px;" data-toggle="modal"
-        data-target=".bd-example-modal-lg"></i></a>
+                    data-target=".bd-example-modal-lg"></i></a>
         </div>
     </div>
     <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i>Agregar</button>
     <div id="cajita" class="">
         <!--aqui aparece la tabla de la empresa-->
-
     </div>
 </div>
+
+
 <!-- Este es el modal para guardar empresa-->
 <div class="modal fade col-xl-12" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
@@ -65,19 +59,17 @@ small {
                     <div class="form-row">
                         <div class="form-group col-xl-6">
                             <label>Código</label>
-                            <input type="text" class="form-control" id="Cod_Empr" name="Cod_Empr" 
-                            data-validation="number"> 
+                            <input type="text" class="form-control" id="Cod_Empr" name="Cod_Empr"
+                                data-validation="number">
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Nombre</label>
-                            <input type="text" class="form-control" id="Nom_Empr" name="Nom_Empr" 
-                            >
+                            <input type="text" class="form-control" id="Nom_Empr" name="Nom_Empr">
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Fecha</label>
-                            <input type="text" class="form-control" id="Fec_Cons" name="Fec_Cons" 
-                            data-validation="date"
-                            data-validation-format="yyyy-mm-dd">
+                            <input type="text" class="form-control" id="Fec_Cons" name="Fec_Cons" data-validation="date"
+                                data-validation-format="yyyy-mm-dd">
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Teléfono</label>
@@ -85,9 +77,8 @@ small {
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Correo</label>
-                            <input type="text" class="form-control " id="Ema_Empr" name="Ema_Empr" 
-                            data-validation="email"
-                            data-validation-depends-on="do-contact">
+                            <input type="text" class="form-control " id="Ema_Empr" name="Ema_Empr"
+                                data-validation="email" data-validation-depends-on="do-contact">
 
                         </div>
                         <div class="form-group col-xl-12">
@@ -99,12 +90,12 @@ small {
             </div>
             <div class="modal-footer col-xl-12">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-
-                <input type="submit" class="btn btn-primary" id="btnguardarnuevo"  value="Guardar">
+                <input type="submit" class="btn btn-primary" id="btnguardarnuevo" value="Guardar">
             </div>
         </div>
     </div>
 </div>
+
 <!--Este es el modal para editar-->
 <div class="modal fade col-xl-12" id="editar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
@@ -121,7 +112,8 @@ small {
                     <div class="form-row">
                         <div class="form-group col-xl-6">
                             <label>Código</label>
-                            <input type="text" class="form-control" readonly id="Cod_EmprU" name="Cod_EmprU" data-validation="number">
+                            <input type="text" class="form-control" readonly id="Cod_EmprU" name="Cod_EmprU"
+                                data-validation="number">
                         </div>
                         <div class="form-group col-xl-6">
                             <label>Nombre</label>
@@ -130,20 +122,19 @@ small {
                         <div class="form-group col-xl-6">
                             <label>Fecha</label>
                             <input type="text" class="form-control input-sm" id="Fec_ConsU" name="Fec_ConsU"
-                            data-validation="date"
-                            data-validation-format="yyyy-mm-dd">
+                                data-validation="date" data-validation-format="yyyy-mm-dd">
 
                         </div>
                         <div class="form-group col-xl-4">
                             <label>Teléfono</label>
-                            <input type="text" class="form-control input-sm" id="Tel_EmprU" name="Tel_EmprU" data-validation="number">
+                            <input type="text" class="form-control input-sm" id="Tel_EmprU" name="Tel_EmprU"
+                                data-validation="number">
 
                         </div>
                         <div class="form-group col-xl-8">
                             <label>Correo</label>
                             <input type="text" class="form-control input-sm " id="Ema_EmprU" name="Ema_EmprU"
-                            data-validation="email"
-                            data-validation-depends-on="do-contact">
+                                data-validation="email" data-validation-depends-on="do-contact">
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Dirección</label>
@@ -160,32 +151,33 @@ small {
         </div>
     </div>
 </div>
+
+
 <script>
 $(document).ready(function() {
     $('#btnguardarnuevo').click(function() {
         if (document.getElementById('Cod_Empr').value.trim() == '') {
-            alertify.set('notifier','position', 'top-center');
+            alertify.set('notifier', 'position', 'top-center');
             alertify.error("Ingrese un código");
-        }else if (document.getElementById('Nom_Empr').value.trim() == '') {
-            alertify.set('notifier','position', 'top-center');
+        } else if (document.getElementById('Nom_Empr').value.trim() == '') {
+            alertify.set('notifier', 'position', 'top-center');
             alertify.error("Ingrese un nombre");
-        }else if(document.getElementById('Fec_Cons').value.trim() == '') {
-            alertify.set('notifier','position', 'top-center');
+        } else if (document.getElementById('Fec_Cons').value.trim() == '') {
+            alertify.set('notifier', 'position', 'top-center');
             alertify.error("Ingrese una fecha");
-        }else if(document.getElementById('Tel_Empr').value.trim() == '') {
-            alertify.set('notifier','position', 'top-center');
+        } else if (document.getElementById('Tel_Empr').value.trim() == '') {
+            alertify.set('notifier', 'position', 'top-center');
             alertify.error("Ingrese un teléfono");
-        }else if($("#Tel_Empr").val().length > 8 || isNaN($("#Tel_Empr").val())) {  
-            alert("El teléfono debe tener más de 8 caracteres y solo números");  
-            return false;  
-        } 
-        else if(document.getElementById('Ema_Empr').value.trim() == '') {
-            alertify.set('notifier','position', 'top-center');
+        } else if ($("#Tel_Empr").val().length > 8 || isNaN($("#Tel_Empr").val())) {
+            alert("El teléfono debe tener más de 8 caracteres y solo números");
+            return false;
+        } else if (document.getElementById('Ema_Empr').value.trim() == '') {
+            alertify.set('notifier', 'position', 'top-center');
             alertify.error("Ingrese un correo");
-        }else if(document.getElementById('Dir_Empr').value.trim() == '') {
-            alertify.set('notifier','position', 'top-center');
+        } else if (document.getElementById('Dir_Empr').value.trim() == '') {
+            alertify.set('notifier', 'position', 'top-center');
             alertify.error("Ingrese un dirección");
-        }else {
+        } else {
             datos = $('#frmnuevo').serialize();
             $.ajax({
                 type: "POST",

@@ -70,4 +70,8 @@ try {
 } catch (Exception $e) {
     echo "No se pudo enviar el correo: {$mail->ErrorInfo}";
 }
+
+function buscarRepetido($codigo, $usuario, $database){
+    $sql="SELECT * from tab_usuario where Cod_Usua='codigo' " 
+}
 ?>
