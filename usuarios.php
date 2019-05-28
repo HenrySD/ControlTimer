@@ -19,7 +19,7 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
     </div>
 </div>
 
-<div class="container">
+<div class="container ">
     <div class="row">
         <div class="col-sm-11">
             <h3 class="text-center">Usuarios</h3>
@@ -29,15 +29,13 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                     data-target="#exampleModalCenter"></i></a>
         </div>
     </div>
-
-
     <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar
     </button>
     <div id="vicki" class="">
         <!---->
     </div>
 </div>
-</div>
+
 <!-- Este es el modal para agregar nuevos usuarios-->
 <div class="modal fade col-xl-12" id="nuevo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
@@ -54,7 +52,8 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                     <div class="form-row">
                         <div class="form-group col-xl-6">
                             <label>Código</label>
-                            <input type="text" class="form-control" id="Cod_Usua" name="Cod_Usua" data-validation="number">
+                            <input type="text" class="form-control" id="Cod_Usua" name="Cod_Usua"
+                                data-validation="number">
                         </div>
                         <div class="form-group col-xl-7">
                             <label>Empresa</label>
@@ -106,14 +105,14 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Correo</label>
-                            <input type="text" class="form-control" id="Ema_Usua" name="Ema_Usua" 
-                            data-validation="email"
-                            data-validation-depends-on="do-contact">
+                            <input type="text" class="form-control" id="Ema_Usua" name="Ema_Usua"
+                                data-validation="email" data-validation-depends-on="do-contact">
 
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Teléfono</label>
-                            <input type="text" class="form-control" id="Tel_Usua" name="Tel_Usua" data-validation="number">
+                            <input type="text" class="form-control" id="Tel_Usua" name="Tel_Usua"
+                                data-validation="number">
                         </div>
                         <div class="form-group col-xl-12">
                             <label>Usuario</label>
@@ -223,14 +222,14 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
                             </div>
                             <div class="form-group col-xl-12">
                                 <label>Correo</label>
-                                <input type="text" class="form-control" id="Ema_UsuaU" name="Ema_UsuaU" 
-                                data-validation="email"
-                                data-validation-depends-on="do-contact">
+                                <input type="text" class="form-control" id="Ema_UsuaU" name="Ema_UsuaU"
+                                    data-validation="email" data-validation-depends-on="do-contact">
 
                             </div>
                             <div class="form-group col-xl-12">
                                 <label>Teléfono</label>
-                                <input type="text" class="form-control" id="Tel_UsuaU" name="Tel_UsuaU" data-validation="number">
+                                <input type="text" class="form-control" id="Tel_UsuaU" name="Tel_UsuaU"
+                                    data-validation="number">
                             </div>
                         </div>
                 </form>
@@ -275,7 +274,7 @@ $(document).ready(function() {
                 data: datosUsuarios,
                 url: "crud/agregarUsuario.php",
                 success: function(r) {
-                    if (r == 1) {
+               if (r == 1) {
                         $('#frmnuevoUsua')[0].reset();
                         //3 para cambiar
                         $('#vicki').load('tablas/tablaUsuarios.php');
@@ -299,7 +298,6 @@ $(document).ready(function() {
 
             success: function(r) {
                 if (r == 1) {
-
                     $('#vicki').load('tablas/tablaUsuarios.php');
                     alertify.success("Actualizado Conexito");
                 } else {

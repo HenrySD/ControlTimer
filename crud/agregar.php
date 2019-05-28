@@ -12,8 +12,4 @@ $datos=array(
     $_POST['Ema_Empr']
 );
 echo $obj->agregar($datos);
-
-
-
-
 ?>
