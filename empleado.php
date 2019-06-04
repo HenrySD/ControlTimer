@@ -50,10 +50,7 @@
                 <div class="card-body" style="height:450px;">
                     <div class="row">
                         <div class="col-md-4 ml-2 border text-center">
-                            <p>Lunes 22 de Abril del 2019 </p>
-                        </div>
-                        <div class="col-md-4 ml-3 border text-center">
-                            <p> 10:34:40 PM </p>
+                            <p><?php  echo date('D, d M Y ');?></p>
                         </div>
                         <div class="col-md-3">
                             <form id="formulario">

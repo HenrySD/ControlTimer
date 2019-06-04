@@ -15,16 +15,7 @@ $resultado=mysqli_query($conexion,$sql);
             <td>Opciones</td>
         </tr>
     </thead>
-    <tfoot style="background-color:#282D34;color:white;">
-        <tr>
-            <td>Código</td>
-            <td>Descripción</td>
-            <td>Hora entrada</td>
-            <td>Hora salida</td>
-            <td>Limite de tiempo</td>
-            <td>Opciones</td>
-        </tr>
-    </tfoot>
+    
 
     <tbody>
         <?php

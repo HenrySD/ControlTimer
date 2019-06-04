@@ -14,15 +14,15 @@ $conexion=conexion();
         </div>
     </div>
 
-    <form id="form1">
+    <form id="form1" method="POST" action="reportes.php">
         <div class="row">
             <div class="col-sm-2">
                 <label>Fecha inicio</label>
-                <input type="text" class="form-control" id="FechaInicio" name="FechaInicio">
+                <input type="text" class="form-control" id="FechaInicio" name="FechaInicio" readonly>
             </div>
             <div class="col-sm-2">
                 <label>Fecha Final</label>
-                <input type="text" class="form-control" id="FechaFinal" name="FechaFinal">
+                <input type="text" class="form-control" id="FechaFinal" name="FechaFinal" readonly>
             </div>
             <div class="col-sm-2">
                 <label>Empleado</label>
@@ -30,14 +30,82 @@ $conexion=conexion();
 
             </div>
             <div class="col-sm-2 mt-4">
-                <button class="btn btn-danger rounded-lg" id="btnBuscar">Buscar</button>
+                <button class="btn btn-danger" id="btnBuscar">buscar</button>
             </div>
             <div class="col-sm-2 mt-4">
                 <button class="btn btn-primary">Generar Reporte</button>
             </div>
         </div>
     </form>
-    <div id="tabla"></div>
+
+    <div id="tabla">
+    <?php
+
+
+$i=$_POST['FechaInicio'];
+$f=$_POST['FechaFinal'];
+$id=$_POST['IdEmpleado'];
+
+
+$conexion=conexion();
+$sql="SELECT
+Cod_Usua,
+Fec_Regi,
+Reg_Entr,
+Reg_Salida,
+TIMEDIFF(Reg_Salida, Reg_Entr) AS 'Duracion'
+FROM
+tab_asis
+WHERE
+Cod_Usua = '$id' AND Fec_Regi BETWEEN '$i' AND '$f'";
+$resultado=mysqli_query($conexion,$sql);
+
+?>
+
+<table class="table  table-condensed table-hover table-bordered my-5">
+    <tbody>
+    <?php
+   
+    while($mostrar=mysqli_fetch_row($resultado)){
+    ?>
+        <tr>
+            <td>
+                <?php echo $mostrar[0]?>
+            </td>
+            <td>
+                <?php echo $mostrar[1]?>
+            </td>
+            <td>
+                <?php echo $mostrar[2]?>
+            </td>
+            <td>
+                <?php echo $mostrar[3]?>
+            </td>
+            <td>
+                <?php echo $mostrar[4]?>
+            </td>
+        </tr>
+        <?php
+    }
+
+
+?>
+            <td colspan="4">Total de Duracion</td>
+            <td>$100.00</td>
+    </tbody>
+    <thead style="background-color:#282D34;color:white;">
+        <tr>
+            <td>IdEmpleado</td>
+            <td>Fechas</td>
+            <td>Hora entrada</td>
+            <td>Hora salida</td>
+            <td>Duracion</td>
+        </tr>
+    </thead>
+   
+</table>
+
+    </div>
 </div>
 <!-- este es el modal de ayuda-->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
@@ -50,29 +118,27 @@ $conexion=conexion();
         </div>
     </div>
 </div>
+<script>
+</script>
 
 <script>
-$(document).ready(function() {
-    $('#FechaInicio').on('change',function(){
-        var desde=$('#FechaInicio').val();
-        var hasta=$('#FechaFinal').val();
-        var em=$('#IdEmpleado').val();
-        
-        var url='tablas/tablaReportes.php';
-        $.ajax({
-            type:'POST',
-            url:url,
-            data: 'desde='+desde+'&hasta='+hasta+'&em='+em,
-            success: function(r){
-                $('#tabla').load('tablas/tablaReportes.php');
-            }
-        });
-        return false;
-    });
+$("#FechaInicio").datepicker({
+    // Siquiere colocar fechas futuras usar minDate()
+    // Si quiere usar fechas pasadas usar maxDate()
+    maxDate: new Date(),
+    dateFormat: "yy-mm-dd"
+
+});
+$("#FechaFinal").datepicker({
+    // Siquiere colocar fechas futuras usar minDate()
+    // Si quiere usar fechas pasadas usar maxDate()
+    maxDate: new Date(),
+    dateFormat: "yy-mm-dd"
+
 });
 </script>
 <script>
-$('#tabla').load('tablas/tablaReportes.php');
+//$('#tabla').load('tablas/tablaReportes.php');
 </script>
 <?php
 require("partials/pies.php");

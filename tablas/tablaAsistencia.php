@@ -14,14 +14,7 @@ $resul=mysqli_query($conexion,$sql1);
             <td>Fecha</td>
         </tr>
     </thead>
-    <tfoot style="background-color:#282D34;color:white;">
-        <tr>
-        <td>ID</td>
-            <td>Entrada</td>
-            <td>Salida</td>
-            <td>Fecha</td>
-        </tr>
-    </tfoot>
+    
     <tbody>
     <?php
     while($mostrar=mysqli_fetch_row($resul)){

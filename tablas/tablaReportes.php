@@ -1,16 +1,12 @@
 <?php
 require("../database.php");
+
+$i=$_POST['FechaInicio'];
+$f=$_POST['FechaFinal'];
+$id=$_POST['IdEmpleado'];
+
+
 $conexion=conexion();
-/*
-$inicio=$_POST['desde'];
-$final=$_POST['hasta'];
-$em=$_POST['em'];
-if(isset($_POST['desde'])){
-echo "loresibi";
-}else{
-    echo "nada";
-}
-*/
 $sql="SELECT
 Cod_Usua,
 Fec_Regi,
@@ -20,7 +16,7 @@ TIMEDIFF(Reg_Salida, Reg_Entr) AS 'Duracion'
 FROM
 tab_asis
 WHERE
-Cod_Usua = '1005' AND Fec_Regi BETWEEN '2019-05-01' AND '2019-07-01'";
+Cod_Usua = '$id' AND Fec_Regi BETWEEN '$i' AND '$f'";
 $resultado=mysqli_query($conexion,$sql);
 
 ?>
@@ -28,6 +24,7 @@ $resultado=mysqli_query($conexion,$sql);
 <table class="table  table-condensed table-hover table-bordered my-5">
     <tbody>
     <?php
+   
     while($mostrar=mysqli_fetch_row($resultado)){
     ?>
         <tr>
@@ -49,6 +46,8 @@ $resultado=mysqli_query($conexion,$sql);
         </tr>
         <?php
     }
+
+
 ?>
             <td colspan="4">Total de Duracion</td>
             <td>$100.00</td>

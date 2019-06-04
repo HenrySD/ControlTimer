@@ -23,20 +23,6 @@ $resultado=mysqli_query($conexion,$sql);
             <td>Opciones</td>
         </tr>
     </thead>
-    <tfoot style="background-color:#282D34;color:white; text-aling:center;">
-        <tr >
-        <td>Código</td>
-            <td>Empresa</td>
-            <td>Turno</td>
-            <td>Tipo</td>
-            <td>Nombre</td>
-            <td>Apellido</td>
-            <td>Direccion</td>
-            <td>Email</td>
-            <td>Telefono</td>
-            <td>Opciones</td>
-        </tr>
-    </tfoot>
     <tbody>
     <?php
     while($mostrar=mysqli_fetch_row($resultado)){
