@@ -49,7 +49,7 @@ require("partials/cabeza.php");
 </div>
 </div>
 <hr>
-<p>Esta página se editó por última vez, al usar este sitio, usted acepta nuestros términos de uso y nuestra política de privacidad, Derechos de autor Universidad Catolica de El Salvador® registrado por la empresa DesaingApp, una institución sin ánimo de lucro.</p>
+<p>Esta página se editó por última vez en el 05 de Junio del 2019, al usar este sitio, usted acepta nuestros términos de uso y nuestra política de privacidad, Derechos de autor Universidad Catolica de El Salvador® registrado por la empresa DesaingApp, una institución sin ánimo de lucro.</p>
 <?php
 require("partials/pies.php");
 ?>

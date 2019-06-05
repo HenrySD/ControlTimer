@@ -14,7 +14,7 @@ tab_usua.Ape_Usua As Apellido,
 tab_asis.Reg_Entr AS Entrada,
 tab_asis.Reg_Salida AS Salida,
 tab_asis.Fec_Regi AS Fecha,
-TIMEDIFF(Reg_Salida, Reg_Entr) AS 'Duracion'
+TIMEDIFF(Reg_Salida, Reg_Entr) AS 'Duración'
 
 FROM
 tab_asis

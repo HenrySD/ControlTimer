@@ -8,12 +8,14 @@ $resultadoEmpresa=mysqli_query($conexion,$sqlEmpresa);
 $resultadoTurno=mysqli_query($conexion,$sqlTurno);
 ?>
 <!--Aca Todo lo del lado derecho body-->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                aqui el video
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content ">
+            <div class="embed-responsive embed-responsive-4by3">
+                <iframe class="embed-responsive-item"
+                src="https://www.youtube.com/embed/tPpLDb2Ys14?autoplay=0&fs=0&iv_load_policy=3&showinfo=0&rel=0&cc_load_policy=0&start=0&end=0&origin"
+                    allowfullscreen></iframe>
             </div>
         </div>
     </div>
@@ -26,7 +28,7 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
         </div>
         <div class="col-sm-1">
             <a><i class="ti-help-alt" style="font-size:25px; margin-left:30px;" data-toggle="modal"
-                    data-target="#exampleModalCenter"></i></a>
+                    data-target=".bd-example-modal-lg"></i></a>
         </div>
     </div>
     <button class="btn btn-primary m-2" data-toggle="modal" data-target="#nuevo"><i class="ti-plus"></i> Agregar
@@ -376,6 +378,12 @@ function agregaFrmActualizar(Cod_Usua) {
         }
     });
 }
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+<script>
+$.validate({
+    lang: 'es'
+});
 </script>
 <?php
 require('partials/pies.php');
