@@ -95,14 +95,18 @@ $resultado=mysqli_query($conexion,$sql);
                 <?php echo $mostrar[5]?>
             </td>
             <td>
-                <?php echo $mostrar[6]?>
+                <?php echo $lista=$mostrar[6]
+                ?>
+                
             </td>
         </tr>
         <?php
+       
     }
 
 
 ?>
+
             <td colspan="6">Total de Duracion</td>
             <td>Suma de horas</td>
     </tbody>
@@ -153,7 +157,23 @@ $("#FechaFinal").datepicker({
 });
 </script>
 <script>
-
+$(document).ready(function() {
+    $('#btnguardarnuevo').click(function() {
+            datos = $('#form1').serialize();
+            $.ajax({
+                type: "POST",
+                data: datos,
+                url: "pruba.php",
+                success: function(r) {
+                    if (r == 1) {
+                        
+                    } else {
+                       
+                    }
+                }
+            });
+        }
+});
 </script>
 <?php
 require("partials/pies.php");

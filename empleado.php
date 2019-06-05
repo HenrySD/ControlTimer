@@ -80,16 +80,17 @@
                             </div>
                         </form>
                     </div>
-                </div>
-                <div class="row">
-                    <video id="preview" class="col-md-4 border ml-2 mt-3 " style="width:100px; height:200px;">
+                    <div class="row">
+                    <video id="preview" class="col-md-4  ml-4 mt-3 " style="width:100px; height:200px;">
 
                     </video>
 
-                    <div id="muestra" class="col-md-7 " style="width:100px; height:250px;">
+                    <div id="muestra" class="col-md-7  mt-2" style="width:100px; height:250px;">
 
                     </div>
                 </div>
+                </div>
+                
 
             </div>
         </div>

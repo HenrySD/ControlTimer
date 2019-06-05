@@ -1,6 +1,18 @@
 <?php
 
 require("partials/cabeza.php");
+
+require('database.php');
+$conexion=conexion();
+$sqlCuentaUsua="SELECT count(Cod_Usua) FROM tab_usua";
+$cuenta=mysqli_query($conexion,$sqlCuentaUsua);
+
+while($mostrar=mysqli_fetch_row($cuenta)){
+    $row=$mostrar[0];
+}
+
+
+
 ?>
 <!--Aca Todo lo del lado derecho-->
 
@@ -29,8 +41,8 @@ require("partials/cabeza.php");
                 <div class="stat-widget-one">
                     <div class="stat-icon dib"><i class="ti-user text-primary border-primary"></i></div>
                     <div class="stat-content dib">
-                        <div class="stat-text">Usuarios</div>
-                        <div class="stat-digit">0000</div>
+                        <div class="stat-text">Usuarios Registrados</div>
+                        <div class="stat-digit text-center"><?php echo $row?></div>
                     </div>
                 </div>
             </div>
@@ -43,7 +55,7 @@ require("partials/cabeza.php");
                     <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
                     <div class="stat-content dib">
                         <div class="stat-text">Asistidos</div>
-                        <div class="stat-digit">0000</div>
+                        <div class="stat-digit text-center">2</div>
                     </div>
                 </div>
             </div>
@@ -56,7 +68,7 @@ require("partials/cabeza.php");
                     <div class="stat-icon dib"><i class="ti-layout-grid2 text-warning border-warning"></i></div>
                     <div class="stat-content dib">
                         <div class="stat-text">Inisistidos</div>
-                        <div class="stat-digit">0000</div>
+                        <div class="stat-digit text-center">2</div>
                     </div>
                 </div>
             </div>

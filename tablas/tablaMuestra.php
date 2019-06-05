@@ -3,9 +3,16 @@ require("../database.php");
 $conexion=conexion();
 $sql1="SELECT Cod_Usua,Reg_Entr,Reg_Salida,Fec_Regi FROM tab_asis";
 $resul=mysqli_query($conexion,$sql1);
-?>
 
-    <table id="muestra" class="display" class="table  table-condensed table-hover table-bordered mt-5">
+?>
+<style>
+p{
+    font-size:18px;
+    font-weight: bold;
+    
+}
+</style>
+    <table id="muestra" class="display" class="table  table-condensed table-hover table-bordered mt-5 text-center">
         <thead style="background-color:#282D34; color:white; " >
             <tr>
                 <td>ID</td>
@@ -44,7 +51,7 @@ $resul=mysqli_query($conexion,$sql1);
 <script>
 
 $('.display').DataTable({
-        scrollY:        300,
+        scrollY:        200,
         scrollCollapse: true,
         paging:         false,
         "ordering": false,

@@ -129,7 +129,7 @@ $resultadoTurno=mysqli_query($conexion,$sqlTurno);
             </div>
             <div class="modal-footer col-xl-12">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                <inout type="sudmit" class="btn btn-primary" id="btnguardarnuevoUsua">Guardar</button>
+                <button type="sudmit" class="btn btn-primary" id="btnguardarnuevoUsua">Guardar</button>
             </div>
         </div>
     </div>

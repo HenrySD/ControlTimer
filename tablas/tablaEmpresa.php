@@ -4,7 +4,7 @@ $conexion=conexion();
 $sql="SELECT Cod_Empr,Nom_Empr,Fec_Cons,Dir_Empr,Ema_Empr,Tel_Empr FROM tab_empr";
 $resultado=mysqli_query($conexion,$sql);
 ?>
-<table id="example" style="" class="table  table-condensed table-hover table-bordered table-sm">
+<table id="example" style="" class=" text-center table  table-condensed table-hover table-bordered table-sm">
     <thead style="background-color:#282D34; color:white; ">
         <tr>
             <td>Código</td>

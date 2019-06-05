@@ -5,7 +5,7 @@ $sql1="SELECT Cod_Usua,Reg_Entr,Reg_Salida,Fec_Regi FROM tab_asis";
 $resul=mysqli_query($conexion,$sql1);
 ?>
 
-<table id="example" style="" class="table  table-condensed table-hover table-bordered">
+<table id="example" style="" class=" text-center table  table-condensed table-hover table-bordered">
     <thead style="background-color:#282D34; color:white; ">
         <tr>
             <td>ID</td>

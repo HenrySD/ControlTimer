@@ -4,7 +4,7 @@ $conexion=conexion();
 $sql="SELECT Cod_Turn,Des_Turn,Hor_Entr,Hor_Sali,Lim_Tiem FROM tab_turn";
 $resultado=mysqli_query($conexion,$sql);
 ?>
-<table id="exampleC" style="" class="table  table-condensed table-hover table-bordered">
+<table id="exampleC" style="" class=" text-center table  table-condensed table-hover table-bordered">
     <thead style="background-color:#282D34; color:white; ">
         <tr>
             <td>Código</td>

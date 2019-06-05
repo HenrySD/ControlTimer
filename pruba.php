@@ -2,6 +2,9 @@
 require('carpetas/pdf/fpdf.php');
 require('database.php');
 $conexion=conexion();
+$i=$_POST['FechaInicio'];
+$f=$_POST['FechaFinal'];
+$id=$_POST['IdEmpleado'];
 $sql="SELECT
 tab_asis.Cod_Usua AS ID,
 tab_usua.Nom_Usua AS Nombre,
@@ -17,8 +20,8 @@ INNER JOIN tab_usua ON tab_asis.Cod_Usua = tab_usua.Cod_Usua
 WHERE
 tab_asis.Cod_Usua= '$id' AND Fec_Regi BETWEEN '$i' AND '$f'";
 
+$resul=mysqli_query($conexion,$sql);
 
-$fecha=date("H:i");
 class myPDF extends FPDF{
     function header(){
         
@@ -36,14 +39,20 @@ class myPDF extends FPDF{
         
         $this->SetFont('Times','B',12);
         $this->Cell(20,10,'ID',1,0,'C');
+        $this->Cell(20,10,'Nombre',1,0,'C');
+        $this->Cell(20,10,'Apellido',1,0,'C');
         $this->Cell(40,10,'Fechas',1,0,'C');
         $this->Cell(40,10,'Hora Entrada',1,0,'C');
         $this->Cell(40,10,'Hora Salida',1,0,'C');
         $this->Cell(40,10,'Duracion',1,0,'C');
         $this->Ln();
     }
-    function bodyTable(){
+    function bodyTable($conexion){
+        $this->SetFont('Times','',12);
+        $stmt=$conexion->query($sql);
+        while($data=mysqli_fetch_array($stmt)){
 
+        }
         
     }
 }
@@ -51,6 +60,7 @@ $pdf = new myPDF();
 $pdf->AliasNbPages();
 $pdf->AddPage('P','A4',0);
 $pdf->headerTable();
+//$pdf->bodyTable($conexion);
 $pdf->Output();
 
 ?>

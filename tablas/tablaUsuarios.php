@@ -8,7 +8,7 @@ INNER JOIN tab_turn ON tab_usua.Cod_Turn = tab_turn.Cod_Turn
 ";
 $resultado=mysqli_query($conexion,$sql);
 ?>
-<table  id="example" class=" container table  table-condensed table-hover table-bordered table-sm">
+<table  id="example" class=" text-center table  table-condensed table-hover table-bordered table-sm">
     <thead style="background-color:#282D34; color:white;">
         <tr>
             <td>Código</td>
@@ -69,6 +69,9 @@ $resultado=mysqli_query($conexion,$sql);
 <script>
 $(document).ready(function() {
     $('#example').DataTable({
+        scrollY:        '40vh',
+        scrollCollapse: true,
+        paging:         false,
         
         "language":{
             "url":"//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
