@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="carpetas/css/estilo.css">
     <link rel="stylesheet" href="alertify/css/themes/default.css">
     <link rel="stylesheet" href="alertify/css/alertify.css">
+    <link rel="stylesheet" href="carpetas/css/estiloR.css">
 
     <!--**********************CDN de jQuery y js*******************************-->
     <script src="carpetas/js/jquery.js"></script>
@@ -47,33 +48,52 @@
 
 
                 </div>
-                <div class="card-body" style="height:450px;">
+                <div class="card-body" >
                     <div class="row">
-                        <div class="col-md-4 ml-2 border text-center">
-                        <a href="//24timezones.com/es_husohorario/santa_ana_hora_actual.php" style="text-decoration: none" class="clock24" id="tz24-1559707720-c1229-eyJob3VydHlwZSI6IjI0Iiwic2hvd2RhdGUiOiIxIiwic2hvd3NlY29uZHMiOiIxIiwic2hvd3RpbWV6b25lIjoiMCIsInR5cGUiOiJkIiwibGFuZyI6ImVzIn0=" title="hora Santa Ana" target="_blank" rel="nofollow">Ilobasco</a>
+                        <div class="col-md-12 border text-center">
+                            <div class="wrap">
+                                <div class="widget">
+                                    <div class="fechareloj">
+                                        <p id="diaSemana" class="diaSemana"></p>
+                                        <p id="dia" class="dia"></p>
+                                        <p>de</p>
+                                        <p id="mes" class="mes"></p>
+                                        <p>del</p>
+                                        <p id="year" class="year"></p>
+                                    </div>
+                                    <!----------------------------------------->
+                                    <p id="hora" class="hora"></p>
+                                    <p>:</p>
+                                    <p id="minutos" class="minutos"></p>
+                                    <p>:</p>
+                                    <p id="segundos" class="segundos"></p>
+                                </div>
+                            </div>
                         </div>
                         
-                        <div class="col-md-3">
-                            <form id="formulario">
-                                <div class="" style="">
-                                    <input type="text" id="txt" name="txt" class="form-control" value="" readonly hidden>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <video id="preview" class="col-md-4 border ml-2 mt-3 " style="width:100px; height:200px;">
-
-                        </video>
-
-                        <div id="muestra" class="col-md-7 " style="width:100px; height:250px;">
-
-                        </div>
                     </div>
 
+                    <div class="col-md-3">
+                        <form id="formulario">
+                            <div class="" style="">
+                                <input type="text" id="txt" name="txt" class="form-control" value="" readonly hidden>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+                <div class="row">
+                    <video id="preview" class="col-md-4 border ml-2 mt-3 " style="width:100px; height:200px;">
+
+                    </video>
+
+                    <div id="muestra" class="col-md-7 " style="width:100px; height:250px;">
+
+                    </div>
+                </div>
+
             </div>
         </div>
+    </div>
     </div>
 </body>
 <script>
@@ -96,7 +116,7 @@ scanner.addListener('scan', function(content) {
         success: function(r) {
             if (r == 1) {
                 $('#muestra').load('tablas/tablaMuestra.php');
-                
+
             } else {
                 alertify.success("El ID no esta registrado");
             }
@@ -118,7 +138,48 @@ Instascan.Camera.getCameras().then(function(cameras) {
 $()
 </script>
 
+<script src="js/main.js"></script>
+<script>
+var actualizarHora = function(){
+    
+    var fecha = new Date(),
+        horas = fecha.getHours(),
+        minutos = fecha.getMinutes(),
+        segundos = fecha.getSeconds(),
+        diaDeSemana = fecha.getDay(),
+        dia = fecha.getDate(),
+        mes = fecha.getMonth(),
+        anio = fecha.getFullYear();
 
+        var NombreDeSemana = ['Domingo','Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'];
+        var NombreDeMes = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Setiembre','Octubre','Noviembre','Diciembre'];
+
+            var pHoras = document.getElementById("hora"),
+            pMinutos = document.getElementById("minutos"),
+            pSegundos = document.getElementById("segundos"),
+            pDiaDeSemana = document.getElementById("diaSemana"),
+            pDia = document.getElementById("dia"),
+            pMes = document.getElementById("mes"),
+            pAnio = document.getElementById("year");
+    if(minutos < 10){
+        minutos = "0" + minutos;
+    }
+    if(segundos < 10){
+            segundos = "0" + segundos;
+    }
+        pHoras.textContent = horas,
+        pMinutos.textContent = minutos,
+        pSegundos.textContent = segundos,  
+        pDiaDeSemana.textContent = NombreDeSemana[diaDeSemana],
+        pDia.textContent = dia,
+        pMes.textContent = NombreDeMes[mes],
+        pAnio.textContent = anio;  
+}
+
+actualizarHora();
+setInterval(actualizarHora,1000);
+</script>
 
 <script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
+
 </html>
