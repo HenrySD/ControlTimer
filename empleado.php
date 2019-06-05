@@ -50,8 +50,9 @@
                 <div class="card-body" style="height:450px;">
                     <div class="row">
                         <div class="col-md-4 ml-2 border text-center">
-                            <p><?php  echo date('D, d M Y ');?></p>
+                        <a href="//24timezones.com/es_husohorario/santa_ana_hora_actual.php" style="text-decoration: none" class="clock24" id="tz24-1559707720-c1229-eyJob3VydHlwZSI6IjI0Iiwic2hvd2RhdGUiOiIxIiwic2hvd3NlY29uZHMiOiIxIiwic2hvd3RpbWV6b25lIjoiMCIsInR5cGUiOiJkIiwibGFuZyI6ImVzIn0=" title="hora Santa Ana" target="_blank" rel="nofollow">Ilobasco</a>
                         </div>
+                        
                         <div class="col-md-3">
                             <form id="formulario">
                                 <div class="" style="">
@@ -117,4 +118,7 @@ Instascan.Camera.getCameras().then(function(cameras) {
 $()
 </script>
 
+
+
+<script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
 </html>

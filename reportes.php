@@ -14,7 +14,7 @@ $conexion=conexion();
         </div>
     </div>
 
-    <form id="form1" method="POST" action="reportes.php">
+    <form id="form1" method="POST" action="">
         <div class="row">
             <div class="col-sm-2">
                 <label>Fecha inicio</label>
@@ -30,10 +30,13 @@ $conexion=conexion();
 
             </div>
             <div class="col-sm-2 mt-4">
-                <button class="btn btn-danger" id="btnBuscar">buscar</button>
+                <button class="btn btn-danger" id="btnBuscar">Buscar</button>
             </div>
             <div class="col-sm-2 mt-4">
-                <button class="btn btn-primary">Generar Reporte</button>
+                <button class="btn btn-primary" >Refrescar</button>
+            </div>
+            <div class="col-sm-2 mt-4">
+                <button class="btn btn-warning" >Reporte</button>
             </div>
         </div>
     </form>
