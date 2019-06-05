@@ -9,8 +9,7 @@ $conexion=conexion();
             <h3 class="text-center mb-4">Reportes asistencia</h3>
         </div>
         <div class="col-sm-1">
-            <a><i class="ti-help-alt" style="font-size:25px; margin-left:30px;" data-toggle="modal"
-                    data-target=".bd-example-modal-lg"></i></a>
+            <a><i class="ti-help-alt" style="font-size:25px; margin-left:30px;"></i></a>
         </div>
     </div>
 
@@ -35,13 +34,11 @@ $conexion=conexion();
             <div class="col-sm-2 mt-4">
                 <button class="btn btn-primary" >Refrescar</button>
             </div>
-            <div class="col-sm-2 mt-4">
-                <button class="btn btn-warning" >Reporte</button>
-            </div>
+            
         </div>
     </form>
 
-    <div id="tabla">
+    <div id="tabla" class="mt-5">
     <?php
 
 
@@ -69,7 +66,7 @@ $resultado=mysqli_query($conexion,$sql);
 
 ?>
 
-<table class="table  table-condensed table-hover table-bordered my-5">
+<table class="table  table-condensed table-hover table-bordered my-5 hola" id="ultima">
     <tbody>
     <?php
    
@@ -106,9 +103,6 @@ $resultado=mysqli_query($conexion,$sql);
 
 
 ?>
-
-            <td colspan="6">Total de Duracion</td>
-            <td>Suma de horas</td>
     </tbody>
     <thead style="background-color:#282D34;color:white;">
         <tr>
@@ -174,6 +168,24 @@ $(document).ready(function() {
             });
         }
 });
+</script>
+<script>
+$(document).ready(function() {
+    $('.hola').DataTable({
+        
+        "language":{
+            "url":"//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+        },      
+        dom:'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5'
+                ]
+    
+    });
+} );
 </script>
 <?php
 require("partials/pies.php");

@@ -30,7 +30,7 @@ $resultado=mysqli_query($conexion,$sql);
 
 ?>
 
-<table class="table  table-condensed table-hover table-bordered my-5">
+<table class="table  table-condensed table-hover table-bordered my-5" id="ultima">
     <tbody>
     <?php
    
@@ -80,3 +80,21 @@ $resultado=mysqli_query($conexion,$sql);
     </thead>
    
 </table>
+<script>
+$(document).ready(function() {
+    $('#ultima').DataTable({
+        "language":{
+            "url":"//cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
+        },      
+        dom:'Bfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5',
+            'print'
+                ]
+    
+    });
+} );
+</script>

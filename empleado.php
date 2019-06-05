@@ -1,3 +1,6 @@
+<?require('cnd.php');?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,10 +42,17 @@
                             <h5 class="text-center">Control de Asistencia</h5>
                         </div>
                         <div class="col-md-4">
-
+                        <img src="carpetas/img/logo.jpg" alt="">
                         </div>
-                        <div class="col-md-4">
-                            <img src="carpetas/img/logo.jpg" alt="">
+                        <div class="col-md-2">
+                        <div style="font-color:#000;">
+                        <a><i class="ti-help-alt" style="font-size:25px; margin-left:30px;" data-toggle="modal"
+                    data-target=".bd-example-modal-lg"></i></a>
+                        
+                        </div>
+                        </div>
+                        <div class="col-md-1">
+                        
                         </div>
                     </div>
 
@@ -51,6 +61,7 @@
                 <div class="card-body" >
                     <div class="row">
                         <div class="col-md-12 border text-center">
+                        
                             <div class="wrap">
                                 <div class="widget">
                                     <div class="fechareloj">
@@ -77,6 +88,7 @@
                         <form id="formulario">
                             <div class="" style="">
                                 <input type="text" id="txt" name="txt" class="form-control" value="" readonly hidden>
+                                
                             </div>
                         </form>
                     </div>
