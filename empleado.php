@@ -180,6 +180,6 @@ actualizarHora();
 setInterval(actualizarHora,1000);
 </script>
 
-<script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
+
 
 </html>

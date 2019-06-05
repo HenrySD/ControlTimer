@@ -8,16 +8,25 @@ $id=$_POST['IdEmpleado'];
 
 $conexion=conexion();
 $sql="SELECT
-Cod_Usua,
-Fec_Regi,
-Reg_Entr,
-Reg_Salida,
+tab_asis.Cod_Usua AS ID,
+tab_usua.Nom_Usua AS Nombre,
+tab_usua.Ape_Usua As Apellido,
+tab_asis.Reg_Entr AS Entrada,
+tab_asis.Reg_Salida AS Salida,
+tab_asis.Fec_Regi AS Fecha,
 TIMEDIFF(Reg_Salida, Reg_Entr) AS 'Duracion'
+
 FROM
 tab_asis
+INNER JOIN tab_usua ON tab_asis.Cod_Usua = tab_usua.Cod_Usua
 WHERE
-Cod_Usua = '$id' AND Fec_Regi BETWEEN '$i' AND '$f'";
+tab_asis.Cod_Usua= '$id' AND Fec_Regi BETWEEN '$i' AND '$f'";
 $resultado=mysqli_query($conexion,$sql);
+
+
+
+
+
 
 ?>
 
@@ -43,6 +52,12 @@ $resultado=mysqli_query($conexion,$sql);
             <td>
                 <?php echo $mostrar[4]?>
             </td>
+            <td>
+                <?php echo $mostrar[5]?>
+            </td>
+            <td>
+                <?php echo $mostrar[6]?>
+            </td>
         </tr>
         <?php
     }
@@ -55,9 +70,11 @@ $resultado=mysqli_query($conexion,$sql);
     <thead style="background-color:#282D34;color:white;">
         <tr>
             <td>IdEmpleado</td>
-            <td>Fechas</td>
+            <td>Nombre</td>
+            <td>Apellido</td>
             <td>Hora entrada</td>
             <td>Hora salida</td>
+            <td>Fechas</td>
             <td>Duracion</td>
         </tr>
     </thead>
